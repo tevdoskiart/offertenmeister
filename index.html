@@ -90,15 +90,14 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .bausteine p{color:var(--text-2);font-size:16px}
 
 /* facade band */
-.fassade{position:relative;color:var(--weiss);background:#6E8BA8;overflow:hidden}
-.fassade img{width:100%;height:clamp(520px,58vw,760px);object-fit:cover;object-position:center 40%;scale:1.08;translate:0 var(--fy,0px)}
-@media(prefers-reduced-motion:no-preference){.fassade img{animation:abend 20s ease-in-out infinite alternate}@keyframes abend{from{scale:1.08}to{scale:1.13}}}
-.fassade .karte{position:absolute;left:clamp(18px,4vw,40px);bottom:clamp(18px,4vw,40px);max-width:520px;background:var(--weiss);color:var(--graphit);border-radius:28px;padding:clamp(26px,3vw,40px);display:grid;gap:18px}
+.fassade{position:relative;background:var(--weiss);padding:clamp(48px,6vw,88px) clamp(18px,4vw,40px)}
+.fassade img{display:block;width:auto;max-width:min(1240px,100%);height:auto;max-height:86vh;aspect-ratio:1072/808;margin:0 auto;border-radius:28px;box-shadow:0 30px 70px -40px rgba(43,39,35,.5)}
+.fassade .karte{position:relative;max-width:1240px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:clamp(24px,4vw,56px);align-items:start;margin:28px auto 0;box-shadow:0 20px 50px -25px rgba(43,39,35,.45);background:var(--weiss);color:var(--graphit);border-radius:28px;padding:clamp(26px,3vw,40px);display:grid;gap:18px}
 .fassade .karte p{color:var(--text-2)}
 .zitat{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.015em;color:var(--graphit)}
 .vorteile{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:16px}
 .vorteile b{color:var(--graphit)}
-@media(min-width:1301px){.fassade .karte{left:calc((100vw - 1240px)/2 + 40px)}}
+
 
 /* steps */
 .schritte{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
@@ -185,8 +184,8 @@ input:focus,select:focus{border-color:var(--graphit)}
   .split.umgekehrt .bild{order:0}
   .pakete,.demos{grid-template-columns:minmax(0,1fr)}
   .kontakt-bild{order:2;justify-self:center;max-width:340px}
-  .fassade .karte{position:relative;left:auto;bottom:auto;margin:-80px 18px 0;max-width:none}
-  .fassade{background:var(--weiss);padding-bottom:20px}
+  .fassade .karte{margin:16px 0 0;max-width:none;grid-template-columns:minmax(0,1fr)}
+  .fassade img{border-radius:20px}
 }
 @media(max-width:900px){
   .hero-bild{position:static;width:100%;height:auto;aspect-ratio:1344/752;translate:none}
@@ -351,8 +350,6 @@ input:focus,select:focus{border-color:var(--graphit)}
 <script>
 {
 const H=document.querySelector('.hero-bild');const go=()=>H.classList.add('da');H.complete?go():H.addEventListener('load',go);H.addEventListener('error',go);
-const FB=document.querySelector('.fassade-bild');
-if(FB&&matchMedia('(prefers-reduced-motion:no-preference)').matches){let ft=false;const fp=()=>{const r=FB.parentElement.getBoundingClientRect(),v=innerHeight;if(r.bottom>0&&r.top<v){const k=(r.top+r.height/2-v/2)/v;FB.style.setProperty('--fy',(k*-60)+'px')}ft=false};addEventListener('scroll',()=>{if(!ft){ft=true;requestAnimationFrame(fp)}},{passive:true});fp()}
 if(matchMedia('(prefers-reduced-motion:no-preference) and (min-width:901px)').matches){
  const hs=document.querySelector('.hero');
  if(matchMedia('(pointer:fine)').matches)hs.addEventListener('pointermove',e=>{const r=hs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;H.style.setProperty('--px',(-x*24)+'px');H.style.setProperty('--py',(-y*14)+'px')});
