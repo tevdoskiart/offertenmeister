@@ -146,6 +146,11 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .bedingungen b{color:var(--rot)}
 
 /* faq */
+.faq-kopf{display:grid;gap:28px}
+.faq-bild{border-radius:28px;overflow:hidden;box-shadow:0 24px 50px -28px rgba(43,39,35,.45)}
+.faq-bild img{display:block;width:100%;height:auto;animation:paketAtmen 9s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.faq-bild img{animation:none}}
+@media (min-width:901px){.faq-kopf{position:sticky;top:96px}}
 .faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,72px);align-items:start}
 details{border-top:2px solid var(--graphit)}
 details:last-child{border-bottom:2px solid var(--graphit)}
@@ -320,7 +325,7 @@ input:focus,select:focus{border-color:var(--graphit)}
 </div></section>
 
 <section class="teil" id="faq"><div class="wrap faq">
-  <h2>Häufige Fragen</h2>
+  <div class="faq-kopf"><h2>Häufige Fragen</h2><div class="faq-bild"><img src="/img/faq-maler.webp" width="1072" height="1072" alt="Offertenmeister-Maler sitzt nachdenklich auf einem Farbeimer, umgeben von roten Fragezeichen" loading="lazy"></div></div>
   <div>
     <details open><summary>Wie lange dauert es, bis meine Seite online ist?</summary><p>In der Regel 7 Tage, nachdem Sie Fotos, Preise und Ihre Orte geschickt haben.</p></details>
     <details><summary>Muss ich mich um Technik kümmern?</summary><p>Nein. Hosting, Updates und Einrichtung übernehme ich. Änderungen schicken Sie per WhatsApp.</p></details>
