@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/img/hero.webp">
+<link rel="preload" as="image" href="/img/hero-3d-maler.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Offertenmeister","url":"https://offertenmeister.ch/","logo":"https://offertenmeister.ch/img/logo.webp","description":"Websites mit Preisrechner und Anfrage-System für Malerbetriebe in der Deutschschweiz.","areaServed":"CH","founder":{"@type":"Person","name":"Mihajlo Tevdoski"},"telephone":"+38978338208","email":"m.tevdoski@gmail.com"}</script>
 <style>
 :root{
@@ -61,7 +61,7 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 
 /* hero */
 .hero{position:relative;background:var(--putz);overflow:hidden}
-.hero-bild{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero-bild{position:absolute;inset:-3%;width:106%;height:106%;max-width:none;object-fit:cover;object-position:right center;translate:var(--px,0) var(--py,0);transition:translate .4s ease-out}
 .hero .wrap{position:relative;min-height:clamp(580px,48vw,740px);display:flex;align-items:center}
 .hero-text{max-width:min(600px,48%);display:grid;gap:26px;padding-block:72px}
 .hero-ort{font-weight:600;color:var(--rot);font-size:17px}
@@ -173,7 +173,8 @@ input:focus,select:focus{border-color:var(--graphit)}
 /* load moment: the red stripe of the hero wipes in once */
 @media(prefers-reduced-motion:no-preference){
   .js .hero-bild{clip-path:inset(0 0 0 100%)}
-  .js .hero-bild.da{animation:wischen 1.1s cubic-bezier(.2,.7,.2,1) both}
+  .js .hero-bild.da{animation:wischen 1.1s cubic-bezier(.2,.7,.2,1) both,atmen 16s ease-in-out 1.1s infinite alternate}
+  @keyframes atmen{from{scale:1}to{scale:1.045}}
   @keyframes wischen{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
 }
 
@@ -187,7 +188,7 @@ input:focus,select:focus{border-color:var(--graphit)}
   .fassade{background:var(--weiss);padding-bottom:20px}
 }
 @media(max-width:900px){
-  .hero-bild{position:static;height:auto;aspect-ratio:1344/752}
+  .hero-bild{position:static;width:100%;height:auto;aspect-ratio:1344/752;translate:none}
   .hero .wrap{min-height:0}
   .hero-text{max-width:none;padding-block:36px 48px}
 }
@@ -214,7 +215,7 @@ input:focus,select:focus{border-color:var(--graphit)}
 
 <main id="top">
 <section class="hero">
-  <img class="hero-bild" src="/img/hero.webp" width="1344" height="752" alt="Offertenmeister-Maler streicht eine Wand in Schweizer Rot" fetchpriority="high">
+  <img class="hero-bild" src="/img/hero-3d-maler.webp" width="1344" height="752" alt="3D-Maler rollt mit Schwung Schweizer Rot an die Wand" fetchpriority="high">
   <div class="wrap">
     <div class="hero-text">
       <p class="hero-ort">Für Malerbetriebe in der Deutschschweiz</p>
@@ -349,6 +350,12 @@ input:focus,select:focus{border-color:var(--graphit)}
 <script>
 {
 const H=document.querySelector('.hero-bild');const go=()=>H.classList.add('da');H.complete?go():H.addEventListener('load',go);H.addEventListener('error',go);
+if(matchMedia('(prefers-reduced-motion:no-preference) and (min-width:901px)').matches){
+ const hs=document.querySelector('.hero');
+ if(matchMedia('(pointer:fine)').matches)hs.addEventListener('pointermove',e=>{const r=hs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;H.style.setProperty('--px',(-x*24)+'px');H.style.setProperty('--py',(-y*14)+'px')});
+ hs.addEventListener('pointerleave',()=>{H.style.setProperty('--px','0px');H.style.setProperty('--py','0px')});
+ let t=false;addEventListener('scroll',()=>{if(t)return;t=true;requestAnimationFrame(()=>{const y=scrollY;if(y<800)H.style.setProperty('--py',(y*.15)+'px');t=false})},{passive:true});
+}
 const S=document.querySelector('.schalter');
 S.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=b.dataset.m;
  S.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
