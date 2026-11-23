@@ -1,272 +1,363 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="de-CH" class="js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Offertenmeister · Websites, die Malerbetrieben Anfragen bringen</title>
-<meta name="description" content="Website mit Preisrechner, Google-Profil und Anfrage-Formular für Malerbetriebe in der Deutschschweiz. Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt.">
+<title>Offertenmeister – Websites, die Malerbetrieben Anfragen bringen</title>
+<meta name="description" content="Website mit Preisrechner, Google-Profil und Anfragen per WhatsApp für Malerbetriebe in der Deutschschweiz. Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt.">
 <link rel="canonical" href="https://offertenmeister.ch/">
-<meta property="og:title" content="Offertenmeister · Mehr Offerten für Malerbetriebe">
-<meta property="og:description" content="Website, Google-Profil und Anfragen-System aus einer Hand. Kostenloser Entwurf zuerst.">
+<meta property="og:title" content="Offertenmeister – Mehr Offerten für Malerbetriebe">
+<meta property="og:description" content="Website, Google-Profil und Anfragen per WhatsApp aus einer Hand. Kostenloser Entwurf zuerst.">
 <meta property="og:url" content="https://offertenmeister.ch/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#C8261B">
 <meta property="og:image" content="https://offertenmeister.ch/img/og.jpg">
+<meta name="theme-color" content="#C8261B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C8261B'/%3E%3Crect x='13' y='6' width='6' height='20' fill='%23fff'/%3E%3Crect x='6' y='13' width='20' height='6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C8261B'/%3E%3Crect x='13' y='6' width='6' height='20' fill='%23fff'/%3E%3Crect x='6' y='13' width='20' height='6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Offertenmeister","url":"https://offertenmeister.ch/","description":"Websites mit Preisrechner und Anfrage-System für Malerbetriebe in der Deutschschweiz.","areaServed":"CH","founder":{"@type":"Person","name":"Mihajlo Tevdoski"},"telephone":"+38978338208","email":"m.tevdoski@gmail.com"}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/hero.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Offertenmeister","url":"https://offertenmeister.ch/","logo":"https://offertenmeister.ch/img/logo.webp","description":"Websites mit Preisrechner und Anfrage-System für Malerbetriebe in der Deutschschweiz.","areaServed":"CH","founder":{"@type":"Person","name":"Mihajlo Tevdoski"},"telephone":"+38978338208","email":"m.tevdoski@gmail.com"}</script>
 <style>
-:root{--red:#C8261B;--ink:#111;--soft:#555;--line:#ddd;--bg:#fff}
+:root{
+  --putz:#F3ECE4;      /* plaster wall */
+  --rot:#C8261B;       /* Swiss red */
+  --rot-dunkel:#A31D14;
+  --graphit:#2B2723;   /* warm graphite */
+  --beton:#CFC8BF;     /* concrete floor */
+  --weiss:#FFFFFF;
+  --text-2:#5A534C;
+  --w-wide:125;        /* Archivo width for display */
+}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
-a{color:var(--ink)}a:hover{color:var(--red)}
-h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;margin:0;letter-spacing:-.03em;line-height:1.02}
-h1{font-size:clamp(44px,7vw,96px);font-weight:800}
-h2{font-size:clamp(32px,4vw,48px);font-weight:700}
-h3{font-size:22px;font-weight:600;letter-spacing:-.01em}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--weiss);color:var(--graphit);font:400 17px/1.6 Archivo,system-ui,sans-serif;font-stretch:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
 p{margin:0}
-.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,3vw,32px)}
-.sec{padding-block:clamp(56px,7vw,88px);border-bottom:1px solid var(--ink)}
-.eyebrow{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;font:600 16px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
-.btn.red{background:var(--red);border-color:var(--red);color:#fff}
-.btn.red:hover{background:#a51e15;color:#fff}
-.btn.dark{background:var(--ink);color:#fff}
-.btn.dark:hover{background:#333;color:#fff}
-.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:2px}
-header.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink)}
-header.nav .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding-block:16px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 20px "Inter Tight",sans-serif;letter-spacing:-.02em}
-.logo img{height:64px;width:auto;display:block}
-.hero-icon{width:200px;height:auto;display:block;margin-bottom:28px}
-@media(max-width:600px){.logo img{height:48px}.menu a:not(.btn){display:none}.hero-icon{width:140px}}
-.menu{display:flex;flex-wrap:wrap;gap:4px 26px;align-items:center;font-size:15px;font-weight:500}
-.menu a{text-decoration:none;padding:12px 0}
-.menu .btn{min-height:44px;padding:0 20px}
-.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:end}
-.hero .lead{font-size:20px;color:#333;max-width:32em}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.hero-sec{position:relative;overflow:hidden;background:#f5ece3;padding-block:0}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
-.hero-in{position:relative;min-height:clamp(560px,46vw,720px);display:flex;align-items:center}
-.hero-text{max-width:min(560px,46%);display:grid;gap:24px;padding-block:64px}
-.hero-text h1{font-size:clamp(48px,6vw,88px)}
-.hero-text .lead{font-size:19px;color:#333;margin:0}
-.hero-text .cta{margin-top:4px}
-.hero-text .btn:not(.red){background:rgba(255,255,255,.7)}
-@media(max-width:900px){.hero-img{position:static;height:auto;aspect-ratio:1344/752;object-position:right}.hero-in{min-height:0}.hero-text{max-width:none;padding-block:40px 8px}}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));margin-top:0;border-top:2px solid var(--ink)}
-.facts div{padding:18px 18px 0 0;font-size:15px;color:var(--soft)}
-.facts b{display:block;font:700 22px "Inter Tight",sans-serif;color:var(--ink)}
-.head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end;margin-bottom:44px}
-.head p{color:var(--soft);max-width:30em}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));border-top:2px solid var(--ink)}
-.grid3 article{padding:30px 32px 36px 0;display:grid;gap:14px;align-content:start;border-bottom:1px solid var(--line)}
-.num{font:800 56px/1 "Inter Tight",sans-serif;color:var(--red)}
-.grid3 p{color:#444}
-.dark{background:var(--ink);color:#fff;border-bottom:0}
-.dark .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px}
-.dark ol{margin:0;padding:0;list-style:none}
-.dark li{display:flex;gap:24px;padding:24px 0;border-top:1px solid #444}
-.dark li:last-child{border-bottom:1px solid #444}
-.dark li span{min-width:36px;font-weight:600}
-.dark li strong{display:block;font-size:20px;font-weight:600}
-.dark li em{font-style:normal;color:#bbb}
-.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start}
-.why blockquote{margin:0;font:700 clamp(24px,3vw,34px)/1.2 "Inter Tight",sans-serif;letter-spacing:-.02em}
-.why ul{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
-.why li{padding:18px 0;border-bottom:1px solid var(--line);color:#333}
-.why li b{color:var(--ink)}
-.demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px}
-.demo{border:1px solid var(--ink);display:grid;text-decoration:none;color:var(--ink)}
-.demo .pv{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--ink);background:#eee}
-.demo .pv img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
-.demo:hover .pv img{transform:scale(1.03)}
-.demo .tx{padding:24px;display:grid;gap:6px}
-.demo .tx span{color:var(--soft)}
-.demo:hover h3{color:var(--red)}
-.toggle{display:flex;border:1px solid var(--ink)}
-.toggle button{font:600 15px Inter,sans-serif;min-height:44px;padding:0 20px;border:0;cursor:pointer;background:#fff;color:var(--ink)}
-.toggle button[aria-pressed=true]{background:var(--ink);color:#fff}
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px}
-.plan{border:1px solid var(--ink);padding:40px;display:flex;flex-direction:column;gap:24px;position:relative}
-.plan.pro{border:2px solid var(--red);padding:39px}
-.badge{position:absolute;top:-14px;left:39px;background:var(--red);color:#fff;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px}
-.price{font:800 44px "Inter Tight",sans-serif;letter-spacing:-.02em}
-.price small{font:500 16px Inter,sans-serif;color:var(--soft)}
-.note{font-size:15px;color:var(--soft);margin-top:4px}
-.plan ul{margin:0;padding:24px 0 0;list-style:none;display:grid;gap:12px;border-top:1px solid var(--line)}
-.plan li::before{content:"— "}
-.plan .btn{margin-top:auto}
-.terms{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px;color:#333}
-.terms b{color:var(--red)}
-details{padding:18px 0;border-bottom:1px solid var(--line)}
-summary{font-size:18px;font-weight:600;cursor:pointer;min-height:44px;display:flex;align-items:center;list-style:none;justify-content:space-between;gap:16px}
+h1,h2,h3{margin:0;font-family:Archivo,sans-serif;font-stretch:125%;font-variation-settings:"wdth" 125;color:var(--graphit)}
+h1{font-weight:850;font-size:clamp(44px,6.2vw,92px);line-height:.95;letter-spacing:-.025em}
+h2{font-weight:800;font-size:clamp(32px,4.2vw,58px);line-height:1;letter-spacing:-.02em}
+h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(18px,4vw,40px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font:700 16px Archivo,sans-serif;text-decoration:none;border:2px solid var(--graphit);color:var(--graphit);background:transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--graphit);color:var(--weiss)}
+.btn-rot{background:var(--rot);border-color:var(--rot);color:var(--weiss)}
+.btn-rot:hover{background:var(--rot-dunkel);border-color:var(--rot-dunkel)}
+.btn-weiss{background:var(--weiss);border-color:var(--weiss);color:var(--graphit)}
+.btn-weiss:hover{background:var(--graphit);border-color:var(--graphit);color:var(--weiss)}
+:focus-visible{outline:3px solid var(--rot);outline-offset:3px}
+.kontakt :focus-visible{outline-color:var(--weiss)}
+
+/* header */
+.kopf{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #E6DFD6}
+.kopf .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.logo img{height:60px;width:auto}
+.menu{display:flex;align-items:center;gap:28px;font-weight:600;font-size:15px}
+.menu a{text-decoration:none;padding:10px 0}
+.menu a:not(.btn):hover{color:var(--rot)}
+.menu .btn{min-height:46px;padding:0 22px;font-size:15px}
+
+/* hero */
+.hero{position:relative;background:var(--putz);overflow:hidden}
+.hero-bild{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero .wrap{position:relative;min-height:clamp(580px,48vw,740px);display:flex;align-items:center}
+.hero-text{max-width:min(600px,48%);display:grid;gap:26px;padding-block:72px}
+.hero-ort{font-weight:600;color:var(--rot);font-size:17px}
+.hero-lead{font-size:clamp(18px,1.5vw,20px);color:#3F3933;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn:not(.btn-rot){background:rgba(255,255,255,.75)}
+.hero .btn:not(.btn-rot):hover{background:var(--graphit)}
+
+/* facts */
+.fakten{background:var(--graphit);color:var(--weiss)}
+.fakten ul{list-style:none;margin:0;padding:28px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.fakten b{display:block;font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-size:19px;letter-spacing:-.01em}
+.fakten span{color:#C9C1B8;font-size:15px}
+
+/* split sections */
+.teil{padding-block:clamp(64px,8vw,112px)}
+.putz{background:var(--putz)}
+.split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
+.split.umgekehrt .bild{order:2}
+.bild img{width:100%;border-radius:28px}
+.text{display:grid;gap:22px;max-width:34em}
+.text > p{color:var(--text-2);font-size:18px}
+.bausteine{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px}
+.bausteine li{display:grid;gap:4px;padding:18px 0;border-top:2px solid var(--graphit)}
+.bausteine li:last-child{border-bottom:2px solid var(--graphit)}
+.bausteine p{color:var(--text-2);font-size:16px}
+
+/* facade band */
+.fassade{position:relative;color:var(--weiss);background:#6E8BA8}
+.fassade img{width:100%;height:clamp(520px,58vw,760px);object-fit:cover;object-position:center 40%}
+.fassade .karte{position:absolute;left:clamp(18px,4vw,40px);bottom:clamp(18px,4vw,40px);max-width:520px;background:var(--weiss);color:var(--graphit);border-radius:28px;padding:clamp(26px,3vw,40px);display:grid;gap:18px}
+.fassade .karte p{color:var(--text-2)}
+.zitat{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.015em;color:var(--graphit)}
+.vorteile{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:16px}
+.vorteile b{color:var(--graphit)}
+@media(min-width:1301px){.fassade .karte{left:calc((100vw - 1240px)/2 + 40px)}}
+
+/* steps */
+.schritte{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
+.schritte li{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid var(--beton)}
+.schritte li::before{counter-increment:s;content:counter(s);grid-row:span 2;width:44px;height:44px;border-radius:50%;background:var(--rot);color:var(--weiss);display:grid;place-items:center;font-weight:800;font-size:18px}
+.schritte p{color:var(--text-2);font-size:16px}
+
+/* demos */
+.demos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
+.demo{display:grid;gap:12px;text-decoration:none;background:var(--weiss);border-radius:20px;padding:12px 12px 18px;box-shadow:0 1px 0 var(--beton)}
+.demo img{border-radius:12px;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.demo h3{font-size:18px;padding-inline:6px}
+.demo span{color:var(--text-2);font-size:15px;padding-inline:6px;margin-top:-6px}
+.demo:hover h3{color:var(--rot)}
+
+/* packages */
+.kopfzeile{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:40px}
+.schalter{display:inline-flex;background:var(--putz);border-radius:999px;padding:5px}
+.schalter button{font:700 15px Archivo,sans-serif;min-height:46px;padding:0 22px;border:0;border-radius:999px;cursor:pointer;background:transparent;color:var(--graphit)}
+.schalter button[aria-pressed=true]{background:var(--graphit);color:var(--weiss)}
+.pakete{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.paket{background:var(--putz);border-radius:28px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:22px}
+.paket.premium{background:var(--graphit);color:var(--weiss)}
+.paket.premium h3{color:var(--weiss)}
+.paket.premium .klein,.paket.premium li{color:#D9D1C7}
+.paket h3{font-size:30px;font-weight:800}
+.klein{color:var(--text-2);font-size:15px}
+.preis{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:850;font-size:clamp(40px,4vw,54px);letter-spacing:-.02em;line-height:1}
+.preis small{font:500 16px Archivo,sans-serif;font-stretch:100%;font-variation-settings:"wdth" 100;letter-spacing:0;opacity:.75}
+.paket ul{margin:0;padding:22px 0 0;list-style:none;display:grid;gap:10px;border-top:1px solid rgba(43,39,35,.18)}
+.paket.premium ul{border-top-color:rgba(255,255,255,.2)}
+.paket li{padding-left:28px;position:relative}
+.paket li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:3px solid var(--rot);border-bottom:3px solid var(--rot);transform:rotate(-45deg)}
+.paket .btn{margin-top:auto;align-self:flex-start}
+.paket.premium .badge{align-self:flex-start;background:var(--rot);color:var(--weiss);font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px}
+.bedingungen{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--text-2);font-size:16px}
+.bedingungen b{color:var(--rot)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,72px);align-items:start}
+details{border-top:2px solid var(--graphit)}
+details:last-child{border-bottom:2px solid var(--graphit)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-weight:700;font-size:19px;min-height:44px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:26px;font-weight:400;color:var(--red);transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin-top:10px;color:#444}
-.faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px}
-.faq>div{border-top:2px solid var(--ink)}
-.contact{background:var(--red);color:#fff;border-bottom:0}
-.contact .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:start}
-.contact h2{font-size:clamp(36px,5vw,64px);font-weight:800}
-.contact a{color:#fff}
-form{background:#fff;color:var(--ink);padding:32px;display:grid;gap:16px}
-label{display:grid;gap:6px;font-size:14px;font-weight:600}
-input,select{font:16px Inter,sans-serif;padding:12px 14px;border:1px solid var(--ink);min-height:48px;background:#fff;color:var(--ink);border-radius:0;width:100%}
-.hint{font-size:13px;color:var(--soft)}
-footer{padding-block:40px;font-size:14px;color:var(--soft)}
-footer .wrap{display:grid;gap:28px}
-.legal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:32px;border-top:1px solid var(--line);padding-top:28px}
-.legal h3{font-size:16px;color:var(--ink);margin-bottom:8px}
-.legal p+p{margin-top:8px}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--putz);display:grid;place-items:center;font-weight:500;font-size:22px;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg);background:var(--rot);color:var(--weiss)}
+details p{padding:0 48px 22px 0;color:var(--text-2)}
+
+/* contact */
+.kontakt{background:var(--rot);color:var(--weiss);overflow:hidden}
+.kontakt .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:center}
+.kontakt-bild{align-self:center}
+.kontakt-bild img{width:100%;max-width:460px;border-radius:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.kontakt h2{color:var(--weiss)}
+.kontakt .text > p{color:#FCE9E7}
+.direkt{font-size:16px;color:#FCE9E7}
+.direkt a{color:var(--weiss);font-weight:700}
+form{background:var(--weiss);color:var(--graphit);border-radius:28px;padding:clamp(24px,3vw,36px);display:grid;gap:16px;margin-top:8px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,select{font:400 17px Archivo,sans-serif;min-height:52px;padding:0 16px;border:2px solid var(--beton);border-radius:14px;background:var(--weiss);color:var(--graphit);width:100%}
+input:focus,select:focus{border-color:var(--graphit)}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hinweis{font-size:14px;color:var(--text-2)}
+
+/* footer */
+.fuss{background:var(--graphit);color:#C9C1B8;font-size:15px;padding-block:48px 36px}
+.fuss .wrap{display:grid;gap:32px}
+.recht{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.fuss h3{color:var(--weiss);font-size:17px;margin-bottom:8px}
+.fuss a{color:var(--weiss)}
+.fuss .unten{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid #4A443E;padding-top:20px}
+
+/* load moment: the red stripe of the hero wipes in once */
+@media(prefers-reduced-motion:no-preference){
+  .js .hero-bild{clip-path:inset(0 0 0 100%)}
+  .js .hero-bild.da{animation:wischen 1.1s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes wischen{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+}
+
+@media(max-width:980px){
+  .fakten ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split,.faq,.kontakt .wrap{grid-template-columns:minmax(0,1fr)}
+  .split.umgekehrt .bild{order:0}
+  .pakete,.demos{grid-template-columns:minmax(0,1fr)}
+  .kontakt-bild{order:2;justify-self:center;max-width:340px}
+  .fassade .karte{position:relative;left:auto;bottom:auto;margin:-80px 18px 0;max-width:none}
+  .fassade{background:var(--weiss);padding-bottom:20px}
+}
+@media(max-width:900px){
+  .hero-bild{position:static;height:auto;aspect-ratio:1344/752}
+  .hero .wrap{min-height:0}
+  .hero-text{max-width:none;padding-block:36px 48px}
+}
+@media(max-width:640px){
+  .menu a:not(.btn){display:none}
+  .logo img{height:46px}
+  .zwei{grid-template-columns:minmax(0,1fr)}
+  .recht{grid-template-columns:minmax(0,1fr)}
+  .cta .btn{flex:1 1 100%}
+  details p{padding-right:0}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<header class="nav"><div class="wrap">
-  <a class="logo" href="#top" aria-label="Offertenmeister Startseite"><img src="/img/logo.webp" width="536" height="146" alt="Offertenmeister – Websites für Malerbetriebe"></a>
-  <nav class="menu" aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#demos">Demos</a><a href="#pakete">Pakete</a><a href="#faq">FAQ</a><a class="btn dark" href="#kontakt">Gratis Entwurf</a></nav>
+<header class="kopf"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Offertenmeister, zur Startseite"><img src="/img/logo.webp" width="536" height="146" alt="Offertenmeister – Websites für Malerbetriebe"></a>
+  <nav class="menu" aria-label="Hauptmenü">
+    <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#demos">Demos</a><a href="#pakete">Preise</a>
+    <a class="btn btn-rot" href="#kontakt">Gratis Entwurf</a>
+  </nav>
 </div></header>
 
 <main id="top">
-<section class="sec hero-sec">
-  <img class="hero-img" src="/img/hero.webp" width="1344" height="752" alt="3D-Maler streicht eine Wand rot" fetchpriority="high">
-  <div class="wrap hero-in">
+<section class="hero">
+  <img class="hero-bild" src="/img/hero.webp" width="1344" height="752" alt="Offertenmeister-Maler streicht eine Wand in Schweizer Rot" fetchpriority="high">
+  <div class="wrap">
     <div class="hero-text">
-      <p class="eyebrow">Für Malerbetriebe in der Deutschschweiz</p>
+      <p class="hero-ort">Für Malerbetriebe in der Deutschschweiz</p>
       <h1>Mehr Offerten.<br>Weniger Suchen.</h1>
-      <p class="lead">Website mit Preisrechner, Google-Profil und Anfrage-Formular aus einer Hand. Kunden sehen sofort einen Richtpreis, schicken Fotos – und Ihre Anfrage kommt direkt per WhatsApp.</p>
-      <div class="cta"><a class="btn red" href="#kontakt">Kostenlosen Entwurf anfragen</a><a class="btn" href="#demos">Demos ansehen</a></div>
+      <p class="hero-lead">Ihre Website mit Preisrechner, Google-Profil und Anfrage-Formular. Kunden sehen sofort einen Richtpreis, schicken Fotos – und die Anfrage landet direkt auf Ihrem Handy.</p>
+      <div class="cta"><a class="btn btn-rot" href="#kontakt">Kostenlosen Entwurf anfragen</a><a class="btn" href="#demos">Demos ansehen</a></div>
     </div>
   </div>
 </section>
-<section class="sec" style="padding-block:0 clamp(48px,6vw,72px)"><div class="wrap">
-  <div class="facts">
-    <div><b>Entwurf gratis</b>bezahlen erst, wenn er gefällt</div>
-    <div><b>In 7 Tagen online</b>nach Erhalt Ihrer Fotos</div>
-    <div><b>Ihre Kunden</b>keine Plattform, keine geteilten Anfragen</div>
-    <div><b>Monatlich kündbar</b>im Abo, alle Änderungen inklusive</div>
-  </div>
-</div></section>
 
-<section class="sec" id="leistungen"><div class="wrap">
-  <div class="head"><h2>Was Sie bekommen</h2><p>Drei Bausteine. Ein Ansprechpartner. Nichts Technisches für Sie.</p></div>
-  <div class="grid3">
-    <article><span class="num">01</span><h3>Website mit Preisrechner</h3><p>Schnell, mobil, auf Deutsch. Kunden wählen die Arbeit, geben die Fläche ein und sehen einen Richtpreis. So kommen weniger Preisvergleicher und mehr echte Anfragen.</p></article>
-    <article><span class="num">02</span><h3>Google-Profil und Ortsnamen</h3><p>Ihr Google-Profil eingerichtet, Ihre Orte auf der Website. Damit Sie bei «Maler Uster» oder «Maler Dübendorf» gefunden werden.</p></article>
-    <article><span class="num">03</span><h3>Anfragen-System</h3><p>Formular in 3 Schritten mit Foto-Upload. Jede Anfrage kommt sofort per WhatsApp und E-Mail – mit Arbeit, Fläche, Ort und Wunschtermin.</p></article>
-  </div>
-</div></section>
-
-<section class="sec dark" id="ablauf"><div class="wrap split">
-  <h2>In 7 Tagen online</h2>
-  <ol>
-    <li><span>01</span><div><strong>Gespräch und Website-Check</strong><em>Ich schaue Ihre heutige Website an und zeige, wo Anfragen verloren gehen.</em></div></li>
-    <li><span>02</span><div><strong>Kostenloser Entwurf</strong><em>Sie schicken Fotos, Preise und Ihre Orte. Ich baue den Entwurf.</em></div></li>
-    <li><span>03</span><div><strong>Bezahlen, wenn er gefällt</strong><em>50 % bei Zusage zum Entwurf, 50 % bei Übergabe.</em></div></li>
-    <li><span>04</span><div><strong>Anfragen erhalten</strong><em>Ihre Seite ist live. Änderungen schicken Sie einfach per WhatsApp.</em></div></li>
-  </ol>
-</div></section>
-
-<section class="sec"><div class="wrap why">
-  <blockquote>«Ich bin selbst Maler und baue Websites, die Malern direkte Anfragen bringen – ohne Plattform und ohne Konkurrenz um jeden Auftrag.»</blockquote>
+<section class="fakten" aria-label="Das Wichtigste in Kürze"><div class="wrap">
   <ul>
-    <li><b>Maler seit 2013.</b> Ich weiss, was Kunden vor der Anfrage wissen wollen: Preis, Dauer, Möbel, Sauberkeit.</li>
-    <li><b>Ihre Kunden, nicht geteilt.</b> Auf Plattformen bezahlen Sie jedes Jahr und konkurrieren um jede Anfrage. Hier gehören Website und Bewertungen Ihnen.</li>
-    <li><b>Ehrlich.</b> Ich verspreche keine Anzahl Kunden und keinen Google-Platz. Ich verspreche eine Website mit Preisen, Formular und Bewertungen, die Besucher eher zu Anfragen macht.</li>
+    <li><b>Entwurf gratis</b><span>Sie bezahlen erst, wenn er gefällt</span></li>
+    <li><b>In 7 Tagen online</b><span>nach Erhalt Ihrer Fotos</span></li>
+    <li><b>Ihre Kunden</b><span>keine Plattform, kein Teilen</span></li>
+    <li><b>Monatlich kündbar</b><span>im Abo, Änderungen inklusive</span></li>
   </ul>
 </div></section>
 
-<section class="sec" id="demos"><div class="wrap">
-  <div class="head"><h2>Demos ansehen</h2><p>Zwei Beispiel-Websites für einen erfundenen Malerbetrieb. Probieren Sie Preisrechner und Formular aus.</p></div>
-  <div class="demos">
-    <a class="demo" href="/demo/basic/">
-      <div class="pv"><img src="/img/demo-basic.webp" width="960" height="540" alt="Basic-Demo: Malerbetrieb-Website mit Preisrechner" loading="lazy"></div>
-      <div class="tx"><h3>Basic · Demo öffnen →</h3><span>Klar und hell. Preisrechner, Vorher/Nachher, Bewertungen, Formular.</span></div>
-    </a>
-    <a class="demo" href="/demo/premium/">
-      <div class="pv"><img src="/img/demo-premium.webp" width="960" height="540" alt="Premium-Demo: animierte Website im Radar-Stil" loading="lazy"></div>
-      <div class="tx"><h3>Premium · Demo öffnen →</h3><span>Animiert, mit 3D-Effekten, 3 Galerien und Ihrer Anfragen-Übersicht.</span></div>
-    </a>
+<section class="teil" id="leistungen"><div class="wrap split">
+  <div class="bild"><img src="/img/anfrage.webp" width="1072" height="808" alt="Maler hält ein Handy mit einer neuen Kundenanfrage samt Foto" loading="lazy"></div>
+  <div class="text">
+    <h2>Die Anfrage kommt direkt aufs Handy.</h2>
+    <p>Kein Suchen in E-Mails, kein Rückruf ins Leere. Der Kunde schickt Arbeit, Fläche, Ort und Fotos – Sie sehen alles auf einen Blick.</p>
+    <ul class="bausteine">
+      <li><h3>Website mit Preisrechner</h3><p>Schnell, mobil, auf Deutsch. Kunden geben die Fläche ein und sehen einen Richtpreis.</p></li>
+      <li><h3>Google-Profil und Ortsnamen</h3><p>Damit Sie bei «Maler Uster» oder «Maler Dübendorf» gefunden werden.</p></li>
+      <li><h3>Anfragen per WhatsApp</h3><p>Formular in drei Schritten mit Foto-Upload. Jede Anfrage kommt sofort zu Ihnen.</p></li>
+    </ul>
   </div>
 </div></section>
 
-<section class="sec" id="pakete"><div class="wrap">
-  <div class="head">
-    <h2>Pakete</h2>
-    <div class="toggle" role="group" aria-label="Zahlungsart"><button type="button" aria-pressed="true" data-m="abo">Monatlich (Abo)</button><button type="button" aria-pressed="false" data-m="kauf">Einmalzahlung (Kauf)</button></div>
+<section class="fassade" aria-labelledby="wer">
+  <img src="/img/fassade.webp" width="1072" height="808" alt="Schweizer Haus, links alte Fassade, rechts frisch gestrichen mit roten Fensterläden" loading="lazy">
+  <div class="karte">
+    <p class="zitat" id="wer">«Ich bin selbst Maler. Ich baue Websites, die Malern direkte Anfragen bringen.»</p>
+    <ul class="vorteile">
+      <li><b>Maler seit 2013.</b> Ich weiss, was Kunden vor der Anfrage wissen wollen: Preis, Dauer, Möbel, Sauberkeit.</li>
+      <li><b>Ihre Kunden, nicht geteilt.</b> Auf Plattformen zahlen Sie jedes Jahr und konkurrieren um jeden Auftrag. Hier gehören Website und Bewertungen Ihnen.</li>
+      <li><b>Ehrlich.</b> Ich verspreche keine Anzahl Kunden und keinen Google-Platz – sondern eine Website, die Besucher eher zu Anfragen macht.</li>
+    </ul>
   </div>
-  <div class="plans">
-    <article class="plan">
-      <div><h3 style="font-size:28px">Basic</h3><p class="note">Solide Präsenz für kleine Betriebe.</p></div>
-      <div><p class="price"><span data-abo="CHF 190" data-kauf="CHF 1'990">CHF 190</span> <small data-abo="/ Monat" data-kauf="einmalig">/ Monat</small></p><p class="note" data-abo="plus CHF 990 Start · monatlich kündbar · alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 990 Start · monatlich kündbar · alle Änderungen inklusive</p></div>
+</section>
+
+<section class="teil putz" id="ablauf"><div class="wrap split umgekehrt">
+  <div class="bild"><img src="/img/sieben-tage.webp" width="1072" height="808" alt="Maler auf einer Leiter malt den siebten roten Strich an die Wand" loading="lazy"></div>
+  <div class="text">
+    <h2>In 7 Tagen online.</h2>
+    <ol class="schritte">
+      <li><h3>Gespräch und Website-Check</h3><p>Ich schaue Ihre heutige Website an und zeige, wo Anfragen verloren gehen.</p></li>
+      <li><h3>Kostenloser Entwurf</h3><p>Sie schicken Fotos, Preise und Ihre Orte. Ich baue den Entwurf.</p></li>
+      <li><h3>Bezahlen, wenn er gefällt</h3><p>50 % bei Zusage zum Entwurf, 50 % bei Übergabe.</p></li>
+      <li><h3>Anfragen erhalten</h3><p>Ihre Seite ist live. Änderungen schicken Sie einfach per WhatsApp.</p></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="teil" id="demos"><div class="wrap split">
+  <div class="bild"><img src="/img/demo-laptop.webp" width="1072" height="808" alt="Maler zeigt auf einen Laptop mit einer fertigen Maler-Website" loading="lazy"></div>
+  <div class="text">
+    <h2>So sieht Ihre Website aus.</h2>
+    <p>Zwei Beispiel-Websites für einen erfundenen Malerbetrieb. Probieren Sie Preisrechner und Formular selbst aus.</p>
+    <div class="demos">
+      <a class="demo" href="/demo/basic/"><img src="/img/demo-basic.webp" width="960" height="540" alt="" loading="lazy"><h3>Basic-Demo öffnen</h3><span>Klar und hell, mit Preisrechner und Formular</span></a>
+      <a class="demo" href="/demo/premium/"><img src="/img/demo-premium.webp" width="960" height="540" alt="" loading="lazy"><h3>Premium-Demo öffnen</h3><span>Animiert, mit 3D-Effekten und Anfragen-Übersicht</span></a>
+    </div>
+  </div>
+</div></section>
+
+<section class="teil putz" id="pakete"><div class="wrap">
+  <div class="kopfzeile">
+    <h2>Preise</h2>
+    <div class="schalter" role="group" aria-label="Zahlungsart"><button type="button" aria-pressed="true" data-m="abo">Monatlich</button><button type="button" aria-pressed="false" data-m="kauf">Einmalig</button></div>
+  </div>
+  <div class="pakete">
+    <article class="paket">
+      <div><h3>Basic</h3><p class="klein">Solide Präsenz für kleine Betriebe.</p></div>
+      <div><p class="preis"><span data-abo="CHF 190" data-kauf="CHF 1'990">CHF 190</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 990 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 990 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
       <ul><li>Website mit Preisrechner</li><li>Google-Profil einrichten</li><li>Anfrage-Formular mit Foto-Upload, direkt auf WhatsApp</li><li>Hosting, Änderungen und Support</li></ul>
       <a class="btn" href="#kontakt" data-plan="Basic">Basic anfragen</a>
     </article>
-    <article class="plan pro">
+    <article class="paket premium">
       <span class="badge">Empfohlen</span>
-      <div><h3 style="font-size:28px">Premium</h3><p class="note">Auffallen mit 3D- und Scroll-Effekten.</p></div>
-      <div><p class="price"><span data-abo="CHF 290" data-kauf="CHF 2'990">CHF 290</span> <small data-abo="/ Monat" data-kauf="einmalig">/ Monat</small></p><p class="note" data-abo="plus CHF 1'490 Start · monatlich kündbar · alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 1'490 Start · monatlich kündbar · alle Änderungen inklusive</p></div>
+      <div><h3>Premium</h3><p class="klein">Auffallen mit 3D- und Scroll-Effekten.</p></div>
+      <div><p class="preis"><span data-abo="CHF 290" data-kauf="CHF 2'990">CHF 290</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 1'490 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 1'490 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
       <ul><li>Alles aus Basic</li><li>Animierte Startseite mit 3D- und Scroll-Effekten</li><li>Vorher-Nachher-Galerie mit mehreren Projekten</li><li>Anfragen-Übersicht mit Status</li></ul>
-      <a class="btn red" href="#kontakt" data-plan="Premium">Premium anfragen</a>
+      <a class="btn btn-rot" href="#kontakt" data-plan="Premium">Premium anfragen</a>
     </article>
   </div>
-  <div class="terms"><span><b>Einführungspreis</b> für die ersten 3 Betriebe</span><span>Kostenloser Entwurf zuerst – bezahlen erst, wenn er Ihnen gefällt</span><span>50 % bei Zusage, 50 % bei Übergabe</span></div>
+  <div class="bedingungen"><span><b>Einführungspreis</b> für die ersten 3 Betriebe</span><span>Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt</span><span>50 % bei Zusage, 50 % bei Übergabe</span></div>
 </div></section>
 
-<section class="sec" id="faq"><div class="wrap faq">
+<section class="teil" id="faq"><div class="wrap faq">
   <h2>Häufige Fragen</h2>
   <div>
     <details open><summary>Wie lange dauert es, bis meine Seite online ist?</summary><p>In der Regel 7 Tage, nachdem Sie Fotos, Preise und Ihre Orte geschickt haben.</p></details>
     <details><summary>Muss ich mich um Technik kümmern?</summary><p>Nein. Hosting, Updates und Einrichtung übernehme ich. Änderungen schicken Sie per WhatsApp.</p></details>
-    <details><summary>Abo oder Kauf – was ist der Unterschied?</summary><p>Abo: Startbetrag und danach monatlich (Basic CHF 990 + CHF 190/Monat, Premium CHF 1'490 + CHF 290/Monat), monatlich kündbar, alle Änderungen inklusive. Kauf: einmalig CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive.</p></details>
-    <details><summary>Kann ich meine bisherige Adresse behalten?</summary><p>Ja. Ihre Domain bleibt Ihre. Alte Seiten leiten wir auf die neuen weiter, damit nichts verloren geht.</p></details>
+    <details><summary>Abo oder einmalig – was ist der Unterschied?</summary><p>Abo: Startbetrag und danach monatlich (Basic CHF 990 + CHF 190 pro Monat, Premium CHF 1'490 + CHF 290 pro Monat), monatlich kündbar, alle Änderungen inklusive. Einmalig: CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive.</p></details>
+    <details><summary>Kann ich meine bisherige Adresse behalten?</summary><p>Ja. Ihre Domain bleibt Ihre. Alte Seiten werden auf die neuen weitergeleitet, damit nichts verloren geht.</p></details>
     <details><summary>Gibt es das auch für andere Handwerker?</summary><p>Ja. Das System funktioniert auch für Gipser, Elektriker, Sanitär und weitere Gewerbe.</p></details>
   </div>
 </div></section>
 
-<section class="sec contact" id="kontakt"><div class="wrap split">
-  <div style="display:grid;gap:20px">
+<section class="teil kontakt" id="kontakt"><div class="wrap">
+  <div class="kontakt-bild"><img src="/img/kontakt.webp" width="800" height="1000" alt="Offertenmeister-Maler winkt und hält ein Klemmbrett mit Häkchen" loading="lazy"></div>
+  <div class="text" style="max-width:none">
     <h2>Bereit für mehr Anfragen?</h2>
-    <p style="font-size:18px">Schreiben Sie mir kurz. Ich schaue Ihre heutige Website an und schicke Ihnen einen kostenlosen Website-Check.</p>
-    <p style="font-size:16px">Mihajlo Tevdoski<br>WhatsApp <a href="https://wa.me/38978338208">+389 78 338 208</a><br><a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p>
+    <p>Schreiben Sie mir kurz. Ich schaue Ihre heutige Website an und schicke Ihnen einen kostenlosen Website-Check.</p>
+    <form id="f" novalidate>
+      <div class="zwei">
+        <label for="firma">Firmenname<input id="firma" autocomplete="organization" required></label>
+        <label for="ort">Ort oder Kanton<input id="ort" placeholder="z. B. Uster ZH"></label>
+      </div>
+      <label for="web">Ihre heutige Website, falls vorhanden<input id="web" type="url" inputmode="url" placeholder="www.ihre-firma.ch"></label>
+      <label for="paket">Interesse an<select id="paket"><option>Noch offen</option><option>Basic</option><option>Premium</option></select></label>
+      <button class="btn btn-rot" type="submit">Per WhatsApp senden</button>
+      <p class="hinweis" id="hinweis" role="status">Öffnet WhatsApp mit Ihrer Nachricht. Auf dieser Website werden keine Daten gespeichert.</p>
+    </form>
+    <p class="direkt">Lieber direkt? Mihajlo Tevdoski, WhatsApp <a href="https://wa.me/38978338208">+389 78 338 208</a> oder <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p>
   </div>
-  <form id="f" novalidate>
-    <label for="firma">Firmenname<input id="firma" autocomplete="organization" required></label>
-    <label for="ort">Ort / Kanton<input id="ort" placeholder="z. B. Uster ZH"></label>
-    <label for="web">Ihre heutige Website (falls vorhanden)<input id="web" type="url" inputmode="url" placeholder="www.ihre-firma.ch"></label>
-    <label for="paket">Interesse an<select id="paket"><option>Noch offen</option><option>Basic</option><option>Premium</option></select></label>
-    <button class="btn dark" type="submit">Per WhatsApp senden</button>
-    <p class="hint">Öffnet WhatsApp mit Ihrer Nachricht. Es werden keine Daten auf dieser Website gespeichert.</p>
-  </form>
 </div></section>
 </main>
 
-<footer><div class="wrap">
-  <div class="legal">
-    <div id="impressum"><h3>Impressum</h3><p>Offertenmeister<br>Mihajlo Tevdoski<br>ul. Bane Stefanovski 6, 1200 Tetovo, Nordmazedonien<br>E-Mail: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a> · WhatsApp: +389 78 338 208</p></div>
-    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website speichert keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Schriftarten werden von Google Fonts geladen, dabei wird Ihre IP-Adresse an Google übermittelt.</p><p>Fragen zum Datenschutz: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p></div>
+<footer class="fuss"><div class="wrap">
+  <div class="recht">
+    <div id="impressum"><h3>Impressum</h3><p>Offertenmeister<br>Mihajlo Tevdoski<br>ul. Bane Stefanovski 6, 1200 Tetovo, Nordmazedonien<br>E-Mail: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a><br>WhatsApp: +389 78 338 208</p></div>
+    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website speichert keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Schriftarten werden von Google Fonts geladen, dabei wird Ihre IP-Adresse an Google übermittelt. Fragen: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p></div>
   </div>
-  <div class="foot"><span>© 2026 Offertenmeister · offertenmeister.ch</span><span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></span></div>
+  <div class="unten"><span>© 2026 Offertenmeister, offertenmeister.ch</span><span><a href="#impressum">Impressum</a> und <a href="#datenschutz">Datenschutz</a></span></div>
 </div></footer>
 
 <script>
 {
-const T=document.querySelector('.toggle');
-T.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=b.dataset.m;
- T.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+const H=document.querySelector('.hero-bild');const go=()=>H.classList.add('da');H.complete?go():H.addEventListener('load',go);H.addEventListener('error',go);
+const S=document.querySelector('.schalter');
+S.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=b.dataset.m;
+ S.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
  document.querySelectorAll('[data-abo]').forEach(el=>el.textContent=el.dataset[m])});
 document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('paket').value=a.dataset.plan}));
 document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();
  const v=id=>document.getElementById(id).value.trim();
- const firma=v('firma');if(!firma){document.getElementById('firma').focus();return}
+ const firma=v('firma');
+ if(!firma){document.getElementById('hinweis').textContent='Bitte geben Sie Ihren Firmennamen ein.';document.getElementById('firma').focus();return}
  const msg=`Grüezi Herr Tevdoski\n\nFirma: ${firma}\nOrt: ${v('ort')||'-'}\nWebsite: ${v('web')||'keine'}\nInteresse: ${v('paket')}\n\nBitte schicken Sie mir einen kostenlosen Website-Check.`;
  window.open('https://wa.me/38978338208?text='+encodeURIComponent(msg),'_blank','noopener')});
 }
