@@ -49,7 +49,16 @@ header.nav .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;ju
 .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px;align-items:end}
 .hero .lead{font-size:20px;color:#333;max-width:32em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));margin-top:56px;border-top:2px solid var(--ink)}
+.hero-sec{position:relative;overflow:hidden;background:#f5ece3;padding-block:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero-in{position:relative;min-height:clamp(560px,46vw,720px);display:flex;align-items:center}
+.hero-text{max-width:min(560px,46%);display:grid;gap:24px;padding-block:64px}
+.hero-text h1{font-size:clamp(48px,6vw,88px)}
+.hero-text .lead{font-size:19px;color:#333;margin:0}
+.hero-text .cta{margin-top:4px}
+.hero-text .btn:not(.red){background:rgba(255,255,255,.7)}
+@media(max-width:900px){.hero-img{position:static;height:auto;aspect-ratio:1344/752;object-position:right}.hero-in{min-height:0}.hero-text{max-width:none;padding-block:40px 8px}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));margin-top:0;border-top:2px solid var(--ink)}
 .facts div{padding:18px 18px 0 0;font-size:15px;color:var(--soft)}
 .facts b{display:block;font:700 22px "Inter Tight",sans-serif;color:var(--ink)}
 .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:end;margin-bottom:44px}
@@ -127,18 +136,18 @@ footer .wrap{display:grid;gap:28px}
 </div></header>
 
 <main id="top">
-<section class="sec"><div class="wrap">
-  <div class="hero">
-    <div style="display:grid;gap:28px">
+<section class="sec hero-sec">
+  <img class="hero-img" src="/img/hero.webp" width="1344" height="752" alt="3D-Maler streicht eine Wand rot" fetchpriority="high">
+  <div class="wrap hero-in">
+    <div class="hero-text">
       <p class="eyebrow">Für Malerbetriebe in der Deutschschweiz</p>
       <h1>Mehr Offerten.<br>Weniger Suchen.</h1>
-    </div>
-    <div>
-      <img class="hero-icon" src="/img/logo-icon.webp" width="256" height="265" alt="">
       <p class="lead">Website mit Preisrechner, Google-Profil und Anfrage-Formular aus einer Hand. Kunden sehen sofort einen Richtpreis, schicken Fotos – und Ihre Anfrage kommt direkt per WhatsApp.</p>
       <div class="cta"><a class="btn red" href="#kontakt">Kostenlosen Entwurf anfragen</a><a class="btn" href="#demos">Demos ansehen</a></div>
     </div>
   </div>
+</section>
+<section class="sec" style="padding-block:0 clamp(48px,6vw,72px)"><div class="wrap">
   <div class="facts">
     <div><b>Entwurf gratis</b>bezahlen erst, wenn er gefällt</div>
     <div><b>In 7 Tagen online</b>nach Erhalt Ihrer Fotos</div>
