@@ -30,6 +30,6 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Keine Passwörter eingeben. DNS- und Kontoänderungen nur nach ausdrücklichem "da".
 
 ## Offene Punkte
-- info@offertenmeister.ch einrichten, dann Gmail-Adresse überall ersetzen (Impressum, Datenschutz, Kontakt, Schema).
+- info@offertenmeister.ch ist eingerichtet und überall eingetragen (Weiterleitung an Gmail).
 - Erste echte Referenz mit Name und Ort.
 - Google Search Console verbinden.
