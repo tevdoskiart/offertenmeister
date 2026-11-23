@@ -11,6 +11,8 @@
 <meta property="og:url" content="https://offertenmeister.ch/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#C8261B">
+<meta property="og:image" content="https://offertenmeister.ch/img/og.jpg">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C8261B'/%3E%3Crect x='13' y='6' width='6' height='20' fill='%23fff'/%3E%3Crect x='6' y='13' width='20' height='6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
@@ -38,7 +40,9 @@ p{margin:0}
 header.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink)}
 header.nav .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding-block:16px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 20px "Inter Tight",sans-serif;letter-spacing:-.02em}
-.logo i{width:32px;height:32px;background:var(--red);display:grid;place-items:center}
+.logo img{height:64px;width:auto;display:block}
+.hero-icon{width:200px;height:auto;display:block;margin-bottom:28px}
+@media(max-width:600px){.logo img{height:48px}.menu a:not(.btn){display:none}.hero-icon{width:140px}}
 .menu{display:flex;flex-wrap:wrap;gap:4px 26px;align-items:center;font-size:15px;font-weight:500}
 .menu a{text-decoration:none;padding:12px 0}
 .menu .btn{min-height:44px;padding:0 20px}
@@ -118,7 +122,7 @@ footer .wrap{display:grid;gap:28px}
 <body>
 
 <header class="nav"><div class="wrap">
-  <a class="logo" href="#top" aria-label="Offertenmeister Startseite"><i><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="7" y="2" width="4" height="14" fill="#fff"/><rect x="2" y="7" width="14" height="4" fill="#fff"/></svg></i>Offertenmeister</a>
+  <a class="logo" href="#top" aria-label="Offertenmeister Startseite"><img src="/img/logo.webp" width="536" height="146" alt="Offertenmeister – Websites für Malerbetriebe"></a>
   <nav class="menu" aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#demos">Demos</a><a href="#pakete">Pakete</a><a href="#faq">FAQ</a><a class="btn dark" href="#kontakt">Gratis Entwurf</a></nav>
 </div></header>
 
@@ -130,6 +134,7 @@ footer .wrap{display:grid;gap:28px}
       <h1>Mehr Offerten.<br>Weniger Suchen.</h1>
     </div>
     <div>
+      <img class="hero-icon" src="/img/logo-icon.webp" width="256" height="265" alt="">
       <p class="lead">Website mit Preisrechner, Google-Profil und Anfrage-Formular aus einer Hand. Kunden sehen sofort einen Richtpreis, schicken Fotos – und Ihre Anfrage kommt direkt per WhatsApp.</p>
       <div class="cta"><a class="btn red" href="#kontakt">Kostenlosen Entwurf anfragen</a><a class="btn" href="#demos">Demos ansehen</a></div>
     </div>
