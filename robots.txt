@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /demo/
+Disallow: /CLAUDE.md
 Sitemap: https://offertenmeister.ch/sitemap.xml
