@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de-CH" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malerei Muster Zürich · Premium-Demo</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#05090b;--panel:#0a1316;--ink:#d8f3f0;--soft:#8fb3b0;--dim:#2a4448;--cy:#3df5e0;--gr:#7dff9a;--am:#ffb020;--rd:#ff3b4e;--line:rgba(61,245,224,.22);--wa:#1fa855}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip;background-image:linear-gradient(rgba(61,245,224,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(61,245,224,.04) 1px,transparent 1px);background-size:40px 40px}
+.mono,h1,h2,h3,.lbl,.tag,.btn,th{font-family:"JetBrains Mono",ui-monospace,monospace}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(30px,5vw,58px);font-weight:800;text-wrap:balance}
+h2{font-size:clamp(24px,3.2vw,36px);font-weight:800;text-wrap:balance}
+h3{font-size:17px;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding-block:clamp(40px,6vw,84px);padding-inline:max(5vw,16px)}
+.lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cy)}
+.c-gr{color:var(--gr)}.c-rd{color:var(--rd)}.c-am{color:var(--am)}.c-cy{color:var(--cy)}
+.frame{position:relative;border:1px solid var(--line);background:rgba(10,19,22,.88);padding:22px}
+.frame::before,.frame::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--cy)}
+.frame::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.frame::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.demo{background:var(--am);color:#05090b;font:600 12px "JetBrains Mono",monospace;text-align:center;padding:6px 16px}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,9,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;padding:10px max(5vw,16px)}
+.logo{display:flex;align-items:center;gap:10px;font:800 17px "JetBrains Mono",monospace;text-decoration:none;margin-right:auto}
+.logo i{width:26px;height:26px;border:2px solid var(--cy);position:relative}
+.logo i::after{content:"";position:absolute;inset:5px;background:var(--cy)}
+.links{display:flex;gap:20px;font:500 13px "JetBrains Mono",monospace;color:var(--soft)}
+.links a{text-decoration:none;padding:8px 0}
+.links a:hover{color:var(--cy)}
+.status{display:flex;flex-wrap:wrap;gap:6px 22px;font:12px "JetBrains Mono",monospace;color:var(--soft);padding:8px max(5vw,16px);border-bottom:1px solid var(--line)}
+.status b{color:var(--gr);font-weight:600}
+.rec{color:var(--rd)}
+.rec::before{content:"● ";animation:bl 1.2s infinite}
+@keyframes bl{50%{opacity:.2}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--cy);color:var(--cy);background:transparent;cursor:pointer;transition:background .15s,color .15s,transform .15s}
+.btn:hover{background:var(--cy);color:var(--bg)}
+.btn.go{background:var(--gr);border-color:var(--gr);color:var(--bg);position:relative;overflow:hidden}
+.btn.go:hover{background:#fff;border-color:#fff}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+.top .btn{min-height:40px;padding:0 16px;font-size:13px}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--am);outline-offset:2px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;position:relative}
+header.band{position:relative;overflow:hidden}
+.scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cy),transparent);box-shadow:0 0 18px var(--cy);top:0;opacity:.5;animation:scan 6s linear infinite;pointer-events:none}
+@keyframes scan{from{top:0}to{top:100%}}
+.lead{color:var(--soft);font-size:18px;margin-top:18px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tele{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:30px}
+.tele div{border:1px solid var(--line);padding:12px;background:rgba(10,19,22,.7)}
+.tele b{display:block;font:800 26px "JetBrains Mono",monospace;white-space:nowrap}
+.tele span{font:11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.scope{aspect-ratio:1/1;max-width:460px;width:100%;margin-left:auto;position:relative;transition:transform .2s ease-out}
+.scope svg{width:100%;height:100%;display:block}
+.sweep{transform-origin:220px 220px;animation:sw 4s linear infinite}
+@keyframes sw{to{transform:rotate(360deg)}}
+.scope figcaption{position:absolute;left:0;bottom:-6px;font:11px "JetBrains Mono",monospace;color:var(--soft)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px 30px;margin-bottom:26px}
+.sec-head p{color:var(--soft);max-width:34em;font-size:15px}
+/* calc */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.tilt{transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform}
+label{display:grid;gap:6px;font:600 12px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+input,select{font:16px Inter,sans-serif;min-height:48px;padding:0 14px;border:1px solid var(--dim);background:#071013;color:var(--ink);width:100%;border-radius:0}
+input[type=range]{padding:0;border:0;min-height:30px;accent-color:var(--cy);background:transparent}
+input[type=file]{padding:12px}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.seg button,.opts button,.filters button{font:600 13px "JetBrains Mono",monospace;min-height:44px;border:1px solid var(--dim);background:transparent;color:var(--soft);cursor:pointer}
+.seg button[aria-pressed=true],.filters button[aria-pressed=true]{background:var(--cy);border-color:var(--cy);color:var(--bg)}
+.calc{display:grid;gap:16px}
+.res{border:1px dashed rgba(125,255,154,.5);padding:14px 16px}
+.res span{font:12px "JetBrains Mono",monospace;color:var(--soft)}
+.res b{display:block;font:800 clamp(24px,3vw,34px) "JetBrains Mono",monospace;color:var(--gr);white-space:nowrap;margin:2px 0}
+.small{font:12px "JetBrains Mono",monospace;color:var(--soft)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.n{text-align:right;white-space:nowrap;font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--cy)}
+/* before after */
+.ba{position:relative;height:clamp(260px,40vw,460px);user-select:none;overflow:hidden;border:1px solid var(--line)}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--cy);box-shadow:0 0 16px var(--cy);transform:translateX(-50%);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:54px;height:54px;border:2px solid var(--cy);background:rgba(5,9,11,.85);color:var(--cy);display:grid;place-items:center;transform:translate(-50%,-50%) rotate(45deg);pointer-events:none}
+.ba .knob span{transform:rotate(-45deg);font:800 16px "JetBrains Mono",monospace}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.tag{position:absolute;top:14px;padding:4px 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:rgba(5,9,11,.8);border:1px solid var(--c,var(--cy));color:var(--c,var(--cy));pointer-events:none}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.thumbs button{font:600 12px "JetBrains Mono",monospace;min-height:44px;padding:0 14px;border:1px solid var(--dim);background:transparent;color:var(--soft);cursor:pointer}
+.thumbs button[aria-pressed=true]{border-color:var(--cy);color:var(--cy)}
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mod{display:grid;gap:10px;align-content:start}
+.mod .id{font:800 12px "JetBrains Mono",monospace;color:var(--cy);letter-spacing:.1em}
+.mod p{color:var(--soft);font-size:15px}
+.mod svg{width:30px;height:30px;stroke:var(--cy);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.step{padding:22px 18px 22px 0;position:relative}
+.step i{font:normal 800 13px "JetBrains Mono",monospace;color:var(--gr);display:block;margin-bottom:12px}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;background:var(--cy);box-shadow:0 0 10px var(--cy)}
+.step p{color:var(--soft);font-size:15px;margin-top:6px}
+/* reviews */
+.revtop{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-bottom:14px}
+.revtop .score{font:800 48px "JetBrains Mono",monospace;color:var(--gr);line-height:1}
+.st{color:var(--am);letter-spacing:2px}
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rev{display:grid;gap:10px;align-content:start}
+.rev p{color:var(--soft);font-size:15px}
+.rev .who{font:600 14px "JetBrains Mono",monospace}
+/* dashboard */
+.dash{overflow-x:auto}
+.pill{display:inline-block;font:600 11px "JetBrains Mono",monospace;letter-spacing:.08em;padding:3px 8px;border:1px solid var(--c);color:var(--c);white-space:nowrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.filters button{padding:0 14px}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.kpi div{border:1px solid var(--line);padding:12px}
+.kpi b{display:block;font:800 24px "JetBrains Mono",monospace}
+.kpi span{font:11px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:18px 36px 18px 0;font-weight:600;font-size:17px;position:relative;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:12px;font:400 24px "JetBrains Mono",monospace;color:var(--cy);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--soft)}
+/* form */
+.wiz-steps{display:flex;gap:6px}
+.wiz-steps i{flex:1;height:4px;background:var(--dim)}
+.wiz-steps i.on{background:var(--cy);box-shadow:0 0 8px var(--cy)}
+.wiz-p{display:none;gap:14px}
+.wiz-p.on{display:grid}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opts button{min-height:60px;text-align:left;padding:10px 14px;font-size:14px}
+.opts button[aria-pressed=true]{border-color:var(--gr);color:var(--gr);background:rgba(125,255,154,.06)}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.wnav{display:flex;gap:10px}
+.wnav .btn{flex:1}
+.ok{display:none;border-left:3px solid var(--gr);background:rgba(125,255,154,.06);padding:14px;font-size:15px}
+.ok.show{display:block}
+.contact{display:grid;gap:10px;margin-top:22px;font-size:15px}
+.contact div{display:flex;gap:12px;flex-wrap:wrap}
+.contact b{min-width:7.5em;font:600 12px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);padding-top:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{border:1px solid var(--dim);padding:6px 12px;font:12px "JetBrains Mono",monospace;color:var(--soft)}
+footer{padding:26px max(5vw,16px);font:12px "JetBrains Mono",monospace;color:var(--soft);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px}
+.mbar{display:none}
+/* animation */
+#boot{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;padding:24px;cursor:pointer;transition:opacity .5s}
+#boot.out{opacity:0;pointer-events:none}
+#boot pre{font:14px/1.8 "JetBrains Mono",monospace;color:var(--cy);margin:0;min-width:min(420px,90vw);white-space:pre-wrap}
+#boot pre b{color:var(--gr);font-weight:600}
+#boot small{display:block;margin-top:18px;font:12px "JetBrains Mono",monospace;color:var(--soft)}
+.cur::after{content:"_";animation:bl .8s infinite}
+.js .pt{opacity:0}
+.pt.on{animation:pop .35s ease-out forwards}
+@keyframes pop{0%{opacity:0;transform:scale(2.4)}100%{opacity:1;transform:scale(1)}}
+.ping{fill:none;stroke-width:2;opacity:0}
+.ping.on{animation:ping 1.2s ease-out forwards}
+@keyframes ping{0%{opacity:.9;r:4}100%{opacity:0;r:34}}
+.js .rv{opacity:0;transform:translateY(24px) perspective(800px) rotateX(8deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.js .frame.rv::before,.js .frame.rv::after{transform:scale(2.2);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1) .2s,opacity .3s .2s}
+.frame.rv.in::before,.frame.rv.in::after{transform:scale(1);opacity:1}
+.btn.go::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-100%);animation:shine 3.2s ease-in-out 1.5s infinite}
+@keyframes shine{40%,100%{transform:translateX(100%)}}
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--cy);box-shadow:0 0 10px var(--cy);z-index:30;width:0}
+@media(max-width:980px){.mods,.revs{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.hero,.two{grid-template-columns:minmax(0,1fr)}.scope{max-width:320px;margin:0 auto}.links{display:none}.tele{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.mods,.revs,.steps,.row2,.opts{grid-template-columns:minmax(0,1fr)}.top .btn{display:none}.cta .btn{flex:1;padding:0 10px;font-size:13px;white-space:nowrap}.status span:nth-child(n+3){display:none}.mbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,9,11,.96);border-top:1px solid var(--line)}.mbar .btn{padding:0 6px;font-size:13px}body{padding-bottom:72px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}#boot,.scanline{display:none}.sweep,.rec::before,.cur::after{animation:none}.js .rv,.js .pt{opacity:1;transform:none}.pt.on,.ping.on{animation:none}.js .frame.rv::before,.js .frame.rv::after{transform:none;opacity:1}.btn.go::after{display:none}.tilt,.scope{transform:none!important}}
+</style>
+</head>
+<body>
+<div id="boot" role="status" aria-live="polite"><div><pre id="bt"></pre><small>Klicken zum Überspringen</small></div></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<div class="demo">PREMIUM-DEMO · Betrieb, Preise, Projekte und Bewertungen sind Beispiele</div>
+<div class="top"><div class="wrap">
+  <a class="logo" href="#top"><i></i>MALEREI MUSTER</a>
+  <nav class="links" aria-label="Hauptmenü"><a href="#rechner">Rechner</a><a href="#vorher">Vorher/Nachher</a><a href="#leistungen">Leistungen</a><a href="#bewertungen">Bewertungen</a><a href="#offerte">Kontakt</a></nav>
+  <a class="btn go" href="#offerte">Gratis Offerte</a>
+</div></div>
+<div class="status"><span class="rec">LIVE</span><span>POS <b>47.37N 8.54E</b> Zürich</span><span>TERMINE <b>frei ab Januar</b></span><span>OFFERTE <b>innert 48 h</b></span></div>
+
+<header class="band" id="top"><div class="scanline" aria-hidden="true"></div><div class="wrap hero">
+  <div>
+    <span class="lbl">// Malerbetrieb · Zürich und Umgebung</span>
+    <h1 style="margin-top:14px">Malerarbeiten in Zürich. <span class="c-cy">Sauber.</span> Zum <span class="c-gr">Fixpreis.</span></h1>
+    <p class="lead">Innen- und Fassadenanstriche, Spachteln und fugenlose Bäder. Besichtigung kostenlos, schriftliche Offerte innert 48 Stunden.</p>
+    <div class="cta"><a class="btn go" href="#offerte">Offerte anfordern</a><a class="btn" href="#rechner">Preis berechnen</a></div>
+    <div class="tele" id="tele">
+      <div><b class="c-cy" data-n="2013">2013</b><span>im Handwerk</span></div>
+      <div><b class="c-gr" data-n="48">48 h</b><span>bis Offerte</span></div>
+      <div><b class="c-am">4.9★</b><span>87 Google-Bew.</span></div>
+      <div><b class="c-cy" data-n="5">5 J.</b><span>Garantie</span></div>
+    </div>
+  </div>
+  <figure class="scope" id="scope" style="margin:0">
+    <svg viewBox="0 0 440 440" role="img" aria-label="Einsatzgebiet: Zürich und Umgebung">
+      <defs><radialGradient id="rg"><stop offset="0" stop-color="#3df5e0" stop-opacity=".18"/><stop offset="1" stop-color="#3df5e0" stop-opacity="0"/></radialGradient>
+      <linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#3df5e0" stop-opacity="0"/><stop offset="1" stop-color="#3df5e0" stop-opacity=".45"/></linearGradient></defs>
+      <circle cx="220" cy="220" r="200" fill="url(#rg)" stroke="#3df5e0" stroke-opacity=".5"/>
+      <g fill="none" stroke="#3df5e0" stroke-opacity=".22"><circle cx="220" cy="220" r="150"/><circle cx="220" cy="220" r="100"/><circle cx="220" cy="220" r="50"/><path d="M20 220H420M220 20V420"/></g>
+      <g stroke="#3df5e0" stroke-width="2"><path d="M220 0v30M220 410v30M0 220h30M410 220h30"/></g>
+      <path class="sweep" d="M220 220 L420 220 A200 200 0 0 0 361 79 Z" fill="url(#sg)"/>
+      <g id="towns" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600"></g>
+      <g fill="none" stroke="#7dff9a" stroke-width="2"><path d="M205 205h-8v8M235 205h8v8M205 235h-8v-8M235 235h8v-8"/></g>
+    </svg>
+    <figcaption>EINSATZGEBIET · 12 ORTE ERFASST</figcaption>
+  </figure>
+</div></header>
+
+<section class="band" id="rechner" style="padding-top:0"><div class="wrap two">
+  <div class="rv">
+    <span class="lbl">// Modul Rechner</span>
+    <h2 style="margin-top:8px">Was kostet mein Projekt?</h2>
+    <p style="color:var(--soft);margin-top:12px">Arbeit wählen, Fläche einstellen, Richtpreis sehen. Den Fixpreis erhalten Sie nach der kostenlosen Besichtigung.</p>
+    <div style="overflow-x:auto;margin-top:22px"><table><thead><tr><th>Arbeit</th><th class="n" style="color:var(--soft)">ab</th></tr></thead><tbody id="ptab"></tbody></table></div>
+    <p class="small" style="margin-top:10px">Beispielpreise für die Demo, inkl. Material, exkl. MWST.</p>
+  </div>
+  <div class="frame calc tilt rv" id="calc">
+    <div class="seg" role="group" aria-label="Kategorie" id="seg"><button type="button" aria-pressed="true" data-c="0">INNEN</button><button type="button" aria-pressed="false" data-c="1">FASSADE</button><button type="button" aria-pressed="false" data-c="2">FUGENLOS</button></div>
+    <label for="cwork">Arbeit<select id="cwork"></select></label>
+    <label for="carea"><span>Fläche: <span id="careaV" class="c-cy">60 m²</span></span><input type="range" id="carea" min="5" max="400" step="5" value="60"></label>
+    <div class="res" aria-live="polite"><span>RICHTPREIS INKL. MATERIAL</span><b id="cres">–</b><span id="cnote"></span></div>
+    <a class="btn go" href="#offerte">Genaue Offerte in 48 h</a>
+  </div>
+</div></section>
+
+<section class="band" id="vorher" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="lbl">// Galerie</span><h2 style="margin-top:8px">Vorher und nachher</h2></div><p>Regler ziehen. Auf Ihrer echten Website stehen hier Fotos Ihrer eigenen Projekte.</p></div>
+  <div class="ba rv" id="ba">
+    <svg viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="baB"></svg>
+    <svg class="after" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="baA"></svg>
+    <span class="tag" style="left:14px;--c:var(--rd)">Vorher</span><span class="tag" style="right:14px;--c:var(--gr)">Nachher</span>
+    <div class="bar"></div><div class="knob"><span>↔</span></div>
+    <input type="range" min="0" max="100" value="50" id="bax" aria-label="Vorher / nachher vergleichen">
+  </div>
+  <div class="thumbs" role="group" aria-label="Projekt wählen" id="thumbs"><button type="button" aria-pressed="true" data-p="0">01 · WOHNZIMMER</button><button type="button" aria-pressed="false" data-p="1">02 · FASSADE</button><button type="button" aria-pressed="false" data-p="2">03 · BAD FUGENLOS</button></div>
+</div></section>
+
+<section class="band" id="leistungen" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="lbl">// Leistungen</span><h2 style="margin-top:8px">Was wir machen</h2></div><p>Für Wohnungen, Häuser, Verwaltungen und Gewerbe. Wir decken ab, arbeiten sauber und räumen am Abend auf.</p></div>
+  <div class="mods" id="mods"></div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="lbl">// Ablauf</span><h2 style="margin-top:8px">In vier Schritten zur neuen Wand</h2></div></div>
+  <div class="steps rv" id="steps"></div>
+</div></section>
+
+<section class="band" id="bewertungen" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="lbl">// Google-Bewertungen</span><h2 style="margin-top:8px">Das sagen unsere Kunden</h2></div><p>Echte Bewertungen erscheinen hier automatisch. In der Demo sind es Beispiele.</p></div>
+  <div class="revtop rv"><span class="score">4.9</span><div><div class="st">★★★★★</div><div class="small">87 Bewertungen auf Google</div></div></div>
+  <div class="revs" id="revs"></div>
+</div></section>
+
+<section class="band" id="uebersicht" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="lbl c-am">// Nur für den Betrieb · Premium</span><h2 style="margin-top:8px">Ihre Anfragen-Übersicht</h2></div><p>Jede Anfrage von der Website landet hier, mit Fotos, Fläche und Status. Diesen Teil sehen nur Sie, nicht Ihre Kunden.</p></div>
+  <div class="frame rv">
+    <div class="kpi" id="kpi"></div>
+    <div class="filters" role="group" aria-label="Status filtern" id="flt"></div>
+    <div class="dash"><table><thead><tr><th>Eingang</th><th>Kunde</th><th>Arbeit</th><th>Ort</th><th class="n" style="color:var(--soft)">Fläche</th><th>Status</th></tr></thead><tbody id="dtab"></tbody></table></div>
+  </div>
+</div></section>
+
+<section class="band" id="fragen" style="padding-top:0"><div class="wrap two">
+  <div class="rv"><span class="lbl">// FAQ</span><h2 style="margin-top:8px">Häufige Fragen</h2></div>
+  <div id="faq" class="rv"></div>
+</div></section>
+
+<section class="band" id="offerte" style="padding-top:0"><div class="wrap two">
+  <div class="rv">
+    <span class="lbl">// Anfrage</span>
+    <h2 style="margin-top:8px">Gratis Offerte anfordern</h2>
+    <p style="color:var(--soft);margin-top:12px">In 3 kurzen Schritten, unter einer Minute. Wir melden uns am gleichen Arbeitstag.</p>
+    <div class="contact">
+      <div><b>Telefon</b><a href="tel:+41440000000">044 000 00 00</a></div>
+      <div><b>WhatsApp</b><a href="#" class="walink">079 000 00 00</a></div>
+      <div><b>E-Mail</b><span>info@malerei-muster.ch</span></div>
+      <div><b>Adresse</b><span>Musterstrasse 12, 8000 Zürich</span></div>
+      <div><b>Zeiten</b><span>Mo–Fr 07:00–17:00</span></div>
+    </div>
+    <div class="chips" id="areas"></div>
+    <a class="btn wa walink" href="#" style="margin-top:22px"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Fotos per WhatsApp schicken</a>
+  </div>
+  <form class="frame calc rv" id="f" novalidate>
+    <div class="wiz-steps" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    <div class="wiz-p on"><h3>1. Was dürfen wir für Sie machen?</h3><div class="opts" id="wopts"></div></div>
+    <div class="wiz-p">
+      <h3>2. Wo und wann?</h3>
+      <div class="row2"><label for="farea">Fläche ca. (m²)<input id="farea" type="number" inputmode="numeric" min="1" placeholder="80"></label><label for="fplz">PLZ / Ort<input id="fplz" placeholder="8000 Zürich"></label></div>
+      <label for="fdate">Wunschtermin<input id="fdate" type="month"></label>
+      <label for="ffoto">Fotos (optional)<input id="ffoto" type="file" accept="image/*" multiple></label>
+    </div>
+    <div class="wiz-p">
+      <h3>3. Wie erreichen wir Sie?</h3>
+      <div class="row2"><label for="fname">Name<input id="fname" autocomplete="name"></label><label for="ftel">Telefon<input id="ftel" type="tel" autocomplete="tel"></label></div>
+      <label for="fmail">E-Mail (optional)<input id="fmail" type="email" autocomplete="email"></label>
+    </div>
+    <div class="wnav"><button class="btn" type="button" id="wback" style="display:none">Zurück</button><button class="btn go" type="button" id="wnext">Weiter</button></div>
+    <div class="ok" id="ok" role="status"></div>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span><b style="color:var(--ink)">Malerei Muster GmbH</b> · Musterstrasse 12, 8000 Zürich · 044 000 00 00</span><span>Impressum · Datenschutz · Premium-Demo von <a href="/" style="color:var(--cy)">Offertenmeister</a></span></div></footer>
+<div class="mbar"><a class="btn" href="tel:+41440000000">Anrufen</a><a class="btn wa walink" href="#">WhatsApp</a><a class="btn go" href="#offerte">Offerte</a></div>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const chf=n=>'CHF '+Math.round(n).toLocaleString('de-CH');
+const esc=s=>s.replace(/[<>&"]/g,'');
+
+/* radar towns */
+const TW=[['Zürich',220,220,'#7dff9a','start'],['Winterthur',340,95,'#3df5e0','end'],['Kloten',240,110,'#3df5e0','start'],['Wallisellen',262,160,'#3df5e0','start'],['Dübendorf',300,200,'#3df5e0','start'],['Uster',330,270,'#3df5e0','start'],['Küsnacht',265,312,'#3df5e0','start'],['Thalwil',190,330,'#3df5e0','end'],['Horgen',165,375,'#3df5e0','end'],['Schlieren',140,200,'#3df5e0','end'],['Dietikon',95,160,'#3df5e0','start'],['Baden',60,110,'#ffb020','start']];
+$('towns').innerHTML=TW.slice(1).map(t=>`<circle class="ping" cx="${t[1]}" cy="${t[2]}" r="4" stroke="${t[3]}"/><g class="pt" style="transform-origin:${t[1]}px ${t[2]}px"><circle cx="${t[1]}" cy="${t[2]}" r="5" fill="${t[3]}"/><text x="${t[4]==='end'?t[1]-9:t[1]+9}" y="${t[2]-7}" text-anchor="${t[4]}" fill="${t[3]}">${t[0].toUpperCase()}</text></g>`).join('');
+$('areas').innerHTML=TW.map(t=>`<span>${t[0]}</span>`).join('');
+
+/* calculator */
+const PR=['Wände und Decken streichen, 2 Anstriche','Spachteln Q3 inkl. Schleifen','Tapezieren Vlies','Fassade streichen, ohne Gerüst','Fassade reinigen und grundieren','Mikrozement fugenlos, Wand','Mikrozement fugenlos, Boden','Türe lackieren, beidseitig'];
+const P=[[0,24,34,0],[0,32,45,0],[0,30,42,0],[1,38,55,0],[1,14,22,0],[2,170,240,0],[2,160,220,0],[0,220,320,1]];
+const U=['m²','Stk.'];
+$('ptab').innerHTML=P.map((p,i)=>`<tr><td>${PR[i]}</td><td class="n">${chf(p[1])}/${U[p[3]]}</td></tr>`).join('');
+let cat=0;
+const fill=()=>{$('cwork').innerHTML=P.map((p,i)=>p[0]===cat&&!p[3]?`<option value="${i}">${PR[i]}</option>`:'').join('')};
+const calc=()=>{const p=P[+$('cwork').value],a=+$('carea').value;$('careaV').textContent=a+' m²';$('cres').textContent=chf(p[1]*a)+'–'+Math.round(p[2]*a).toLocaleString('de-CH');$('cnote').textContent=`${a} m² × ${chf(p[1])}–${chf(p[2])} pro m²`};
+$('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=+b.dataset.c;$('seg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fill();calc()});
+$('cwork').addEventListener('change',calc);$('carea').addEventListener('input',calc);
+fill();calc();
+
+/* before / after */
+const BA=[
+ ['<rect width="1200" height="440" fill="#bfb8ac"/><g fill="#a89f91" opacity=".7"><ellipse cx="220" cy="120" rx="120" ry="60"/><ellipse cx="760" cy="80" rx="160" ry="50"/><ellipse cx="980" cy="260" rx="110" ry="70"/></g><path d="M360 40 L400 120 L380 170 L430 250 M820 180 L860 230 L850 300" stroke="#7d7466" stroke-width="3" fill="none"/><rect x="520" y="90" width="180" height="230" fill="#d8d2c6" opacity=".6"/><rect y="380" width="1200" height="60" fill="#8f7a60"/>',
+  '<rect width="1200" height="440" fill="#e9e1d2"/><rect width="760" height="372" fill="#2a6f77"/><rect x="520" y="90" width="180" height="230" fill="#f6f1e6"/><rect x="532" y="102" width="156" height="206" fill="#e6c27a"/><g transform="translate(980 372)"><rect x="-20" y="-170" width="40" height="170" fill="#c8553d"/><circle cy="-200" r="50" fill="#8fb9a8"/></g><rect y="380" width="1200" height="60" fill="#b48a5a"/><rect y="372" width="1200" height="10" fill="#fbf8f2"/>'],
+ ['<rect width="1200" height="440" fill="#9fb4c2"/><rect x="200" y="60" width="800" height="380" fill="#a69c8c"/><g fill="#8a806f" opacity=".8"><rect x="260" y="120" width="40" height="300"/><rect x="560" y="80" width="30" height="340"/><rect x="820" y="140" width="50" height="280"/></g><g fill="#4b4a47"><rect x="290" y="140" width="110" height="120"/><rect x="545" y="140" width="110" height="120"/><rect x="800" y="140" width="110" height="120"/></g>',
+  '<rect width="1200" height="440" fill="#b7d4e6"/><rect x="200" y="60" width="800" height="380" fill="#f1e7d3"/><g fill="#2d4f5c"><rect x="290" y="140" width="110" height="120"/><rect x="545" y="140" width="110" height="120"/><rect x="800" y="140" width="110" height="120"/></g><g fill="#fbf8f2"><rect x="282" y="132" width="126" height="8"/><rect x="537" y="132" width="126" height="8"/><rect x="792" y="132" width="126" height="8"/></g><rect x="200" y="420" width="800" height="20" fill="#c8553d"/>'],
+ ['<rect width="1200" height="440" fill="#d9d6cf"/><g stroke="#b5b0a6" stroke-width="3"><path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200M0 300H1200M0 360H1200"/><path d="M100 0V440M200 0V440M300 0V440M400 0V440M500 0V440M600 0V440M700 0V440M800 0V440M900 0V440M1000 0V440M1100 0V440"/></g><rect x="420" y="200" width="360" height="160" fill="#efece6"/>',
+  '<rect width="1200" height="440" fill="#c9c2b5"/><rect width="1200" height="440" fill="#b9b1a2" opacity=".35"/><rect x="420" y="200" width="360" height="160" rx="10" fill="#f6f3ee"/><rect x="560" y="120" width="80" height="12" fill="#3a3a3a"/><circle cx="600" cy="150" r="10" fill="#3a3a3a"/>']
+];
+const ba=$('ba'),bx=$('bax');
+const setP=i=>{$('baB').innerHTML=BA[i][0];$('baA').innerHTML=BA[i][1]};
+const setX=()=>ba.style.setProperty('--x',bx.value+'%');
+bx.addEventListener('input',setX);setX();setP(0);
+$('thumbs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$('thumbs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));setP(+b.dataset.p)});
+
+/* modules */
+const MO=[['M4 20h16M6 16l8-8 4 4-8 8H6z','Innenanstriche','Wände, Decken, Treppenhäuser. Auch kurzfristig bei Mieterwechsel.'],['M3 21V9l9-6 9 6v12M9 21v-6h6v6','Fassaden','Reinigung, Grundierung, Anstrich, Gerüst inklusive Planung.'],['M4 18l10-10M12 4l8 8-4 4-8-8z','Spachteln Q3/Q4','Glatte Wände, Risse sauber geschlossen.'],['M3 7h18M3 12h18M3 17h18','Fugenlose Bäder','Mikrozement direkt auf alte Platten, ohne Abbruch.'],['M5 3h14v18H5zM9 3v18','Tapezieren','Vlies, Glasfaser, Designtapeten.'],['M4 21V5h10v16M14 9h6v12','Verwaltungen','Feste Ansprechperson und schnelle Termine bei Wohnungswechsel.']];
+$('mods').innerHTML=MO.map((m,i)=>`<div class="frame mod tilt rv"><span class="id">MODUL ${String(i+1).padStart(2,'0')}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${m[0]}"/></svg><h3>${m[1]}</h3><p>${m[2]}</p></div>`).join('');
+
+/* steps */
+const ST=[['Anfrage','Formular oder WhatsApp, gerne mit ein paar Fotos.'],['Besichtigung','Kostenlos vor Ort, wir messen aus und beraten zu Farben.'],['Offerte in 48 h','Klarer Fixpreis pro Position.'],['Ausführung','Termingerecht, sauber, gemeinsame Abnahme.']];
+$('steps').innerHTML=ST.map((s,i)=>`<div class="step"><i>SCHRITT ${String(i+1).padStart(2,'0')}</i><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+
+/* reviews */
+const RE=[['Sandra K.','vor 2 Wochen','Wohnung in Oerlikon in drei Tagen gestrichen, alles abgedeckt und am Abend aufgeräumt. Der Preis war genau wie in der Offerte.'],['Thomas B.','vor 1 Monat','Unser altes Bad wurde mit Mikrozement fugenlos gemacht, ohne Abbruch. Sieht aus wie neu.'],['Verwaltung Limmat AG','vor 2 Monaten','Zuverlässiger Partner bei Mieterwechseln. Kurzfristige Termine, saubere Rapporte und faire Preise.']];
+$('revs').innerHTML=RE.map(r=>`<div class="frame rev tilt rv"><div class="st">★★★★★</div><p>„${r[2]}“</p><div class="who">${r[0]}<div class="small">${r[1]} · Google</div></div></div>`).join('');
+
+/* dashboard */
+const SS={neu:['NEU','var(--cy)'],bes:['BESICHTIGUNG','var(--am)'],off:['OFFERTE GESENDET','#b9a3ff'],auf:['AUFTRAG','var(--gr)']};
+const D=[['Heute 08:12','Sandra M.','Wohnung streichen','Uster',85,'neu'],['Heute 07:40','R. Keller','Fassade','Dübendorf',210,'neu'],['Gestern','Thomas B.','Bad fugenlos','Küsnacht',14,'bes'],['Gestern','Verwaltung Limmat AG','Mieterwechsel 3.5 Zi.','Zürich',95,'off'],['Mo','Anna F.','Spachteln Q3','Wallisellen',40,'off'],['Fr','M. Bühler','Treppenhaus','Thalwil',120,'auf']];
+let df='all';
+const renderD=()=>{
+ $('dtab').innerHTML=D.filter(d=>df==='all'||d[5]===df).map(d=>`<tr><td class="small">${d[0]}</td><td>${d[1]}</td><td>${d[2]}</td><td>${d[3]}</td><td class="n">${d[4]} m²</td><td><span class="pill" style="--c:${SS[d[5]][1]}">${SS[d[5]][0]}</span></td></tr>`).join('');
+};
+const cnt=k=>D.filter(d=>d[5]===k).length;
+$('kpi').innerHTML=`<div><b class="c-cy" data-n="${cnt('neu')}">${cnt('neu')}</b><span>neu heute</span></div><div><b class="c-am" data-n="${cnt('bes')}">${cnt('bes')}</b><span>Besichtigung</span></div><div><b style="color:#b9a3ff" data-n="${cnt('off')}">${cnt('off')}</b><span>Offerte offen</span></div><div><b class="c-gr" data-n="${D.length}">${D.length}</b><span>diese Woche</span></div>`;
+$('flt').innerHTML=`<button type="button" aria-pressed="true" data-f="all">ALLE [${D.length}]</button>`+Object.keys(SS).map(k=>`<button type="button" aria-pressed="false" data-f="${k}">${SS[k][0]} [${cnt(k)}]</button>`).join('');
+$('flt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;df=b.dataset.f;$('flt').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderD()});
+renderD();
+
+/* faq */
+const FQ=[['Ist die Besichtigung wirklich kostenlos?','Ja. Wir kommen vorbei, messen aus und Sie erhalten innert 48 Stunden eine schriftliche Offerte, ohne Verpflichtung.'],['Wie lange dauert eine 4-Zimmer-Wohnung?','Meist 3 bis 5 Arbeitstage, je nach Zustand der Wände und Anzahl Farben.'],['Müssen wir die Möbel selbst wegräumen?','Nein. Wir rücken Möbel zur Seite und decken alles ab. Wertgegenstände bitte vorher wegstellen.'],['Kann man Mikrozement auf alte Platten auftragen?','Ja, wenn die Platten fest sitzen. So entfällt der Abbruch und das Bad ist in wenigen Tagen fertig.']];
+$('faq').innerHTML=FQ.map((q,i)=>`<details ${i===0?'open':''}><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
+
+/* wizard */
+const WO=['Innen streichen','Fassade','Spachteln / Gipsen','Fugenloses Bad','Tapezieren','Anderes'];
+let step=0,pick=-1;
+$('wopts').innerHTML=WO.map((w,i)=>`<button type="button" aria-pressed="false" data-i="${i}">${w}</button>`).join('');
+const showStep=()=>{$('f').querySelectorAll('.wiz-p').forEach((p,i)=>p.classList.toggle('on',i===step));$('f').querySelectorAll('.wiz-steps i').forEach((b,i)=>b.classList.toggle('on',i<=step));$('wback').style.display=step?'':'none';$('wnext').textContent=step===2?'Anfrage senden':'Weiter';$('ok').classList.remove('show')};
+$('wopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pick=+b.dataset.i;$('wopts').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));step=1;showStep()});
+$('wback').addEventListener('click',()=>{step=Math.max(0,step-1);showStep()});
+$('f').addEventListener('submit',e=>e.preventDefault());
+$('wnext').addEventListener('click',()=>{const ok=$('ok');
+ if(step===0&&pick<0){ok.textContent='Bitte wählen Sie eine Arbeit aus.';ok.classList.add('show');return}
+ if(step<2){step++;showStep();return}
+ const n=$('fname').value.trim(),tel=$('ftel').value.trim();
+ if(!n||!tel){ok.textContent='Bitte Name und Telefon angeben, damit wir Sie erreichen.';ok.classList.add('show');return}
+ D.unshift(['Gerade eben',esc(n),WO[pick],esc($('fplz').value.trim())||'–',+$('farea').value||0,'neu']);renderD();
+ ok.innerHTML=`<b>Danke, ${esc(n)}.</b> Ihre Anfrage „${WO[pick]}“ ist eingegangen. In der Demo erscheint sie oben in der Anfragen-Übersicht. Auf der echten Website kommt sie sofort per WhatsApp und E-Mail beim Betrieb an.`;ok.classList.add('show')});
+document.querySelectorAll('.walink').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();location.hash='offerte';const ok=$('ok');ok.textContent='In der Demo öffnet sich kein Chat. Auf der echten Website startet hier direkt ein WhatsApp-Chat mit dem Betrieb.';ok.classList.add('show')}));
+
+/* boot + animations */
+const boot=$('boot'),bt=$('bt');
+const BL=['> INIT MALEREI-MUSTER.CH','> POSITION ..... <b>Zürich ZH</b>','> EINSATZGEBIET  <b>12 Orte</b>','> PREISRECHNER . <b>online</b>','> TERMINE ...... <b>frei ab Januar</b>','> SYSTEM BEREIT'];
+let started=false;
+function go(){
+ const pts=[...document.querySelectorAll('.pt')],pg=[...document.querySelectorAll('.ping')];
+ pts.forEach((p,i)=>setTimeout(()=>{p.classList.add('on');pg[i].classList.add('on')},RM?0:250+i*160));
+ if(RM)return;
+ document.querySelectorAll('#tele b[data-n]').forEach(b=>{const t=b.textContent,n=+b.dataset.n,from=n>1000?n-40:0,st=performance.now();const f=now=>{const p=Math.min(1,(now-st)/1000);b.textContent=t.replace(String(n),Math.round(from+(n-from)*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+}
+const start=()=>{if(started)return;started=true;boot.classList.add('out');setTimeout(()=>boot.remove(),600);go()};
+if(RM){boot.remove();started=true;go()}else{
+ boot.addEventListener('click',start);
+ let k=0;const nx=()=>{if(started)return;bt.innerHTML=BL.slice(0,k+1).join('\n')+'<span class="cur"></span>';k++;if(k<BL.length)setTimeout(nx,230);else setTimeout(start,600)};nx();
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+if(!RM){
+ /* 3D tilt on pointer */
+ const fine=matchMedia('(pointer:fine)').matches;
+ if(fine){document.querySelectorAll('.tilt').forEach(el=>{
+  el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(6px)`});
+  el.addEventListener('pointerleave',()=>{el.style.transform=''});
+ })}
+ /* radar parallax + progress bar */
+ const sc=$('scope'),pr=$('prog');
+ let tk=false;
+ addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;pr.style.width=(h>0?y/h*100:0)+'%';if(y<900)sc.style.transform=`perspective(900px) rotateX(${Math.min(y/14,30)}deg) translateY(${y*.12}px)`;tk=false})},{passive:true});
+}
+}
+</script>
+</body>
+</html>

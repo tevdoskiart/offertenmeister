@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Malerei Muster Zürich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#f3f1ed);--soft:light-dark(#5e5a55,#b5afa7);--plaster:light-dark(#f2efea,#1c1b19);--line:light-dark(#e2ddd5,#34312d);--card:light-dark(#ffffff,#1b1a18);--red:light-dark(#d4001a,#ff4d57);--petrol:#1f5f63;--petrol2:#174a4d;--wa:#1fa855;--star:#e0a100}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:76px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;letter-spacing:-.025em;line-height:1.05;margin:0}
+h1{font-size:clamp(36px,5.2vw,58px);font-weight:800;text-wrap:balance}
+h2{font-size:clamp(28px,3.6vw,42px);font-weight:800;text-wrap:balance}
+h3{font-size:19px;font-weight:600}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(40px,6vw,88px);padding-inline:max(5vw,16px)}
+.demo{background:var(--ink);color:var(--bg);font-size:13px;text-align:center;padding:7px 16px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;padding:12px max(5vw,16px)}
+.logo{display:flex;align-items:center;gap:10px;font:800 20px "Inter Tight",sans-serif;text-decoration:none;margin-right:auto}
+.logo i{width:30px;height:30px;border-radius:8px;background:conic-gradient(from 200deg,#e9c46a,#c8553d,var(--petrol),#8fb9a8,#e9c46a)}
+.links{display:flex;gap:22px;font-size:15px;font-weight:500}
+.links a{text-decoration:none;padding:8px 0}
+.links a:hover{color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:12px;font:600 16px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;background:var(--plaster);color:var(--ink);transition:transform .15s}
+.btn.main{background:var(--red);color:#fff}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;fill:currentColor;flex:none}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,button:focus-visible,.ba input:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+nav .btn{min-height:42px;padding:0 18px;font-size:15px}
+.hero{position:relative;background:var(--petrol);color:#fff;overflow:hidden;padding-bottom:clamp(48px,6vw,88px)}
+.hero>svg{position:absolute;inset:0;width:100%;height:100%}
+.hgrid{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border-radius:999px;padding:6px 14px;font-size:14px;margin-bottom:20px}
+.pill b{width:8px;height:8px;border-radius:50%;background:#7ee2a8}
+.lead{font-size:18px;opacity:.9;max-width:32em;margin-top:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.gline{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:15px}
+.gline .st{color:#ffd35c;letter-spacing:2px}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;max-width:560px}
+.trust div{border-top:1.5px solid rgba(255,255,255,.35);padding-top:10px;font-size:14px;opacity:.92}
+.trust b{display:block;font:800 26px "Inter Tight",sans-serif;opacity:1}
+.calc{background:var(--card);color:var(--ink);border-radius:20px;padding:26px;display:grid;gap:16px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.calc h3{font-size:21px}
+label{display:grid;gap:6px;font-size:14px;font-weight:600}
+input,select{font:16px Inter,sans-serif;min-height:50px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);width:100%}
+input[type=range]{padding:0;border:0;min-height:30px;accent-color:var(--red)}
+input[type=file]{padding:12px}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;background:var(--plaster);padding:5px;border-radius:12px}
+.seg button{font:600 14px Inter,sans-serif;min-height:42px;border:0;border-radius:9px;background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.res{background:var(--plaster);border-radius:14px;padding:16px 18px}
+.res span{font-size:14px;color:var(--soft)}
+.res b{display:block;font:800 clamp(26px,3vw,36px) "Inter Tight",sans-serif;white-space:nowrap;margin:2px 0}
+.owner h2{font-size:clamp(26px,2.8vw,34px)}
+@media(min-width:981px){.bento .tile:nth-child(n+6){grid-column:span 2}}
+.small{font-size:13px;color:var(--soft)}
+.sub{font-size:16px;color:var(--soft);margin-top:12px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:14px 40px}
+.sec-head p{color:var(--soft);max-width:34em}
+.ba{position:relative;margin-top:30px;border-radius:20px;overflow:hidden;height:clamp(260px,38vw,440px);background:#bdb6ab;user-select:none}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:52px;height:52px;border-radius:50%;background:#fff;color:#141414;display:grid;place-items:center;transform:translate(-50%,-50%);font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.tag{position:absolute;top:16px;padding:6px 12px;border-radius:999px;background:rgba(20,20,20,.7);color:#fff;font-size:14px;font-weight:600;pointer-events:none}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start}
+.tile.big{grid-column:span 2;grid-row:span 2;background:var(--petrol);color:#fff;border:0;align-content:end;min-height:300px;position:relative;overflow:hidden}
+.tile.big svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.tile.big>*{position:relative}
+.tile p{color:var(--soft);font-size:15px}
+.tile.big p{color:#fff;opacity:.9}
+.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center}
+.ico svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+th,td{text-align:left;padding:14px 6px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--soft);font-size:14px}
+.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
+.step{background:var(--card);border-radius:18px;padding:22px;border:1px solid var(--line)}
+.step i{font:normal 800 15px "Inter Tight",sans-serif;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--red);color:#fff;margin-bottom:14px}
+.step p{color:var(--soft);font-size:15px;margin-top:6px}
+.revtop{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-top:28px}
+.revtop .score{font:800 44px "Inter Tight",sans-serif;line-height:1}
+.st{color:var(--star);letter-spacing:2px;font-size:18px}
+.gl{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.gl i{width:22px;height:22px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0)}
+.revtop .btn{margin-left:auto}
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start}
+.rev .who{display:flex;align-items:center;gap:10px;font-weight:600}
+.rev .who span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700}
+.rev p{color:var(--soft);font-size:15px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:18px 36px 18px 0;font-weight:600;font-size:17px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:26px;font-weight:400;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--soft)}
+.form{display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.ok{display:none;background:var(--plaster);border-left:4px solid var(--red);padding:16px;border-radius:10px}
+.ok.show{display:block}
+.contact{display:grid;gap:12px;margin-top:24px}
+.contact div{display:flex;gap:12px;flex-wrap:wrap}
+.contact b{min-width:7em}
+footer{background:var(--ink);color:var(--bg)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font-size:14px}
+footer p{opacity:.75}
+.lang{display:flex;background:var(--plaster);border-radius:10px;padding:3px}
+.lang button{font:600 14px Inter,sans-serif;min-height:36px;min-width:40px;border:0;border-radius:8px;background:transparent;color:var(--ink);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.owner{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:center}
+.owner svg{width:200px;height:200px;border-radius:24px;display:block}
+.facts2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.facts2 div{background:var(--plaster);border-radius:14px;padding:14px;font-size:14px}
+.facts2 b{display:block;font:800 20px "Inter Tight",sans-serif}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{background:var(--plaster);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500}
+.wiz-steps{display:flex;gap:6px}
+.wiz-steps i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.wiz-steps i.on{background:var(--red)}
+.wiz-p{display:none;gap:14px}
+.wiz-p.on{display:grid}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opts button{font:600 15px Inter,sans-serif;min-height:64px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;padding:12px 14px}
+.opts button[aria-pressed=true]{border-color:var(--red);background:color-mix(in srgb,var(--red) 8%,var(--bg))}
+.wnav{display:flex;gap:10px}
+.wnav .btn{flex:1}
+.wafab{position:fixed;right:22px;bottom:22px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .15s}
+.wafab:hover{transform:scale(1.06)}
+.wafab svg{width:32px;height:32px;fill:#fff}
+.mbar{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:980px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.revs{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:800px){.hgrid,.two{grid-template-columns:minmax(0,1fr)}.links{display:none}}
+@media(max-width:600px){.owner{grid-template-columns:minmax(0,1fr)}.owner svg{width:140px;height:140px}.facts2{grid-template-columns:minmax(0,1fr)}.bento,.steps,.row2{grid-template-columns:minmax(0,1fr)}.tile.big{grid-column:auto;grid-row:auto;min-height:240px}.trust b{font-size:21px}.cta .btn{flex:1}nav .btn{display:none}.ba{height:260px}.revtop .btn{margin-left:0;width:100%}.wafab{display:none}.mbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}.mbar .btn{padding:0 8px;font-size:15px}body{padding-bottom:72px}}
+</style>
+</head>
+<body>
+<div class="demo"><span data-t="demo"></span> · <a href="/" style="color:inherit">← Offertenmeister</a></div>
+<nav><div class="wrap">
+  <a class="logo" href="#top"><i></i>Malerei Muster</a>
+  <div class="links"><a href="#vorher" data-t="nBA"></a><a href="#leistungen" data-t="nSvc"></a><a href="#preise" data-t="nPr"></a><a href="#bewertungen" data-t="nRev"></a><a href="#offerte" data-t="nCon"></a></div>
+  <div class="lang" role="group" aria-label="Sprache / Language"><button type="button" aria-pressed="true" data-l="de">DE</button><button type="button" aria-pressed="false" data-l="en">EN</button></div>
+  <a class="btn main" href="#offerte" data-t="quoteFree"></a>
+</div></nav>
+
+<header class="band hero" id="top">
+  <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="lt" x1="0" x2="1"><stop offset="0" stop-color="#2a7479"/><stop offset="1" stop-color="#1f5f63"/></linearGradient></defs>
+    <rect width="1200" height="700" fill="url(#lt)"/>
+    <g opacity=".22" fill="#0f3a3c" id="strokes"></g>
+    <rect x="0" y="660" width="1200" height="40" fill="#174a4d"/>
+  </svg>
+  <div class="wrap hgrid">
+    <div>
+      <span class="pill"><b></b><span data-t="slots"></span></span>
+      <h1 data-t="h1"></h1>
+      <p class="lead" data-t="lead"></p>
+      <div class="cta"><a class="btn main" href="#offerte" data-t="quoteReq"></a><a class="btn ghost" href="#vorher" data-t="seeWork"></a></div>
+      <a class="gline" href="#bewertungen" style="text-decoration:none"><span class="st">★★★★★</span><b>4.9</b><span data-t="gline"></span></a>
+      <div class="trust"><div><b>2013</b><span data-t="tr1"></span></div><div><b>48 h</b><span data-t="tr2"></span></div><div><b data-t="tr3b"></b><span data-t="tr3"></span></div></div>
+    </div>
+    <div class="calc" id="rechner">
+      <h3 data-t="calcH"></h3>
+      <div class="seg" role="group" id="seg"><button type="button" aria-pressed="true" data-c="0" data-t="cat0"></button><button type="button" aria-pressed="false" data-c="1" data-t="cat1"></button><button type="button" aria-pressed="false" data-c="2" data-t="cat2"></button></div>
+      <label for="cwork"><span data-t="work"></span><select id="cwork"></select></label>
+      <label for="carea"><span><span data-t="area"></span>: <span id="careaV">60 m²</span></span><input type="range" id="carea" min="5" max="400" step="5" value="60"></label>
+      <div class="res"><span data-t="guide"></span><b id="cres">–</b><span id="cnote"></span></div>
+      <a class="btn main" href="#offerte" data-t="exact"></a>
+      <p class="small" data-t="demoPr"></p>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="vorher"><div class="wrap">
+  <div class="sec-head"><h2 data-t="baH"></h2><p data-t="baP"></p></div>
+  <div class="ba" id="ba">
+    <svg viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1200" height="440" fill="#bfb8ac"/>
+      <g fill="#a89f91" opacity=".7"><ellipse cx="220" cy="120" rx="120" ry="60"/><ellipse cx="760" cy="80" rx="160" ry="50"/><ellipse cx="980" cy="260" rx="110" ry="70"/></g>
+      <path d="M360 40 L400 120 L380 170 L430 250 M820 180 L860 230 L850 300" stroke="#7d7466" stroke-width="3" fill="none"/>
+      <rect x="520" y="90" width="180" height="230" fill="#d8d2c6" opacity=".6"/>
+      <rect x="0" y="380" width="1200" height="60" fill="#8f7a60"/><rect x="0" y="372" width="1200" height="10" fill="#cfc8bb"/>
+    </svg>
+    <svg class="after" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1200" height="440" fill="#e9e1d2"/>
+      <rect x="0" y="0" width="760" height="372" fill="#2a6f77"/>
+      <rect x="520" y="90" width="180" height="230" rx="4" fill="#f6f1e6"/><rect x="532" y="102" width="156" height="206" fill="#e6c27a"/>
+      <g transform="translate(980 372)"><rect x="-20" y="-170" width="40" height="170" fill="#c8553d"/><circle cy="-200" r="50" fill="#8fb9a8"/></g>
+      <rect x="0" y="380" width="1200" height="60" fill="#b48a5a"/><rect x="0" y="372" width="1200" height="10" fill="#fbf8f2"/>
+    </svg>
+    <span class="tag" style="left:16px" data-t="before"></span><span class="tag" style="right:16px" data-t="after"></span>
+    <div class="bar"></div><div class="knob">↔</div>
+    <input type="range" min="0" max="100" value="50" id="bax" aria-label="Vorher / nachher">
+  </div>
+</div></section>
+
+<section class="band" id="leistungen" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-t="svcH"></h2><p data-t="svcP"></p></div>
+  <div class="bento" id="bento"></div>
+</div></section>
+
+<section class="band" id="preise" style="background:var(--plaster)"><div class="wrap two">
+  <div>
+    <h2 data-t="prH"></h2>
+    <p class="sub" data-t="prP"></p>
+    <div class="step" style="margin-top:24px"><i>✓</i><h3 data-t="fixH"></h3><p data-t="fixP"></p></div>
+  </div>
+  <div><div style="overflow-x:auto"><table><thead><tr><th data-t="work"></th><th class="n" data-t="from"></th></tr></thead><tbody id="ptab"></tbody></table></div><p class="small" style="margin-top:10px" data-t="demoPr"></p></div>
+</div></section>
+
+<section class="band" id="ablauf"><div class="wrap">
+  <h2 data-t="stepsH"></h2>
+  <div class="steps" id="steps"></div>
+</div></section>
+
+<section class="band" id="bewertungen" style="background:var(--plaster)"><div class="wrap">
+  <div class="sec-head"><h2 data-t="revH"></h2><p data-t="revP"></p></div>
+  <div class="revtop">
+    <span class="score">4.9</span>
+    <div><div class="st">★★★★★</div><div class="small" data-t="revCount"></div></div>
+    <span class="gl"><i></i>Google</span>
+    <a class="btn" href="#bewertungen" data-t="revAll"></a>
+  </div>
+  <div class="revs" id="revs"></div>
+</div></section>
+
+<section class="band" id="team"><div class="wrap two">
+  <div class="owner">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" fill="#e9c46a"/><circle cx="100" cy="82" r="38" fill="#c98f6b"/><path d="M62 70 Q100 30 138 70 L138 60 Q100 20 62 60Z" fill="#3d3a36"/><rect x="48" y="58" width="104" height="14" rx="7" fill="#f4f1de"/><path d="M30 200 Q30 130 100 128 Q170 130 170 200Z" fill="#f4f1de"/><path d="M78 132 L100 170 L122 132" fill="#1f5f63"/><circle cx="140" cy="168" r="8" fill="#d4001a"/></svg>
+    <div>
+      <h2 data-t="ownH"></h2>
+      <p class="sub" data-t="ownP"></p>
+    </div>
+  </div>
+  <div>
+    <div class="facts2"><div><b data-t="f1b"></b><span data-t="f1"></span></div><div><b data-t="f2b"></b><span data-t="f2"></span></div><div><b data-t="f3b"></b><span data-t="f3"></span></div></div>
+    <h3 style="margin-top:28px" data-t="areaH"></h3>
+    <div class="chips" id="areas"></div>
+  </div>
+</div></section>
+
+<section class="band" id="fragen" style="background:var(--plaster)"><div class="wrap two">
+  <h2 data-t="faqH"></h2>
+  <div id="faq"></div>
+</div></section>
+
+<section class="band" id="offerte"><div class="wrap two">
+  <div>
+    <h2 data-t="offH"></h2>
+    <p class="sub" data-t="offP"></p>
+    <div class="contact">
+      <div><b data-t="cTel"></b><a href="tel:+41440000000">044 000 00 00</a></div>
+      <div><b>WhatsApp</b><a href="#" class="walink">079 000 00 00</a></div>
+      <div><b data-t="cMail"></b><span>info@malerei-muster.ch</span></div>
+      <div><b data-t="cAdr"></b><span>Musterstrasse 12, 8000 Zürich</span></div>
+      <div><b data-t="cHrs"></b><span data-t="hrs"></span></div>
+    </div>
+    <a class="btn wa walink" href="#" style="margin-top:22px"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg><span data-t="waBtn"></span></a>
+  </div>
+  <form class="calc form" id="f" novalidate style="box-shadow:none;border:1px solid var(--line)">
+    <div class="wiz-steps"><i class="on"></i><i></i><i></i></div>
+    <div class="wiz-p on">
+      <h3 data-t="w1"></h3>
+      <div class="opts" id="wopts"></div>
+    </div>
+    <div class="wiz-p">
+      <h3 data-t="w2"></h3>
+      <div class="row2"><label for="farea"><span data-t="wArea"></span><input id="farea" type="number" inputmode="numeric" min="1" placeholder="80"></label><label for="fplz"><span data-t="wPlz"></span><input id="fplz" placeholder="8000 Zürich"></label></div>
+      <label for="fdate"><span data-t="wDate"></span><input id="fdate" type="month"></label>
+      <label for="ffoto"><span data-t="wFoto"></span><input id="ffoto" type="file" accept="image/*" multiple></label>
+    </div>
+    <div class="wiz-p">
+      <h3 data-t="w3"></h3>
+      <div class="row2"><label for="fname"><span data-t="wName"></span><input id="fname" autocomplete="name"></label><label for="ftel"><span data-t="cTel"></span><input id="ftel" type="tel" autocomplete="tel"></label></div>
+      <label for="fmail"><span data-t="wMail"></span><input id="fmail" type="email" autocomplete="email"></label>
+    </div>
+    <div class="wnav"><button class="btn" type="button" id="wback" style="display:none" data-t="back"></button><button class="btn main" type="button" id="wnext"></button></div>
+    <div class="ok" id="ok" role="status"></div>
+  </form>
+</div></section>
+
+<footer class="band"><div class="wrap">
+  <div><b style="font:800 18px 'Inter Tight',sans-serif">Malerei Muster GmbH</b><p>Musterstrasse 12, 8000 Zürich · 044 000 00 00</p></div>
+  <div><p data-t="legal"></p><p data-t="demoFoot"></p></div>
+</div></footer>
+
+<a class="wafab walink" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg></a>
+<div class="mbar"><a class="btn" href="tel:+41440000000" data-t="call"></a><a class="btn wa walink" href="#">WhatsApp</a><a class="btn main" href="#offerte" data-t="quote"></a></div>
+
+<script>
+{
+const T={
+de:{demo:'Demo-Website mit Beispielinhalten. Betrieb, Preise, Projekte und Bewertungen sind erfunden.',nBA:'Vorher/Nachher',nSvc:'Leistungen',nPr:'Preise',nRev:'Bewertungen',nCon:'Kontakt',quoteFree:'Gratis Offerte',slots:'Freie Termine ab Januar',h1:'Malerarbeiten in Zürich, sauber und zum Fixpreis.',lead:'Innen- und Fassadenanstriche, Spachteln und fugenlose Bäder. Besichtigung kostenlos, Offerte innert 48 Stunden. Wir sprechen Deutsch und Englisch.',quoteReq:'Offerte anfordern',seeWork:'Arbeiten ansehen',gline:'aus 87 Google-Bewertungen',tr1:'im Handwerk',tr2:'bis zur Offerte',tr3b:'5 J.',tr3:'Garantie auf Anstriche',calcH:'Was kostet mein Projekt?',cat0:'Innen',cat1:'Fassade',cat2:'Fugenlos',work:'Arbeit',area:'Fläche',guide:'Richtpreis inkl. Material',exact:'Genaue Offerte in 48 h',demoPr:'Beispielpreise für die Demo, exkl. MwSt.',baH:'Vorher und nachher',baP:'Ziehen Sie den Regler. Auf der echten Website stehen hier Fotos Ihrer eigenen Projekte.',before:'Vorher',after:'Nachher',svcH:'Leistungen',svcP:'Für Wohnungen, Häuser, Verwaltungen und Gewerbe. Wir decken ab, arbeiten sauber und räumen am Abend auf.',prH:'Richtpreise',prP:'Inklusive Material, exklusive MwSt. Den Fixpreis erhalten Sie nach der Besichtigung.',fixH:'Fixpreis pro Position',fixP:'Keine Stundenabrechnung, keine Überraschungen.',from:'ab',stepsH:'In vier Schritten zur neuen Wand',revH:'Das sagen unsere Kunden',revP:'Echte Bewertungen von Google erscheinen hier automatisch. In der Demo sind es Beispiele.',revCount:'87 Bewertungen auf Google',revAll:'Alle Bewertungen ansehen',ownH:'Ein Ansprechpartner von der Besichtigung bis zur Abnahme',ownP:'Max Muster, Inhaber und Malermeister. Er kommt selbst zur Besichtigung und ist bei jedem Projekt auf der Baustelle.',f1b:'Fixpreis',f1:'pro Position, schriftlich',f2b:'Versichert',f2:'Betriebshaftpflicht bis CHF 5 Mio.',f3b:'Sauber',f3:'Abdecken und Reinigung inklusive',areaH:'Einsatzgebiet',faqH:'Häufige Fragen',offH:'Gratis Offerte anfordern',offP:'In 3 kurzen Schritten, unter einer Minute. Wir melden uns am gleichen Arbeitstag.',cTel:'Telefon',cMail:'E-Mail',cAdr:'Adresse',cHrs:'Zeiten',hrs:'Mo–Fr 07:00–17:00',waBtn:'Fotos per WhatsApp schicken',w1:'1. Was dürfen wir für Sie machen?',w2:'2. Wo und wann?',w3:'3. Wie erreichen wir Sie?',wArea:'Fläche ca. (m²)',wPlz:'PLZ / Ort',wDate:'Wunschtermin',wFoto:'Fotos (optional, hilft für die Offerte)',wName:'Name',wMail:'E-Mail (optional)',back:'Zurück',next:'Weiter',send:'Anfrage senden',errPick:'Bitte wählen Sie eine Arbeit aus.',errC:'Bitte Name und Telefon angeben, damit wir Sie erreichen.',thx:(n,p)=>`<b>Danke, ${n}.</b> Anfrage: ${p}. In der Demo wird nichts gesendet. Auf der echten Website kommt sie sofort per WhatsApp und E-Mail beim Betrieb an.`,waDemo:'In der Demo öffnet sich kein Chat. Auf der echten Website startet hier direkt ein WhatsApp-Chat mit dem Betrieb.',legal:'Impressum · Datenschutz',demoFoot:'Demo-Website, alle Angaben sind Beispiele.',call:'Anrufen',quote:'Offerte',perM2:'pro m²',
+ prices:['Wände und Decken streichen, 2 Anstriche','Spachteln Q3 inkl. Schleifen','Tapezieren Vlies','Fassade streichen, ohne Gerüst','Fassade reinigen und grundieren','Mikrozement fugenlos, Wand','Mikrozement fugenlos, Boden','Türe lackieren, beidseitig'],unit:['m²','Stk.'],
+ wo:['Innen streichen','Fassade','Spachteln / Gipsen','Fugenloses Bad','Tapezieren','Anderes'],
+ steps:[['Anfrage','Formular oder WhatsApp, gerne mit ein paar Fotos.'],['Besichtigung','Kostenlos vor Ort, wir messen aus und beraten zu Farben.'],['Offerte in 48 h','Klarer Fixpreis pro Position.'],['Ausführung','Termingerecht, sauber, gemeinsame Abnahme.']],
+ tiles:[['Innenanstriche','Wände, Decken, Treppenhäuser. Auch kurzfristig bei Mieterwechsel.'],['Fassaden','Reinigung, Grundierung, Anstrich, Gerüst inklusive Planung.'],['Spachteln Q3/Q4','Glatte Wände, Risse sauber geschlossen.'],['Fugenlose Bäder','Mikrozement direkt auf alte Platten, ohne Abbruch.'],['Tapezieren','Vlies, Glasfaser, Designtapeten.'],['Lackierarbeiten','Türen, Fenster, Radiatoren, Holz.'],['Verwaltungen','Feste Ansprechperson und schnelle Termine bei Wohnungswechsel.']],
+ revs:[['Sandra K.','vor 2 Wochen','Wohnung in Oerlikon in drei Tagen gestrichen, alles abgedeckt und am Abend aufgeräumt. Der Preis war genau wie in der Offerte.'],['Thomas B.','vor 1 Monat','Unser altes Bad wurde mit Mikrozement fugenlos gemacht, ohne Abbruch. Sieht aus wie neu, wir sind begeistert.'],['Verwaltung Limmat AG','vor 2 Monaten','Zuverlässiger Partner bei Mieterwechseln. Kurzfristige Termine, saubere Rapporte und faire Preise.']],
+ faq:[['Ist die Besichtigung wirklich kostenlos?','Ja. Wir kommen vorbei, messen aus und Sie erhalten innert 48 Stunden eine schriftliche Offerte, ohne Verpflichtung.'],['Wie lange dauert eine 4-Zimmer-Wohnung?','Meist 3 bis 5 Arbeitstage, je nach Zustand der Wände und Anzahl Farben.'],['Müssen wir die Möbel selbst wegräumen?','Nein. Wir rücken Möbel zur Seite und decken alles ab. Wertgegenstände bitte vorher wegstellen.'],['Welche Farben verwenden Sie?','Schweizer Markenfarben, auf Wunsch emissionsarm und für Allergiker geeignet.'],['Kann man Mikrozement auf alte Platten auftragen?','Ja, wenn die Platten fest sitzen. So entfällt der Abbruch und das Bad ist in wenigen Tagen fertig.']]},
+en:{demo:'Demo website with sample content. Business, prices, projects and reviews are made up.',nBA:'Before/After',nSvc:'Services',nPr:'Prices',nRev:'Reviews',nCon:'Contact',quoteFree:'Free quote',slots:'Free slots from January',h1:'Painting in Zurich, clean and at a fixed price.',lead:'Interior and facade painting, smoothing and seamless bathrooms. Free on-site visit, written quote within 48 hours. We speak German and English.',quoteReq:'Request a quote',seeWork:'See our work',gline:'from 87 Google reviews',tr1:'in the trade',tr2:'to your quote',tr3b:'5 yrs',tr3:'warranty on paintwork',calcH:'What will my project cost?',cat0:'Interior',cat1:'Facade',cat2:'Seamless',work:'Job',area:'Area',guide:'Guide price incl. material',exact:'Exact quote in 48 h',demoPr:'Sample prices for the demo, excl. VAT.',baH:'Before and after',baP:'Drag the slider. On the real website you will see photos of your own projects here.',before:'Before',after:'After',svcH:'Services',svcP:'For flats, houses, property managers and businesses. We cover everything, work cleanly and tidy up every evening.',prH:'Guide prices',prP:'Including material, excluding VAT. You get the fixed price after the visit.',fixH:'Fixed price per item',fixP:'No hourly billing, no surprises.',from:'from',stepsH:'Four steps to a new wall',revH:'What our customers say',revP:'Real Google reviews appear here automatically. In the demo they are examples.',revCount:'87 reviews on Google',revAll:'See all reviews',ownH:'One contact from visit to handover',ownP:'Max Muster, owner and master painter. He does the site visit himself and is on site for every project.',f1b:'Fixed price',f1:'per item, in writing',f2b:'Insured',f2:'liability cover up to CHF 5 m',f3b:'Clean',f3:'covering and cleaning included',areaH:'Where we work',faqH:'Frequently asked questions',offH:'Get your free quote',offP:'3 short steps, under a minute. We reply the same working day.',cTel:'Phone',cMail:'Email',cAdr:'Address',cHrs:'Hours',hrs:'Mon–Fri 07:00–17:00',waBtn:'Send photos via WhatsApp',w1:'1. What can we do for you?',w2:'2. Where and when?',w3:'3. How can we reach you?',wArea:'Approx. area (m²)',wPlz:'Postcode / town',wDate:'Preferred date',wFoto:'Photos (optional, helps with the quote)',wName:'Name',wMail:'Email (optional)',back:'Back',next:'Next',send:'Send request',errPick:'Please choose a job.',errC:'Please enter your name and phone so we can reach you.',thx:(n,p)=>`<b>Thank you, ${n}.</b> Request: ${p}. Nothing is sent in the demo. On the real website it reaches the business instantly by WhatsApp and email.`,waDemo:'No chat opens in the demo. On the real website this starts a WhatsApp chat with the business.',legal:'Legal notice · Privacy',demoFoot:'Demo website, all details are examples.',call:'Call',quote:'Quote',perM2:'per m²',
+ prices:['Walls and ceilings, 2 coats','Smoothing Q3 incl. sanding','Wallpapering, non-woven','Facade painting, without scaffold','Facade cleaning and priming','Microcement, seamless wall','Microcement, seamless floor','Door painting, both sides'],unit:['m²','pc'],
+ wo:['Interior painting','Facade','Smoothing / plastering','Seamless bathroom','Wallpapering','Other'],
+ steps:[['Request','Form or WhatsApp, ideally with a few photos.'],['Site visit','Free on site, we measure and advise on colours.'],['Quote in 48 h','Clear fixed price per item.'],['The work','On time, clean, joint handover.']],
+ tiles:[['Interior painting','Walls, ceilings, stairwells. Also at short notice when tenants change.'],['Facades','Cleaning, priming, painting, scaffold planning included.'],['Smoothing Q3/Q4','Smooth walls, cracks neatly closed.'],['Seamless bathrooms','Microcement straight onto old tiles, no demolition.'],['Wallpapering','Non-woven, glass fibre, designer wallpaper.'],['Lacquering','Doors, windows, radiators, wood.'],['Property managers','One fixed contact and quick slots when flats change hands.']],
+ revs:[['Sandra K.','2 weeks ago','Our flat in Oerlikon painted in three days, everything covered and tidied every evening. The price was exactly as quoted.'],['Thomas B.','1 month ago','Our old bathroom was made seamless with microcement, no demolition. Looks brand new, we love it.'],['Limmat Property Ltd','2 months ago','Reliable partner when tenants change. Short-notice slots, clean reports and fair prices.']],
+ faq:[['Is the site visit really free?','Yes. We come by, measure and you get a written quote within 48 hours, with no obligation.'],['How long does a 4-room flat take?','Usually 3 to 5 working days, depending on the walls and number of colours.'],['Do we have to move the furniture?','No. We move furniture aside and cover everything. Please put valuables away beforehand.'],['Which paints do you use?','Swiss brand paints, low-emission and allergy-friendly on request.'],['Can microcement go on old tiles?','Yes, if the tiles are firmly fixed. No demolition, and the bathroom is done in a few days.']]}
+};
+let L='de',cat=0,step=0,pick=-1;
+const $=id=>document.getElementById(id);
+const chf=n=>'CHF '+Math.round(n).toLocaleString('de-CH');
+const P=[[0,24,34,0],[0,32,45,0],[0,30,42,0],[1,38,55,0],[1,14,22,0],[2,170,240,0],[2,160,220,0],[0,220,320,1]];
+const icons=[['M4 20h16M6 16l8-8 4 4-8 8H6z','#1f5f63'],['M3 21V9l9-6 9 6v12M9 21v-6h6v6','#c8553d'],['M4 18l10-10M12 4l8 8-4 4-8-8z','#3d405b'],['M3 7h18M3 12h18M3 17h18','#8a7f72'],['M5 3h14v18H5zM9 3v18','#c99a2e'],['M7 21h10M12 17v4M6 3h12v8a6 6 0 0 1-12 0z','#5f8f7e'],['M4 21V5h10v16M14 9h6v12M8 9h2M8 13h2M8 17h2','#2b2b2b']];
+const avc=['#1f5f63','#c8553d','#3d405b'];
+
+let s=7;const rnd=()=>(s=s*16807%2147483647)/2147483647;
+$('strokes').innerHTML=Array.from({length:14},(_,i)=>`<rect x="${i*90-20+rnd()*30}" y="${-40+rnd()*60}" width="${70+rnd()*30}" height="${600+rnd()*120}" rx="34"/>`).join('');
+$('areas').innerHTML=['Zürich Kreis 1–12','Winterthur','Dietikon','Schlieren','Dübendorf','Wallisellen','Kloten','Uster','Thalwil','Horgen','Küsnacht','Baden AG'].map(a=>`<span>${a}</span>`).join('');
+
+const fill=()=>{const v=$('cwork').value;$('cwork').innerHTML=P.map((p,i)=>p[0]===cat&&!p[3]?`<option value="${i}">${T[L].prices[i]}</option>`:'').join('');if([...$('cwork').options].some(o=>o.value===v))$('cwork').value=v};
+const calc=()=>{const p=P[+$('cwork').value],a=+$('carea').value;$('careaV').textContent=a+' m²';$('cres').textContent=chf(p[1]*a)+'–'+Math.round(p[2]*a).toLocaleString('de-CH');$('cnote').textContent=`${a} m² × ${chf(p[1])}–${chf(p[2])} ${T[L].perM2}`};
+const showStep=()=>{const pg=[...$('f').querySelectorAll('.wiz-p')],br=[...$('f').querySelectorAll('.wiz-steps i')];pg.forEach((p,i)=>p.classList.toggle('on',i===step));br.forEach((b,i)=>b.classList.toggle('on',i<=step));$('wback').style.display=step?'':'none';$('wnext').textContent=step===2?T[L].send:T[L].next;$('ok').classList.remove('show')};
+
+const render=()=>{const t=T[L];
+ document.querySelectorAll('[data-t]').forEach(el=>{const v=t[el.dataset.t];if(typeof v==='string')el.textContent=v});
+ $('ptab').innerHTML=P.map((p,i)=>`<tr><td>${t.prices[i]}</td><td class="n">${chf(p[1])}/${t.unit[p[3]]}</td></tr>`).join('');
+ $('steps').innerHTML=t.steps.map((x,i)=>`<div class="step"><i>${i+1}</i><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
+ $('bento').innerHTML=t.tiles.map((x,i)=>i===0?`<div class="tile big"><svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="#1f5f63"/><rect x="250" y="-20" width="70" height="360" rx="35" fill="#2a7479"/><rect x="330" y="-20" width="70" height="360" rx="35" fill="#174a4d"/></svg><div class="ico" style="background:rgba(255,255,255,.18)"><svg viewBox="0 0 24 24"><path d="${icons[i][0]}"/></svg></div><h3 style="font-size:26px">${x[0]}</h3><p>${x[1]}</p></div>`:`<div class="tile"><div class="ico" style="background:${icons[i][1]}"><svg viewBox="0 0 24 24"><path d="${icons[i][0]}"/></svg></div><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
+ $('revs').innerHTML=t.revs.map((r,i)=>`<div class="rev"><div class="who"><span style="background:${avc[i]}">${r[0][0]}</span><div>${r[0]}<div class="small">${r[1]} · Google</div></div></div><div class="st">★★★★★</div><p>${r[2]}</p></div>`).join('');
+ const op=[...$('faq').querySelectorAll('details')].map(d=>d.open);
+ $('faq').innerHTML=t.faq.map((q,i)=>`<details ${(op.length?op[i]:i===0)?'open':''}><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
+ $('wopts').innerHTML=t.wo.map((w,i)=>`<button type="button" aria-pressed="${i===pick}" data-i="${i}">${w}</button>`).join('');
+ fill();calc();showStep();
+ document.documentElement.lang=L==='en'?'en':'de-CH';
+};
+
+$('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=+b.dataset.c;$('seg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fill();calc()});
+$('cwork').addEventListener('change',calc);$('carea').addEventListener('input',calc);
+const ba=$('ba'),bx=$('bax');const setX=()=>ba.style.setProperty('--x',bx.value+'%');bx.addEventListener('input',setX);setX();
+
+$('wopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pick=+b.dataset.i;$('wopts').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));step=1;showStep()});
+$('wback').addEventListener('click',()=>{step=Math.max(0,step-1);showStep()});
+$('f').addEventListener('submit',e=>e.preventDefault());
+$('wnext').addEventListener('click',()=>{const t=T[L],ok=$('ok');
+ if(step===0&&pick<0){ok.textContent=t.errPick;ok.classList.add('show');return}
+ if(step<2){step++;showStep();return}
+ const n=$('fname').value.trim(),tel=$('ftel').value.trim();
+ if(!n||!tel){ok.textContent=t.errC;ok.classList.add('show');return}
+ ok.innerHTML=t.thx(n.replace(/[<>&"]/g,''),t.wo[pick]);ok.classList.add('show')});
+
+document.querySelectorAll('.walink').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();location.hash='offerte';const ok=$('ok');ok.textContent=T[L].waDemo;ok.classList.add('show')}));
+
+document.querySelector('.lang').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;L=b.dataset.l;document.querySelectorAll('.lang button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
+render();
+}
+</script>
+</body>
+</html>
