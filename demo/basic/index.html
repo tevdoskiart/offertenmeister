@@ -65,7 +65,7 @@ input[type=file]{padding:12px}
 .res span{font-size:14px;color:var(--soft)}
 .res b{display:block;font:800 clamp(26px,3vw,36px) "Inter Tight",sans-serif;white-space:nowrap;margin:2px 0}
 .owner h2{font-size:clamp(26px,2.8vw,34px)}
-@media(min-width:981px){.bento .tile:nth-child(n+6){grid-column:span 2}}
+@media(min-width:981px){.bento .tile:nth-child(n+6){grid-column:span 2}.bento .tile.t3:nth-child(n+6){grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:18px;align-content:center;padding:10px}.bento .tile.t3:nth-child(n+6) .t3d{grid-row:span 2}.bento .tile.t3:nth-child(n+6) h3{align-self:end;padding-inline:0}.bento .tile.t3:nth-child(n+6) p{align-self:start;padding-inline:0}}
 .small{font-size:13px;color:var(--soft)}
 .sub{font-size:16px;color:var(--soft);margin-top:12px}
 .sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:14px 40px}
@@ -86,6 +86,11 @@ input[type=file]{padding:12px}
 .tile.big>*:not(img){z-index:1}
 .tile.big>*{position:relative}
 .tile p{color:var(--soft);font-size:15px}
+.tile.t3{padding:10px 10px 20px}.tile.t3 h3,.tile.t3 p{padding-inline:10px}
+.t3d{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:#F2EFEA;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.tile.t3:hover .t3d{transform:scale(1.04) rotate(-.6deg)}
+@media(prefers-reduced-motion:reduce){.tile.t3:hover .t3d{transform:none}}
+.tile.t3{overflow:hidden}
 .tile.big p{color:#fff;opacity:.9}
 .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center}
 .ico svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -327,7 +332,7 @@ const render=()=>{const t=T[L];
  document.querySelectorAll('[data-t]').forEach(el=>{const v=t[el.dataset.t];if(typeof v==='string')el.textContent=v});
  $('ptab').innerHTML=P.map((p,i)=>`<tr><td>${t.prices[i]}</td><td class="n">${chf(p[1])}/${t.unit[p[3]]}</td></tr>`).join('');
  $('steps').innerHTML=t.steps.map((x,i)=>`<div class="step"><i>${i+1}</i><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
- $('bento').innerHTML=t.tiles.map((x,i)=>i===0?`<div class="tile big"><img class="bg" src="img/handwerk.webp" alt="" loading="lazy"><div class="ico" style="background:rgba(255,255,255,.18)"><svg viewBox="0 0 24 24"><path d="${icons[i][0]}"/></svg></div><h3 style="font-size:26px">${x[0]}</h3><p>${x[1]}</p></div>`:`<div class="tile"><div class="ico" style="background:${icons[i][1]}"><svg viewBox="0 0 24 24"><path d="${icons[i][0]}"/></svg></div><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
+ $('bento').innerHTML=t.tiles.map((x,i)=>i===0?`<div class="tile big"><img class="bg" src="img/handwerk.webp" alt="" loading="lazy"><div class="ico" style="background:rgba(255,255,255,.18)"><svg viewBox="0 0 24 24"><path d="${icons[i][0]}"/></svg></div><h3 style="font-size:26px">${x[0]}</h3><p>${x[1]}</p></div>`:`<div class="tile t3"><img class="t3d" src="img/s${i}.webp" width="536" height="404" alt="" loading="lazy"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
  $('revs').innerHTML=t.revs.map((r,i)=>`<div class="rev"><div class="who"><span style="background:${avc[i]}">${r[0][0]}</span><div>${r[0]}<div class="small">${r[1]} · Google</div></div></div><div class="st">★★★★★</div><p>${r[2]}</p></div>`).join('');
  const op=[...$('faq').querySelectorAll('details')].map(d=>d.open);
  $('faq').innerHTML=t.faq.map((q,i)=>`<details ${(op.length?op[i]:i===0)?'open':''}><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('');
