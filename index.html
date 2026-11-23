@@ -164,7 +164,9 @@ details p{padding:0 48px 22px 0;color:var(--text-2)}
 .kontakt{background:var(--rot);color:var(--weiss);overflow:hidden}
 .kontakt .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:center}
 .kontakt-bild{align-self:center}
-.kontakt-bild img{width:100%;max-width:460px;border-radius:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.kontakt-bild img{width:100%;max-width:460px;height:auto;display:block;border-radius:28px;box-shadow:0 30px 70px -28px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.18);animation:kontaktSchweben 6s ease-in-out infinite}
+@keyframes kontaktSchweben{0%,100%{translate:0 0;scale:1}50%{translate:0 -10px;scale:1.015}}
+@media (prefers-reduced-motion:reduce){.kontakt-bild img{animation:none}}
 .kontakt h2{color:var(--weiss)}
 .kontakt .text > p{color:#FCE9E7}
 .direkt{font-size:16px;color:#FCE9E7}
@@ -336,7 +338,7 @@ input:focus,select:focus{border-color:var(--graphit)}
 </div></section>
 
 <section class="teil kontakt" id="kontakt"><div class="wrap">
-  <div class="kontakt-bild"><img src="/img/kontakt.webp" width="800" height="1000" alt="Offertenmeister-Maler winkt und hält ein Klemmbrett mit Häkchen" loading="lazy"></div>
+  <div class="kontakt-bild"><img src="/img/kontakt-whatsapp.webp" width="800" height="1062" alt="Offertenmeister-Maler läuft mit einem Handy nach vorne, auf dem eine neue Anfrage per WhatsApp ankommt" loading="lazy"></div>
   <div class="text" style="max-width:none">
     <h2>Bereit für mehr Anfragen?</h2>
     <p>Schreiben Sie mir kurz. Ich schaue Ihre heutige Website an und schicke Ihnen einen kostenlosen Website-Check.</p>
