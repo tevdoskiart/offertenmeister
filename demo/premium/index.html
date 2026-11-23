@@ -49,7 +49,17 @@ a{color:inherit}
 .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
 .top .btn{min-height:40px;padding:0 16px;font-size:13px}
 .btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--am);outline-offset:2px}
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;position:relative}
+.hero{display:grid;grid-template-columns:minmax(0,560px);align-items:center;position:relative;z-index:2;min-height:clamp(520px,44vw,680px)}
+.hero-3d{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-3d img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;object-position:right center;transform:translate3d(var(--px,0),var(--py,0),0);transition:transform .35s ease-out}
+.hero-3d::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,9,11,.96) 0%,rgba(5,9,11,.82) 34%,rgba(5,9,11,.2) 62%,rgba(5,9,11,0) 100%),linear-gradient(0deg,rgba(5,9,11,.9) 0%,rgba(5,9,11,0) 22%)}
+.mark{position:absolute;z-index:1;display:flex;align-items:flex-start;gap:8px;font:600 11px/1.35 "JetBrains Mono",monospace;color:var(--gr);transform:translate(-14px,-14px);pointer-events:none}
+.mark i{width:28px;height:28px;border:2px solid currentColor;border-radius:50%;position:relative;flex:none;box-shadow:0 0 14px currentColor}
+.mark i::after{content:"";position:absolute;inset:8px;background:currentColor;border-radius:50%}
+.mark b{background:rgba(5,9,11,.78);border:1px solid currentColor;padding:4px 8px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
+.mark em{font-style:normal;color:var(--ink)}
+.mark.am{color:var(--am)}
+@media(prefers-reduced-motion:no-preference){.mark i{animation:puls 2s ease-out infinite}@keyframes puls{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 14px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}.hero-3d img{animation:drift 18s ease-in-out infinite alternate}@keyframes drift{from{scale:1}to{scale:1.06}}}
 header.band{position:relative;overflow:hidden}
 .scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cy),transparent);box-shadow:0 0 18px var(--cy);top:0;opacity:.5;animation:scan 6s linear infinite;pointer-events:none}
 @keyframes scan{from{top:0}to{top:100%}}
@@ -87,7 +97,7 @@ th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)
 .n{text-align:right;white-space:nowrap;font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--cy)}
 /* before after */
 .ba{position:relative;height:clamp(260px,40vw,460px);user-select:none;overflow:hidden;border:1px solid var(--line)}
-.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ba .after{clip-path:inset(0 0 0 var(--x,50%))}
 .ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--cy);box-shadow:0 0 16px var(--cy);transform:translateX(-50%);pointer-events:none}
 .ba .knob{position:absolute;top:50%;left:var(--x,50%);width:54px;height:54px;border:2px solid var(--cy);background:rgba(5,9,11,.85);color:var(--cy);display:grid;place-items:center;transform:translate(-50%,-50%) rotate(45deg);pointer-events:none}
@@ -176,7 +186,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 @keyframes shine{40%,100%{transform:translateX(100%)}}
 .prog{position:fixed;top:0;left:0;height:2px;background:var(--cy);box-shadow:0 0 10px var(--cy);z-index:30;width:0}
 @media(max-width:980px){.mods,.revs{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:860px){.hero,.two{grid-template-columns:minmax(0,1fr)}.scope{max-width:320px;margin:0 auto}.links{display:none}.tele{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.two{grid-template-columns:minmax(0,1fr)}.hero{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:min(56vw,360px)}.hero-3d img{object-position:78% center}.hero-3d::after{background:linear-gradient(0deg,rgba(5,9,11,1) 42%,rgba(5,9,11,.2) 75%,rgba(5,9,11,0) 100%)}.mark.am{display:none}.mark{top:24%!important;left:34%!important}.scope{max-width:320px;margin:0 auto}.links{display:none}.tele{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.mods,.revs,.steps,.row2,.opts{grid-template-columns:minmax(0,1fr)}.top .btn{display:none}.cta .btn{flex:1;padding:0 10px;font-size:13px;white-space:nowrap}.status span:nth-child(n+3){display:none}.mbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,9,11,.96);border-top:1px solid var(--line)}.mbar .btn{padding:0 6px;font-size:13px}body{padding-bottom:72px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}#boot,.scanline{display:none}.sweep,.rec::before,.cur::after{animation:none}.js .rv,.js .pt{opacity:1;transform:none}.pt.on,.ping.on{animation:none}.js .frame.rv::before,.js .frame.rv::after{transform:none;opacity:1}.btn.go::after{display:none}.tilt,.scope{transform:none!important}}
 </style>
@@ -193,7 +203,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 </div></div>
 <div class="status"><span class="rec">LIVE</span><span>POS <b>47.37N 8.54E</b> Zürich</span><span>TERMINE <b>frei ab Januar</b></span><span>OFFERTE <b>innert 48 h</b></span></div>
 
-<header class="band" id="top"><div class="scanline" aria-hidden="true"></div><div class="wrap hero">
+<header class="band" id="top"><div class="hero-3d" id="h3d" aria-hidden="true">
+    <img src="img/hero-3d.webp" width="1344" height="752" alt="">
+    <span class="mark" style="left:73%;top:40%"><i></i><b>ZIEL 01 · WOHNZIMMER<br><em>Anstrich 92 %</em></b></span>
+    <span class="mark am" style="left:56%;top:17%"><i></i><b>ZIEL 02 · KÜCHE<br><em>Offerte bereit</em></b></span>
+  </div>
+  <div class="scanline" aria-hidden="true"></div><div class="wrap hero">
   <div>
     <span class="lbl">// Malerbetrieb · Zürich und Umgebung</span>
     <h1 style="margin-top:14px">Malerarbeiten in Zürich. <span class="c-cy">Sauber.</span> Zum <span class="c-gr">Fixpreis.</span></h1>
@@ -206,19 +221,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
       <div><b class="c-cy" data-n="5">5 J.</b><span>Garantie</span></div>
     </div>
   </div>
-  <figure class="scope" id="scope" style="margin:0">
-    <svg viewBox="0 0 440 440" role="img" aria-label="Einsatzgebiet: Zürich und Umgebung">
-      <defs><radialGradient id="rg"><stop offset="0" stop-color="#3df5e0" stop-opacity=".18"/><stop offset="1" stop-color="#3df5e0" stop-opacity="0"/></radialGradient>
-      <linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#3df5e0" stop-opacity="0"/><stop offset="1" stop-color="#3df5e0" stop-opacity=".45"/></linearGradient></defs>
-      <circle cx="220" cy="220" r="200" fill="url(#rg)" stroke="#3df5e0" stroke-opacity=".5"/>
-      <g fill="none" stroke="#3df5e0" stroke-opacity=".22"><circle cx="220" cy="220" r="150"/><circle cx="220" cy="220" r="100"/><circle cx="220" cy="220" r="50"/><path d="M20 220H420M220 20V420"/></g>
-      <g stroke="#3df5e0" stroke-width="2"><path d="M220 0v30M220 410v30M0 220h30M410 220h30"/></g>
-      <path class="sweep" d="M220 220 L420 220 A200 200 0 0 0 361 79 Z" fill="url(#sg)"/>
-      <g id="towns" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600"></g>
-      <g fill="none" stroke="#7dff9a" stroke-width="2"><path d="M205 205h-8v8M235 205h8v8M205 235h-8v-8M235 235h8v-8"/></g>
-    </svg>
-    <figcaption>EINSATZGEBIET · 12 ORTE ERFASST</figcaption>
-  </figure>
+  
 </div></header>
 
 <section class="band" id="rechner" style="padding-top:0"><div class="wrap two">
@@ -241,8 +244,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 <section class="band" id="vorher" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv"><div><span class="lbl">// Galerie</span><h2 style="margin-top:8px">Vorher und nachher</h2></div><p>Regler ziehen. Auf Ihrer echten Website stehen hier Fotos Ihrer eigenen Projekte.</p></div>
   <div class="ba rv" id="ba">
-    <svg viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="baB"></svg>
-    <svg class="after" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="baA"></svg>
+    <img id="baB" src="img/wohnzimmer-vorher.webp" width="1072" height="600" alt="">
+    <img id="baA" class="after" src="img/wohnzimmer-nachher.webp" width="1072" height="600" alt="">
     <span class="tag" style="left:14px;--c:var(--rd)">Vorher</span><span class="tag" style="right:14px;--c:var(--gr)">Nachher</span>
     <div class="bar"></div><div class="knob"><span>↔</span></div>
     <input type="range" min="0" max="100" value="50" id="bax" aria-label="Vorher / nachher vergleichen">
@@ -292,6 +295,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
       <div><b>Adresse</b><span>Musterstrasse 12, 8000 Zürich</span></div>
       <div><b>Zeiten</b><span>Mo–Fr 07:00–17:00</span></div>
     </div>
+    <figure class="scope" id="scope" style="margin:28px 0 0;max-width:360px;margin-left:0">
+    <svg viewBox="0 0 440 440" role="img" aria-label="Einsatzgebiet: Zürich und Umgebung">
+      <defs><radialGradient id="rg"><stop offset="0" stop-color="#3df5e0" stop-opacity=".18"/><stop offset="1" stop-color="#3df5e0" stop-opacity="0"/></radialGradient>
+      <linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#3df5e0" stop-opacity="0"/><stop offset="1" stop-color="#3df5e0" stop-opacity=".45"/></linearGradient></defs>
+      <circle cx="220" cy="220" r="200" fill="url(#rg)" stroke="#3df5e0" stroke-opacity=".5"/>
+      <g fill="none" stroke="#3df5e0" stroke-opacity=".22"><circle cx="220" cy="220" r="150"/><circle cx="220" cy="220" r="100"/><circle cx="220" cy="220" r="50"/><path d="M20 220H420M220 20V420"/></g>
+      <g stroke="#3df5e0" stroke-width="2"><path d="M220 0v30M220 410v30M0 220h30M410 220h30"/></g>
+      <path class="sweep" d="M220 220 L420 220 A200 200 0 0 0 361 79 Z" fill="url(#sg)"/>
+      <g id="towns" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600"></g>
+      <g fill="none" stroke="#7dff9a" stroke-width="2"><path d="M205 205h-8v8M235 205h8v8M205 235h-8v-8M235 235h8v-8"/></g>
+    </svg>
+    <figcaption>EINSATZGEBIET · 12 ORTE ERFASST</figcaption>
+  </figure>
     <div class="chips" id="areas"></div>
     <a class="btn wa walink" href="#" style="margin-top:22px"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Fotos per WhatsApp schicken</a>
   </div>
@@ -342,16 +358,9 @@ $('cwork').addEventListener('change',calc);$('carea').addEventListener('input',c
 fill();calc();
 
 /* before / after */
-const BA=[
- ['<rect width="1200" height="440" fill="#bfb8ac"/><g fill="#a89f91" opacity=".7"><ellipse cx="220" cy="120" rx="120" ry="60"/><ellipse cx="760" cy="80" rx="160" ry="50"/><ellipse cx="980" cy="260" rx="110" ry="70"/></g><path d="M360 40 L400 120 L380 170 L430 250 M820 180 L860 230 L850 300" stroke="#7d7466" stroke-width="3" fill="none"/><rect x="520" y="90" width="180" height="230" fill="#d8d2c6" opacity=".6"/><rect y="380" width="1200" height="60" fill="#8f7a60"/>',
-  '<rect width="1200" height="440" fill="#e9e1d2"/><rect width="760" height="372" fill="#2a6f77"/><rect x="520" y="90" width="180" height="230" fill="#f6f1e6"/><rect x="532" y="102" width="156" height="206" fill="#e6c27a"/><g transform="translate(980 372)"><rect x="-20" y="-170" width="40" height="170" fill="#c8553d"/><circle cy="-200" r="50" fill="#8fb9a8"/></g><rect y="380" width="1200" height="60" fill="#b48a5a"/><rect y="372" width="1200" height="10" fill="#fbf8f2"/>'],
- ['<rect width="1200" height="440" fill="#9fb4c2"/><rect x="200" y="60" width="800" height="380" fill="#a69c8c"/><g fill="#8a806f" opacity=".8"><rect x="260" y="120" width="40" height="300"/><rect x="560" y="80" width="30" height="340"/><rect x="820" y="140" width="50" height="280"/></g><g fill="#4b4a47"><rect x="290" y="140" width="110" height="120"/><rect x="545" y="140" width="110" height="120"/><rect x="800" y="140" width="110" height="120"/></g>',
-  '<rect width="1200" height="440" fill="#b7d4e6"/><rect x="200" y="60" width="800" height="380" fill="#f1e7d3"/><g fill="#2d4f5c"><rect x="290" y="140" width="110" height="120"/><rect x="545" y="140" width="110" height="120"/><rect x="800" y="140" width="110" height="120"/></g><g fill="#fbf8f2"><rect x="282" y="132" width="126" height="8"/><rect x="537" y="132" width="126" height="8"/><rect x="792" y="132" width="126" height="8"/></g><rect x="200" y="420" width="800" height="20" fill="#c8553d"/>'],
- ['<rect width="1200" height="440" fill="#d9d6cf"/><g stroke="#b5b0a6" stroke-width="3"><path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200M0 300H1200M0 360H1200"/><path d="M100 0V440M200 0V440M300 0V440M400 0V440M500 0V440M600 0V440M700 0V440M800 0V440M900 0V440M1000 0V440M1100 0V440"/></g><rect x="420" y="200" width="360" height="160" fill="#efece6"/>',
-  '<rect width="1200" height="440" fill="#c9c2b5"/><rect width="1200" height="440" fill="#b9b1a2" opacity=".35"/><rect x="420" y="200" width="360" height="160" rx="10" fill="#f6f3ee"/><rect x="560" y="120" width="80" height="12" fill="#3a3a3a"/><circle cx="600" cy="150" r="10" fill="#3a3a3a"/>']
-];
+const BA=[['img/wohnzimmer-vorher.webp','img/wohnzimmer-nachher.webp'],['img/fassade-vorher.webp','img/fassade-nachher.webp'],['img/bad-vorher.webp','img/bad-nachher.webp']];
 const ba=$('ba'),bx=$('bax');
-const setP=i=>{$('baB').innerHTML=BA[i][0];$('baA').innerHTML=BA[i][1]};
+const setP=i=>{$('baB').src=BA[i][0];$('baA').src=BA[i][1]};
 const setX=()=>ba.style.setProperty('--x',bx.value+'%');
 bx.addEventListener('input',setX);setX();setP(0);
 $('thumbs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$('thumbs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));setP(+b.dataset.p)});
@@ -427,10 +436,11 @@ if(!RM){
   el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(6px)`});
   el.addEventListener('pointerleave',()=>{el.style.transform=''});
  })}
- /* radar parallax + progress bar */
- const sc=$('scope'),pr=$('prog');
+ /* 3D hero: pointer parallax + scroll depth, progress bar */
+ const hi=$('h3d'),pr=$('prog');
+ if(fine)$('top').addEventListener('pointermove',e=>{const r=hi.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hi.style.setProperty('--px',(-x*22)+'px');hi.style.setProperty('--py',(-y*14)+'px')});
  let tk=false;
- addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;pr.style.width=(h>0?y/h*100:0)+'%';if(y<900)sc.style.transform=`perspective(900px) rotateX(${Math.min(y/14,30)}deg) translateY(${y*.12}px)`;tk=false})},{passive:true});
+ addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;pr.style.width=(h>0?y/h*100:0)+'%';if(y<900)hi.style.setProperty('--py',(y*.18)+'px');tk=false})},{passive:true});
 }
 }
 </script>
