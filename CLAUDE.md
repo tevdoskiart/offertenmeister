@@ -6,7 +6,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 
 ## Aufbau
 - Statische Seite auf GitHub Pages, Repo `tevdoskiart/offertenmeister`, Branch `main`, Domain über `CNAME`.
-- `index.html` = Startseite (CSS und JS stehen in der Datei). `404.html` = eigene Fehlerseite.
+- `index.html` = Startseite DE (CSS und JS stehen in der Datei). `en/index.html` = englische Version, gleicher Aufbau; Änderungen immer in beiden Sprachen machen. `404.html` = eigene Fehlerseite.
 - `demo/basic/` (hell, Preisrechner) und `demo/premium/` (dunkel, DRONE-HUD, 3D). Beide `noindex`, in robots.txt gesperrt.
 - `img/` Bilder als WebP, `fonts/` Schriften lokal (keine Google Fonts, kein Tracking).
 
@@ -17,8 +17,10 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Bewegung sparsam und immer mit `prefers-reduced-motion` abschaltbar.
 
 ## Preise (überall gleich halten: Preiskarten, FAQ, Schema)
-- Basic: CHF 990 Start + CHF 190 pro Monat, oder CHF 1'990 einmalig.
-- Premium: CHF 1'490 Start + CHF 290 pro Monat, oder CHF 2'990 einmalig.
+- Basic: CHF 490 Start + CHF 190 pro Monat, oder CHF 1'990 einmalig.
+- Premium: CHF 790 Start + CHF 290 pro Monat, oder CHF 2'990 einmalig.
+- Einmalig: erstes Jahr inklusive, danach CHF 390 pro Jahr.
+- Social Media: Start CHF 390/Mt., Plus CHF 690/Mt., Werbung CHF 350/Mt. (+ Budget direkt an Meta), Kombi Plus + Werbung CHF 990/Mt. Einrichtung CHF 290 (Werbung CHF 390), für Website-Kunden gratis. Monatlich kündbar.
 - Kostenloser Entwurf zuerst, 50 % bei Zusage, 50 % bei Übergabe.
 
 ## Regeln für Änderungen

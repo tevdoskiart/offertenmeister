@@ -6,6 +6,9 @@
 <title>Offertenmeister – Websites, die Malerbetrieben Anfragen bringen</title>
 <meta name="description" content="Websites für Malerbetriebe in der Deutschschweiz: Preisrechner, Google-Profil und Anfragen per WhatsApp. Kostenloser Entwurf zuerst.">
 <link rel="canonical" href="https://offertenmeister.ch/">
+<link rel="alternate" hreflang="de-CH" href="https://offertenmeister.ch/">
+<link rel="alternate" hreflang="en" href="https://offertenmeister.ch/en/">
+<link rel="alternate" hreflang="x-default" href="https://offertenmeister.ch/">
 <meta property="og:title" content="Offertenmeister – Mehr Offerten für Malerbetriebe">
 <meta property="og:description" content="Website, Google-Profil und Anfragen per WhatsApp aus einer Hand. Kostenloser Entwurf zuerst.">
 <meta property="og:url" content="https://offertenmeister.ch/">
@@ -17,7 +20,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="/img/hero-3d-maler.webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Offertenmeister","url":"https://offertenmeister.ch/","logo":"https://offertenmeister.ch/img/logo.webp","description":"Websites mit Preisrechner und Anfrage-System für Malerbetriebe in der Deutschschweiz.","areaServed":"CH","founder":{"@type":"Person","name":"Mihajlo Tevdoski"},"telephone":"+38978338208","email":"m.tevdoski@gmail.com"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Offertenmeister","url":"https://offertenmeister.ch/","logo":"https://offertenmeister.ch/img/logo.webp","description":"Websites mit Preisrechner und Anfrage-System für Malerbetriebe in der Deutschschweiz.","areaServed":"CH","founder":{"@type":"Person","name":"Mihajlo Tevdoski"},"telephone":"+38978338208","email":"info@offertenmeister.ch"}</script>
 <style>
 @font-face{font-family:Archivo;src:url(/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap}
 :root{
@@ -57,7 +60,9 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .menu{display:flex;align-items:center;gap:28px;font-weight:600;font-size:15px}
 .menu a{text-decoration:none;padding:10px 0}
 .menu a:not(.btn):hover{color:var(--rot)}
-.menu .btn{min-height:46px;padding:0 22px;font-size:15px}
+.menu .btn{min-height:46px;padding:0 22px;font-size:15px;white-space:nowrap}
+.menu .sprache{display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:0 10px;border:2px solid var(--beton);border-radius:999px;font-size:14px;font-weight:700}
+.menu .sprache:hover{border-color:var(--graphit)}
 
 /* hero */
 .hero{position:relative;background:var(--putz);overflow:hidden}
@@ -145,6 +150,26 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .bedingungen{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--text-2);font-size:16px}
 .bedingungen b{color:var(--rot)}
 
+/* social */
+.sozial{background:var(--graphit);color:var(--weiss)}
+.sozial h2,.sozial h3{color:var(--weiss)}
+.sozial .split{align-items:start}
+.sozial .bild img{border-radius:24px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+.sozial .text{max-width:none}
+.sozial .text > p{color:#D9D1C7}
+.s-karten{list-style:none;margin:4px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.s-karten li{background:#3A342F;border-radius:20px;padding:20px 22px;display:grid;gap:6px;align-content:start}
+.s-karten li.top{background:var(--rot)}
+.s-karten .s-preis{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:850;font-size:30px;line-height:1.05;letter-spacing:-.015em}
+.s-karten .s-preis small{display:block;margin-top:4px;font:500 14px Archivo,sans-serif;font-stretch:100%;font-variation-settings:"wdth" 100;letter-spacing:0;opacity:.8}
+.s-karten p.s-preis{color:var(--weiss)}
+.s-karten p{color:#D9D1C7;font-size:15px}
+.s-karten li.top p{color:#FCE9E7}
+.s-punkte{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px;color:#D9D1C7}
+.s-punkte li{padding-left:28px;position:relative}
+.s-punkte li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:3px solid var(--rot);border-bottom:3px solid var(--rot);transform:rotate(-45deg)}
+.sozial .btn{justify-self:start}
+
 /* faq */
 .faq-kopf{display:grid;gap:28px}
 .faq-bild{border-radius:28px;overflow:hidden;box-shadow:0 24px 50px -28px rgba(43,39,35,.45)}
@@ -199,6 +224,7 @@ input:focus,select:focus{border-color:var(--graphit)}
   .split,.faq,.kontakt .wrap{grid-template-columns:minmax(0,1fr)}
   .split.umgekehrt .bild{order:0}
   .pakete,.demos{grid-template-columns:minmax(0,1fr)}
+  .sozial .bild{max-width:480px}
   .kontakt-bild{order:2;justify-self:center;max-width:340px}
   .fassade .karte{margin:16px 0 0;max-width:none;grid-template-columns:minmax(0,1fr)}
   .fassade img{border-radius:20px}
@@ -209,24 +235,32 @@ input:focus,select:focus{border-color:var(--graphit)}
   .hero-text{max-width:none;padding-block:36px 48px}
 }
 @media(max-width:640px){
-  .menu a:not(.btn){display:none}
+  .menu a:not(.btn):not(.sprache){display:none}
+  .menu{gap:10px}
+  .s-karten{grid-template-columns:minmax(0,1fr)}
   .logo img{height:46px}
   .zwei{grid-template-columns:minmax(0,1fr)}
   .recht{grid-template-columns:minmax(0,1fr)}
   .cta .btn{flex:1 1 100%}
   details p{padding-right:0}
 }
+@media(max-width:420px){
+  .logo img{height:40px}
+  .menu .btn{padding:0 16px;font-size:14px}
+  .menu .sprache{min-width:40px;min-height:40px;padding:0 8px}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie lange dauert es, bis meine Seite online ist?", "acceptedAnswer": {"@type": "Answer", "text": "In der Regel 7 Tage, nachdem Sie Fotos, Preise und Ihre Orte geschickt haben."}}, {"@type": "Question", "name": "Muss ich mich um Technik kümmern?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Hosting, Updates und Einrichtung übernehme ich. Änderungen schicken Sie per WhatsApp."}}, {"@type": "Question", "name": "Abo oder einmalig – was ist der Unterschied?", "acceptedAnswer": {"@type": "Answer", "text": "Abo: Startbetrag und danach monatlich (Basic CHF 990 + CHF 190 pro Monat, Premium CHF 1'490 + CHF 290 pro Monat), monatlich kündbar, alle Änderungen inklusive. Einmalig: CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive."}}, {"@type": "Question", "name": "Kann ich meine bisherige Adresse behalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Ihre Domain bleibt Ihre. Alte Seiten werden auf die neuen weitergeleitet, damit nichts verloren geht."}}, {"@type": "Question", "name": "Gibt es das auch für andere Handwerker?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Das System funktioniert auch für Gipser, Elektriker, Sanitär und weitere Gewerbe."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie lange dauert es, bis meine Seite online ist?", "acceptedAnswer": {"@type": "Answer", "text": "In der Regel 7 Tage, nachdem Sie Fotos, Preise und Ihre Orte geschickt haben."}}, {"@type": "Question", "name": "Muss ich mich um Technik kümmern?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Hosting, Updates und Einrichtung übernehme ich. Änderungen schicken Sie per WhatsApp."}}, {"@type": "Question", "name": "Abo oder einmalig – was ist der Unterschied?", "acceptedAnswer": {"@type": "Answer", "text": "Abo: Startbetrag und danach monatlich (Basic CHF 490 + CHF 190 pro Monat, Premium CHF 790 + CHF 290 pro Monat), monatlich kündbar, alle Änderungen inklusive. Einmalig: CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive, danach CHF 390 pro Jahr für Hosting, Domain und kleine Änderungen."}}, {"@type": "Question", "name": "Was kostet Social Media?", "acceptedAnswer": {"@type": "Answer", "text": "Social Start CHF 390 pro Monat (8 Beiträge und 4 Stories), Social Plus CHF 690 pro Monat, Werbung in Ihrer Region CHF 350 pro Monat plus Werbebudget direkt an Meta. Einrichtung einmalig CHF 290 (Werbung CHF 390), für Offertenmeister-Kunden gratis. Monatlich kündbar."}}, {"@type": "Question", "name": "Kann ich meine bisherige Adresse behalten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Ihre Domain bleibt Ihre. Alte Seiten werden auf die neuen weitergeleitet, damit nichts verloren geht."}}, {"@type": "Question", "name": "Gibt es das auch für andere Handwerker?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Das System funktioniert auch für Gipser, Elektriker, Sanitär und weitere Gewerbe."}}]}</script>
 </head>
 <body>
 
 <header class="kopf"><div class="wrap">
   <a class="logo" href="#top" aria-label="Offertenmeister, zur Startseite"><img src="/img/logo.webp" width="536" height="146" alt="Offertenmeister – Websites für Malerbetriebe"></a>
   <nav class="menu" aria-label="Hauptmenü">
-    <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#demos">Demos</a><a href="#pakete">Preise</a>
+    <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#demos">Demos</a><a href="#pakete">Preise</a><a href="#social">Social Media</a>
+    <a class="sprache" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
     <a class="btn btn-rot" href="#kontakt">Gratis Entwurf</a>
   </nav>
 </div></header>
@@ -312,7 +346,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
     <article class="paket">
       <div class="paket-bild"><img src="/img/paket-basic.webp" width="1072" height="600" alt="Maler mit Laptop, Preisrechner, WhatsApp-Anfrage und Google-Standort" loading="lazy"></div>
       <div><h3>Basic</h3><p class="klein">Solide Präsenz für kleine Betriebe.</p></div>
-      <div><p class="preis"><span data-abo="CHF 190" data-kauf="CHF 1'990">CHF 190</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 990 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 990 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
+      <div><p class="preis"><span data-abo="CHF 190" data-kauf="CHF 1'990">CHF 190</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 490 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive, danach CHF 390 pro Jahr">plus CHF 490 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
       <ul><li>Website mit Preisrechner</li><li>Google-Profil einrichten</li><li>Anfrage-Formular mit Foto-Upload, direkt auf WhatsApp</li><li>Hosting, Änderungen und Support</li></ul>
       <a class="btn" href="#kontakt" data-plan="Basic">Basic anfragen</a>
     </article>
@@ -320,7 +354,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
       <span class="badge">Empfohlen</span>
       <div class="paket-bild"><img src="/img/paket-premium.webp" width="1072" height="600" alt="Maler vor einem leuchtenden 3D-Haus mit Vorher-Nachher-Bild und Anfragen-Übersicht" loading="lazy"></div>
       <div><h3>Premium</h3><p class="klein">Auffallen mit 3D- und Scroll-Effekten.</p></div>
-      <div><p class="preis"><span data-abo="CHF 290" data-kauf="CHF 2'990">CHF 290</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 1'490 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive">plus CHF 1'490 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
+      <div><p class="preis"><span data-abo="CHF 290" data-kauf="CHF 2'990">CHF 290</span> <small data-abo="pro Monat" data-kauf="einmalig">pro Monat</small></p><p class="klein" data-abo="plus CHF 790 Start, monatlich kündbar, alle Änderungen inklusive" data-kauf="erstes Jahr inklusive, danach CHF 390 pro Jahr">plus CHF 790 Start, monatlich kündbar, alle Änderungen inklusive</p></div>
       <ul><li>Alles aus Basic</li><li>Animierte Startseite mit 3D- und Scroll-Effekten</li><li>Vorher-Nachher-Galerie mit mehreren Projekten</li><li>Anfragen-Übersicht mit Status</li></ul>
       <a class="btn btn-rot" href="#kontakt" data-plan="Premium">Premium anfragen</a>
     </article>
@@ -328,12 +362,35 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
   <div class="bedingungen"><span><b>Einführungspreis</b> für die ersten 3 Betriebe</span><span>Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt</span><span>50 % bei Zusage, 50 % bei Übergabe</span></div>
 </div></section>
 
+
+<section class="teil sozial" id="social"><div class="wrap split">
+  <div class="bild"><img src="/img/social-banner-de.webp" width="864" height="1080" alt="Beispiel-Beitrag für Instagram: «Mehr Offerten. Weniger Suchen.» mit Website auf Laptop, Tablet und Handy und dem Knopf «Kostenlosen Entwurf anfragen»" loading="lazy"></div>
+  <div class="text">
+    <h2>Sie streichen. Wir posten.</h2>
+    <p>Schicken Sie jede Woche ein paar Fotos Ihrer Baustellen per WhatsApp. Daraus werden fertige Beiträge für Instagram und Facebook – in Ihren Farben, mit Ihrem Logo. Echte Arbeiten statt KI-Bilder.</p>
+    <ul class="s-karten">
+      <li><h3>Social Start</h3><p class="s-preis">CHF 390 <small>pro Monat</small></p><p>8 Beiträge und 4 Stories auf Instagram und Facebook</p></li>
+      <li><h3>Social Plus</h3><p class="s-preis">CHF 690 <small>pro Monat</small></p><p>12 Beiträge, 8 Stories, 2 Reels und Beiträge im Google-Profil</p></li>
+      <li><h3>Werbung in Ihrer Region</h3><p class="s-preis">CHF 350 <small>pro Monat</small></p><p>Anzeigen, die auf Ihren Preisrechner führen. Grafiken inklusive, Werbebudget direkt an Meta.</p></li>
+      <li class="top"><h3>Kombi Plus + Werbung</h3><p class="s-preis">CHF 990 <small>pro Monat</small></p><p>Alles aus Social Plus und Werbung zusammen.</p></li>
+    </ul>
+    <ul class="s-punkte">
+      <li>Monatlich kündbar, keine Mindestlaufzeit</li>
+      <li>Sie geben jeden Beitrag frei, bevor er erscheint</li>
+      <li>Monatsbericht mit Anfragen, nicht nur Likes</li>
+      <li>Einrichtung einmalig CHF 290 (Werbung CHF 390), für Offertenmeister-Kunden gratis</li>
+    </ul>
+    <a class="btn btn-rot" href="#kontakt" data-plan="Social Media">Social Media anfragen</a>
+  </div>
+</div></section>
+
 <section class="teil" id="faq"><div class="wrap faq">
   <div class="faq-kopf"><h2>Häufige Fragen</h2><div class="faq-bild"><img src="/img/faq-maler.webp" width="1072" height="1072" alt="Offertenmeister-Maler sitzt nachdenklich auf einem Farbeimer, umgeben von roten Fragezeichen" loading="lazy"></div></div>
   <div>
     <details open><summary>Wie lange dauert es, bis meine Seite online ist?</summary><p>In der Regel 7 Tage, nachdem Sie Fotos, Preise und Ihre Orte geschickt haben.</p></details>
     <details><summary>Muss ich mich um Technik kümmern?</summary><p>Nein. Hosting, Updates und Einrichtung übernehme ich. Änderungen schicken Sie per WhatsApp.</p></details>
-    <details><summary>Abo oder einmalig – was ist der Unterschied?</summary><p>Abo: Startbetrag und danach monatlich (Basic CHF 990 + CHF 190 pro Monat, Premium CHF 1'490 + CHF 290 pro Monat), monatlich kündbar, alle Änderungen inklusive. Einmalig: CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive.</p></details>
+    <details><summary>Abo oder einmalig – was ist der Unterschied?</summary><p>Abo: Startbetrag und danach monatlich (Basic CHF 490 + CHF 190 pro Monat, Premium CHF 790 + CHF 290 pro Monat), monatlich kündbar, alle Änderungen inklusive. Einmalig: CHF 1'990 (Basic) oder CHF 2'990 (Premium), das erste Jahr ist inklusive, danach CHF 390 pro Jahr für Hosting, Domain und kleine Änderungen.</p></details>
+    <details><summary>Was kostet Social Media?</summary><p>Social Start CHF 390 pro Monat (8 Beiträge und 4 Stories), Social Plus CHF 690 pro Monat, Werbung in Ihrer Region CHF 350 pro Monat plus Werbebudget direkt an Meta. Einrichtung einmalig CHF 290 (Werbung CHF 390), für Offertenmeister-Kunden gratis. Monatlich kündbar.</p></details>
     <details><summary>Kann ich meine bisherige Adresse behalten?</summary><p>Ja. Ihre Domain bleibt Ihre. Alte Seiten werden auf die neuen weitergeleitet, damit nichts verloren geht.</p></details>
     <details><summary>Gibt es das auch für andere Handwerker?</summary><p>Ja. Das System funktioniert auch für Gipser, Elektriker, Sanitär und weitere Gewerbe.</p></details>
   </div>
@@ -350,19 +407,19 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
         <label for="ort">Ort oder Kanton<input id="ort" placeholder="z. B. Uster ZH"></label>
       </div>
       <label for="web">Ihre heutige Website, falls vorhanden<input id="web" type="url" inputmode="url" placeholder="www.ihre-firma.ch"></label>
-      <label for="paket">Interesse an<select id="paket"><option>Noch offen</option><option>Basic</option><option>Premium</option></select></label>
+      <label for="paket">Interesse an<select id="paket"><option>Noch offen</option><option>Basic</option><option>Premium</option><option>Social Media</option></select></label>
       <button class="btn btn-rot" type="submit">Per WhatsApp senden</button>
       <p class="hinweis" id="hinweis" role="status">Öffnet WhatsApp mit Ihrer Nachricht. Auf dieser Website werden keine Daten gespeichert.</p>
     </form>
-    <p class="direkt">Lieber direkt? Mihajlo Tevdoski, WhatsApp <a href="https://wa.me/38978338208">+389 78 338 208</a> oder <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p>
+    <p class="direkt">Lieber direkt? Mihajlo Tevdoski, WhatsApp <a href="https://wa.me/38978338208">+389 78 338 208</a> oder <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p>
   </div>
 </div></section>
 </main>
 
 <footer class="fuss"><div class="wrap">
   <div class="recht">
-    <div id="impressum"><h3>Impressum</h3><p>Mihajlo Tevdoski<br>ul. Bane Stefanovski 6, 1200 Tetovo, Nordmazedonien<br>WhatsApp: <a href="tel:+38978338208">+389 78 338 208</a><br>E-Mail: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p></div>
-    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website speichert keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Alle Schriften und Bilder liegen auf diesem Server, es werden keine Daten an Dritte übertragen. Fragen: <a href="mailto:m.tevdoski@gmail.com">m.tevdoski@gmail.com</a></p></div>
+    <div id="impressum"><h3>Impressum</h3><p>Mihajlo Tevdoski<br>ul. Bane Stefanovski 6, 1200 Tetovo, Nordmazedonien<br>WhatsApp: <a href="tel:+38978338208">+389 78 338 208</a><br>E-Mail: <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p></div>
+    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website speichert keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Alle Schriften und Bilder liegen auf diesem Server, es werden keine Daten an Dritte übertragen. Fragen: <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p></div>
   </div>
   <div class="unten"><span>© 2026 Offertenmeister, Mihajlo Tevdoski</span><span><a href="#impressum">Impressum</a> und <a href="#datenschutz">Datenschutz</a></span></div>
 </div></footer>
