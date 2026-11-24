@@ -19,7 +19,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 ## Design
 - Schrift Archivo, Überschriften mit Breite 125 (`font-stretch:125%` + `"wdth" 125`).
 - Farben: putz #F3ECE4, rot #C8261B, rot-dunkel #A31D14, graphit #2B2723, beton #CFC8BF, text-2 #5A534C.
-- Maskottchen: weisse 3D-Ton-Figur mit Kappe und Latzhose, Schweizer Rot als Akzent.
+- Maskottchen (seit 24.11.2026): realistische weisse 3D-Ton-Figur mit lächelndem Gesicht, schwarzer Sonnenbrille, Kappe und Latzhose mit roten, gelben und blauen Farbspritzern, Schweizer Rot als Akzent. Referenz: `img/hero-3d-maler-v2.webp`. Logo, og-Bilder und Social-Banner zeigen noch die alte Figur ohne Gesicht.
 - Bewegung sparsam und immer mit `prefers-reduced-motion` abschaltbar.
 
 ## Preise (überall gleich halten: Preiskarten, FAQ, Schema)

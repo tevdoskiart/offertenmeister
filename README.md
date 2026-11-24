@@ -180,20 +180,20 @@ Jede Animation hat einen `prefers-reduced-motion: reduce`-Fall.
 Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wird so eingebunden:
 
 ```html
-<img src="/img/fassade-schweiz.webp"
-     srcset="/img/fassade-schweiz-720.webp 720w, /img/fassade-schweiz.webp 1072w"
+<img src="/img/fassade-schweiz-v2.webp"
+     srcset="/img/fassade-schweiz-v2-720.webp 720w, /img/fassade-schweiz-v2.webp 1072w"
      sizes="(max-width: 1240px) calc(100vw - 36px), 1240px"
      width="1072" height="808" alt="…" loading="lazy">
 ```
 
 | Bild | Kleine Version | `sizes` |
 | --- | --- | --- |
-| `hero-3d-maler` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
-| Split-Bilder (`anfrage-offerte`, `sieben-stufen`, `demo-geraete`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
-| `fassade-schweiz` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
-| `paket-basic`, `paket-premium` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
-| `faq-maler` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
-| `kontakt-whatsapp` | 600w | `(max-width: 980px) 340px, 460px` |
+| `hero-3d-maler-v2` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
+| Split-Bilder (`anfrage-offerte-v2`, `sieben-stufen-v2`, `demo-geraete-v2`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
+| `fassade-schweiz-v2` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
+| `paket-basic-v2`, `paket-premium-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
+| `faq-maler-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
+| `kontakt-whatsapp-v2` | 600w | `(max-width: 980px) 340px, 460px` |
 | `social-banner-de/en` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
 | `demo-basic`, `demo-premium` | 640w | `(max-width: 980px) calc(100vw - 60px), 290px` |
 
