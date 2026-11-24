@@ -3,9 +3,13 @@ on:
   push:
     branches: [main]
   pull_request:
+# Nur lesen: der Test-Job braucht keine Schreibrechte am Repo.
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

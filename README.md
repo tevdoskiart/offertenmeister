@@ -315,6 +315,28 @@ GitHub Actions («Tests») führt alle Tests bei jedem Push auf `main` aus.
 
 ---
 
+## 8a. Sicherheit
+
+| Schutz | Wo | Regel |
+| --- | --- | --- |
+| Content-Security-Policy | `<meta http-equiv>` direkt nach `charset` in jeder Seite | Startseiten: `script-src 'self'; style-src 'self'` → **kein** `<style>`, `style="…"`, Inline-Script oder `onclick` im HTML. Design gehört in `css/site.css` |
+| CSP-Hash 404 | `404.html` | `style-src 'sha256-…'` für das eingebettete `<style>` |
+| CSP-Hash Demos | `demo/*/index.html` | `script-src 'sha256-…'` für das eingebettete `<script>`. **Nach jeder Änderung am Demo-Script neu berechnen**, sonst läuft das Script nicht mehr (Test meldet es) |
+| Referrer | `<meta name="referrer" content="strict-origin-when-cross-origin">` | jede Seite |
+| Eingaben | `js/site.js` nur `textContent` und `encodeURIComponent`; Demos entfernen `<>&"` vor `innerHTML` | kein `innerHTML` mit Eingaben ohne Escaping |
+| Fremde Ressourcen | keine (Schriften, Bilder, Script alles lokal) | Test prüft das |
+| GitHub Actions | `permissions: contents: read` | Test-Job ohne Schreibrechte |
+
+Hash neu berechnen (Demo-Script oder 404-Style):
+
+```bash
+python3 -c "import re,hashlib,base64,sys;s=open(sys.argv[1]).read();print([\"'sha256-\"+base64.b64encode(hashlib.sha256(x.encode()).digest()).decode()+\"'\" for x in re.findall(r'<script>(.*?)</script>',s,re.S)])" demo/basic/index.html
+```
+
+Den Wert in der CSP derselben Datei bei `script-src` ersetzen.
+
+Nicht im Code lösbar (Konto-Einstellungen beim Inhaber): «Enforce HTTPS» in GitHub Pages, 2-Faktor-Login bei GitHub und Infomaniak, Branch-Schutz für `main`, CAA-Eintrag im DNS. GitHub Pages erlaubt keine eigenen HTTP-Header; `frame-ancestors` und HSTS-Einstellungen sind deshalb nicht möglich.
+
 ## 9. Häufige Änderungen
 
 | Aufgabe | Wo ändern |

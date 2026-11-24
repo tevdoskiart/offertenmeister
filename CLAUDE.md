@@ -35,6 +35,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Bilder entstehen mit Higgsfield (`gpt_image_2_6`), Maskottchen-Referenz als `image_references`.
 - Tests: `npm install` einmal, dann `npm test` (node:test + jsdom, Ordner `tests/`). Prüfen Script-Verhalten DE/EN, Preise, Links, Bilder, SEO und die Demo-Rechner. Laufen auch automatisch auf GitHub (Actions «Tests»). Preise ändern = auch `PRICES` in `tests/content.test.js` ändern.
 - Leistung (Stand 24.11.2026, Lighthouse Handy): Performance 99, Barrierefreiheit 100, LCP ≈ 2.2 s, 255 KB. Archivo-Subset lohnt nicht (nur −10 KB).
+- Sicherheit: jede Seite hat eine CSP als `<meta>`. Startseiten ohne Inline-Style/-Script (alles in `css/site.css` / `js/site.js`). Demo-Script oder 404-Style geändert → SHA-256-Hash in der CSP neu berechnen (README 8a), `tests/security.test.js` prüft es.
 - Vor dem Push prüfen: `npm test` grün, JS-Syntax (`node --check js/site.js`), Desktop 1366 px und Handy 390 px im Headless-Chrome, kein horizontales Scrollen.
 - Commit-Identität: `tevdoskiart <tevdoskiart@users.noreply.github.com>`. Keine private E-Mail in Commits.
 - Nach dem Push live prüfen, dem Inhaber den Link mit `?v=<zahl>` geben.
