@@ -194,7 +194,7 @@ Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wi
 | `paket-basic-v2`, `paket-premium-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
 | `faq-maler-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
 | `kontakt-whatsapp-v2` | 600w | `(max-width: 980px) 340px, 460px` |
-| `social-banner-de/en` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
+| `social-maler` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
 | `demo-basic`, `demo-premium` | 640w | `(max-width: 980px) calc(100vw - 60px), 290px` |
 
 720 px deckt Handys bis Pixeldichte 2 ab. Erstellen mit Pillow (`LANCZOS`, WebP Qualität 78).
