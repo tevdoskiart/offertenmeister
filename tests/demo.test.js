@@ -163,33 +163,38 @@ test('[premium] 3D-Explosionsansicht öffnet und schliesst per Klick', (t) => {
   assert.equal(xp.getAttribute('aria-pressed'), 'false');
 });
 
-test('[premium] 3D-Raum im Rechner folgt Fläche und Kategorie', (t) => {
+test('[premium] Rechner-Bild folgt Fläche und Kategorie (echte Fotos Vorher/Nachher)', (t) => {
   const w = loadDemo('demo/premium/index.html'); t.after(() => w.close());
   const d = w.document;
   const rk = d.getElementById('rk');
-  const room = rk.querySelector('.rk-room');
+  const foto = d.getElementById('rkFoto');
   const area = d.getElementById('carea');
   const set = (v) => { area.value = String(v); area.dispatchEvent(new w.Event('input')); };
+  const z = () => parseFloat(foto.style.getPropertyValue('--z'));
 
   assert.equal(rk.getAttribute('aria-hidden'), 'true', 'nur Dekoration, Werte stehen im Rechner');
   set(100);
   assert.equal(d.getElementById('rkM2').textContent, '100 m²');
   assert.equal(d.getElementById('rkDim').textContent, '≈ 10.0 × 10.0 M');
-  const s100 = parseFloat(room.style.getPropertyValue('--s'));
+  const z100 = z();
   set(25);
-  assert.ok(parseFloat(room.style.getPropertyValue('--s')) < s100, 'kleinere Fläche = kleinerer Boden');
+  assert.ok(z() > z100, 'kleinere Fläche = näher dran');
   set(400);
-  assert.ok(parseFloat(room.style.getPropertyValue('--s')) <= 200, 'Boden bleibt im Rahmen');
+  assert.ok(z() >= 1 && z() < z100, 'grosse Fläche = ganzes Bild');
 
   const art = ['INNEN · WÄNDE STREICHEN', 'FASSADE · AUSSENANSTRICH', 'FUGENLOS · MIKROZEMENT'];
+  const name = ['innen', 'fassade', 'fugenlos'];
   for (const c of [1, 2, 0]) {
     d.querySelector(`#seg button[data-c="${c}"]`).click();
     assert.equal(rk.dataset.cat, String(c));
     assert.equal(d.getElementById('rkArt').textContent, art[c]);
+    assert.ok(foto.querySelector('.rk-v').getAttribute('src').endsWith(`rk-${name[c]}-v.webp`));
+    assert.ok(foto.querySelector('.rk-ni').getAttribute('src').endsWith(`rk-${name[c]}-n.webp`));
   }
-  d.querySelector('#seg button[data-c="1"]').click();
-  assert.ok(parseFloat(room.style.getPropertyValue('--s')) <= 150, 'Fassade kleiner, damit Haus mit Dach passt');
-  assert.ok(parseFloat(room.style.getPropertyValue('--h')) >= 60, 'Fassade höher als Innenwand');
+  for (const img of foto.querySelectorAll('img')) {
+    assert.equal(img.getAttribute('alt'), '');
+    assert.ok(img.getAttribute('srcset') && img.getAttribute('width') && img.getAttribute('height'));
+  }
 });
 
 test('[premium] Leistungs-Module haben eigene 3D-Bilder', (t) => {
