@@ -175,6 +175,32 @@ Jede Animation hat einen `prefers-reduced-motion: reduce`-Fall.
 
 ---
 
+### 5.1 Bilder und Ladezeit
+
+Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wird so eingebunden:
+
+```html
+<img src="/img/fassade-schweiz.webp"
+     srcset="/img/fassade-schweiz-720.webp 720w, /img/fassade-schweiz.webp 1072w"
+     sizes="(max-width: 1240px) calc(100vw - 36px), 1240px"
+     width="1072" height="808" alt="…" loading="lazy">
+```
+
+| Bild | Kleine Version | `sizes` |
+| --- | --- | --- |
+| `hero-3d-maler` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
+| Split-Bilder (`anfrage-offerte`, `sieben-stufen`, `demo-geraete`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
+| `fassade-schweiz` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
+| `paket-basic`, `paket-premium` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
+| `faq-maler` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
+| `kontakt-whatsapp` | 600w | `(max-width: 980px) 340px, 460px` |
+| `social-banner-de/en` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
+| `demo-basic`, `demo-premium` | 640w | `(max-width: 980px) calc(100vw - 60px), 290px` |
+
+720 px deckt Handys bis Pixeldichte 2 ab. Erstellen mit Pillow (`LANCZOS`, WebP Qualität 78).
+
+Messung: `lighthouse` gegen eine lokale Kopie mit gzip (GitHub Pages komprimiert ebenfalls). Stand 24.11.2026, Handy: Performance 99, Barrierefreiheit 100, LCP ≈ 2.2 s, 255 KB.
+
 ## 6. SEO-Daten (für Google)
 
 | Was | Wo | Regel |

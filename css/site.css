@@ -144,6 +144,7 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .s-karten p.s-preis{color:var(--weiss)}
 .s-karten p{color:#D9D1C7;font-size:15px}
 .s-karten li.top p{color:#FCE9E7}
+.s-karten li.top .s-preis small{opacity:1}
 .s-punkte{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px;color:#D9D1C7}
 .s-punkte li{padding-left:28px;position:relative}
 .s-punkte li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:3px solid var(--rot);border-bottom:3px solid var(--rot);transform:rotate(-45deg)}

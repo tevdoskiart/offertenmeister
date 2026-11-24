@@ -8,7 +8,7 @@
 
 <style>
 @font-face{font-family:"Inter Tight";src:url(/fonts/inter-tight.woff2) format("woff2");font-weight:100 900;font-display:swap}@font-face{font-family:"Inter";src:url(/fonts/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#f3f1ed);--soft:light-dark(#5e5a55,#b5afa7);--plaster:light-dark(#f2efea,#1c1b19);--line:light-dark(#e2ddd5,#34312d);--card:light-dark(#ffffff,#1b1a18);--red:light-dark(#d4001a,#ff4d57);--petrol:#1f5f63;--petrol2:#174a4d;--wa:#1fa855;--star:#e0a100}
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#f3f1ed);--soft:light-dark(#5e5a55,#b5afa7);--plaster:light-dark(#f2efea,#1c1b19);--line:light-dark(#e2ddd5,#34312d);--card:light-dark(#ffffff,#1b1a18);--red:light-dark(#d4001a,#ff4d57);--petrol:#1f5f63;--petrol2:#174a4d;--wa:#15803d;--star:#e0a100}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -158,6 +158,7 @@ footer p{opacity:.75}
 @media(max-width:980px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.revs{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:800px){.hgrid,.two{grid-template-columns:minmax(0,1fr)}.links{display:none}}
 @media(max-width:600px){.owner{grid-template-columns:minmax(0,1fr)}.owner img{width:140px;height:140px}.facts2{grid-template-columns:minmax(0,1fr)}.bento,.steps,.row2{grid-template-columns:minmax(0,1fr)}.tile.big{grid-column:auto;grid-row:auto;min-height:240px}.trust b{font-size:21px}.cta .btn{flex:1}nav .btn{display:none}.ba{height:260px}.revtop .btn{margin-left:0;width:100%}.wafab{display:none}.mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}.mbar .btn{padding:0 8px;font-size:15px}body{padding-bottom:72px}}
+.calc h2{font-size:21px;font-weight:600;letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:wrap}
 </style>
 </head>
 <body>
@@ -169,8 +170,9 @@ footer p{opacity:.75}
   <a class="btn main" href="#offerte" data-t="quoteFree"></a>
 </div></nav>
 
+<main>
 <header class="band hero" id="top">
-  <img class="hero-bg" src="img/hero.webp" width="1344" height="752" alt="" fetchpriority="high">
+  <img class="hero-bg" src="img/hero-v2.webp" width="1344" height="752" alt="" fetchpriority="high">
   <div class="wrap hgrid">
     <div>
       <span class="pill"><b></b><span data-t="slots"></span></span>
@@ -181,7 +183,7 @@ footer p{opacity:.75}
       <div class="trust"><div><b>2013</b><span data-t="tr1"></span></div><div><b>48 h</b><span data-t="tr2"></span></div><div><b data-t="tr3b"></b><span data-t="tr3"></span></div></div>
     </div>
     <div class="calc" id="rechner">
-      <h3 data-t="calcH"></h3>
+      <h2 data-t="calcH"></h2>
       <div class="seg" role="group" id="seg"><button type="button" aria-pressed="true" data-c="0" data-t="cat0"></button><button type="button" aria-pressed="false" data-c="1" data-t="cat1"></button><button type="button" aria-pressed="false" data-c="2" data-t="cat2"></button></div>
       <label for="cwork"><span data-t="work"></span><select id="cwork"></select></label>
       <label for="carea"><span><span data-t="area"></span>: <span id="careaV">60 m²</span></span><input type="range" id="carea" min="5" max="400" step="5" value="60"></label>
@@ -288,6 +290,8 @@ footer p{opacity:.75}
     <div class="ok" id="ok" role="status"></div>
   </form>
 </div></section>
+
+</main>
 
 <footer class="band"><div class="wrap">
   <div><b style="font:800 18px 'Inter Tight',sans-serif">Malerei Muster GmbH</b><p>Musterstrasse 12, 8000 Zürich · 044 000 00 00</p></div>

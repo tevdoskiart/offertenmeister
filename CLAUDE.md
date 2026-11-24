@@ -31,8 +31,10 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 
 ## Regeln für Änderungen
 - Jedes ersetzte Bild bekommt einen NEUEN Dateinamen (GitHub Pages cacht ca. 10 Minuten). Altes Bild mit `git rm` löschen.
+- Grosse Bilder (Breite ≥ 800 px) brauchen eine kleine Version fürs Handy: `name-720.webp` (bzw. 600/640/800, siehe README) mit `srcset` und `sizes`. Test prüft das. Hero-Preload mit `fetchpriority="high"` und `imagesrcset`.
 - Bilder entstehen mit Higgsfield (`gpt_image_2_6`), Maskottchen-Referenz als `image_references`.
 - Tests: `npm install` einmal, dann `npm test` (node:test + jsdom, Ordner `tests/`). Prüfen Script-Verhalten DE/EN, Preise, Links, Bilder, SEO und die Demo-Rechner. Laufen auch automatisch auf GitHub (Actions «Tests»). Preise ändern = auch `PRICES` in `tests/content.test.js` ändern.
+- Leistung (Stand 24.11.2026, Lighthouse Handy): Performance 99, Barrierefreiheit 100, LCP ≈ 2.2 s, 255 KB. Archivo-Subset lohnt nicht (nur −10 KB).
 - Vor dem Push prüfen: `npm test` grün, JS-Syntax (`node --check js/site.js`), Desktop 1366 px und Handy 390 px im Headless-Chrome, kein horizontales Scrollen.
 - Commit-Identität: `tevdoskiart <tevdoskiart@users.noreply.github.com>`. Keine private E-Mail in Commits.
 - Nach dem Push live prüfen, dem Inhaber den Link mit `?v=<zahl>` geben.

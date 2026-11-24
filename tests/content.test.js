@@ -78,7 +78,26 @@ for (const lang of ['de', 'en']) {
       assert.ok(img.hasAttribute('alt'), `alt fehlt: ${src}`);
       assert.ok(img.getAttribute('width') && img.getAttribute('height'), `Grösse fehlt: ${src}`);
       assert.ok(exists(localPath(src)), `Datei fehlt: ${src}`);
+      const srcset = img.getAttribute('srcset');
+      if (srcset) {
+        assert.ok(img.getAttribute('sizes'), `sizes fehlt: ${src}`);
+        for (const part of srcset.split(',')) {
+          const [url, w] = part.trim().split(/\s+/);
+          assert.ok(exists(localPath(url)), `srcset-Datei fehlt: ${url}`);
+          assert.match(w, /^\d+w$/, `Breite fehlt: ${url}`);
+        }
+      }
     }
+  });
+
+  test(`[${lang}] Grosse Bilder haben eine kleine Version fürs Handy`, () => {
+    for (const img of d.querySelectorAll('main img')) {
+      const w = +img.getAttribute('width');
+      if (w >= 800) assert.ok(img.getAttribute('srcset'), `srcset fehlt: ${img.getAttribute('src')}`);
+    }
+    const pre = d.querySelector('link[rel=preload][as=image]');
+    assert.equal(pre.getAttribute('fetchpriority'), 'high');
+    assert.ok(pre.getAttribute('imagesrcset'));
   });
 
   test(`[${lang}] Interne Links und Anker führen ins Leere? Nein`, () => {

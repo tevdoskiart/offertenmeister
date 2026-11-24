@@ -8,7 +8,7 @@
 
 <style>
 @font-face{font-family:"JetBrains Mono";src:url(/fonts/jetbrains-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}@font-face{font-family:"Inter";src:url(/fonts/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
-:root{color-scheme:dark;--bg:#05090b;--panel:#0a1316;--ink:#d8f3f0;--soft:#8fb3b0;--dim:#2a4448;--cy:#3df5e0;--gr:#7dff9a;--am:#ffb020;--rd:#ff3b4e;--line:rgba(61,245,224,.22);--wa:#1fa855}
+:root{color-scheme:dark;--bg:#05090b;--panel:#0a1316;--ink:#d8f3f0;--soft:#8fb3b0;--dim:#2a4448;--cy:#3df5e0;--gr:#7dff9a;--am:#ffb020;--rd:#ff3b4e;--line:rgba(61,245,224,.22);--wa:#15803d}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip;background-image:linear-gradient(rgba(61,245,224,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(61,245,224,.04) 1px,transparent 1px);background-size:40px 40px}
@@ -203,8 +203,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 </div></div>
 <div class="status"><span class="rec">LIVE</span><span>POS <b>47.37N 8.54E</b> Zürich</span><span>TERMINE <b>frei ab Januar</b></span><span>OFFERTE <b>innert 48 h</b></span></div>
 
+<main>
 <header class="band" id="top"><div class="hero-3d" id="h3d" aria-hidden="true">
-    <img src="img/hero-3d.webp" width="1344" height="752" alt="">
+    <img src="img/hero-3d-v2.webp" width="1344" height="752" alt="" fetchpriority="high">
     <span class="mark" style="left:73%;top:40%"><i></i><b>ZIEL 01 · WOHNZIMMER<br><em>Anstrich 92 %</em></b></span>
     <span class="mark am" style="left:56%;top:17%"><i></i><b>ZIEL 02 · KÜCHE<br><em>Offerte bereit</em></b></span>
   </div>
@@ -329,6 +330,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     <div class="ok" id="ok" role="status"></div>
   </form>
 </div></section>
+
+</main>
 
 <footer><div class="wrap"><span><b style="color:var(--ink)">Malerei Muster GmbH</b> · Musterstrasse 12, 8000 Zürich · 044 000 00 00</span><span>Impressum · Datenschutz · Premium-Demo von <a href="/" style="color:var(--cy)">Offertenmeister</a></span></div></footer>
 <div class="mbar"><a class="btn" href="tel:+41440000000">Anrufen</a><a class="btn wa walink" href="#">WhatsApp</a><a class="btn go" href="#offerte">Offerte</a></div>
