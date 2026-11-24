@@ -6,8 +6,11 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 
 ## Aufbau
 - Statische Seite auf GitHub Pages, Repo `tevdoskiart/offertenmeister`, Branch `main`, Domain über `CNAME`.
-- `index.html` = Startseite DE (CSS und JS stehen in der Datei). `en/index.html` = englische Version, gleicher Aufbau; Änderungen immer in beiden Sprachen machen. `404.html` = eigene Fehlerseite.
-- `demo/basic/` (hell, Preisrechner) und `demo/premium/` (dunkel, DRONE-HUD, 3D). Beide `noindex`, in robots.txt gesperrt.
+- Jekyll-Build mit `_config.yml`: `exclude` hält CLAUDE.md und andere interne Dateien von der Website fern. Kein `.nojekyll` mehr. Keine `{{`/`{%` in HTML mit Front Matter verwenden.
+- `index.html` = Startseite DE (CSS und JS stehen in der Datei). `en/index.html` = englische Version, gleicher Aufbau; Änderungen immer in beiden Sprachen machen. `404.html` = eigene Fehlerseite (DE + EN).
+- `demo/basic/` (hell, Preisrechner) und `demo/premium/` (dunkel, DRONE-HUD, 3D). Beide `noindex` (nicht in robots.txt sperren, sonst sieht Google das noindex nicht).
+- Teilen-Bilder: `img/og-de.jpg` und `img/og-en.jpg` (1200×630).
+- Handy-Menü: Burger-Knopf ab 640 px, Sprachwechsel unter 480 px im Menü.
 - `img/` Bilder als WebP, `fonts/` Schriften lokal (keine Google Fonts, kein Tracking).
 
 ## Design
@@ -21,6 +24,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Premium: CHF 790 Start + CHF 290 pro Monat, oder CHF 2'990 einmalig.
 - Einmalig: erstes Jahr inklusive, danach CHF 390 pro Jahr.
 - Social Media: Start CHF 390/Mt., Plus CHF 690/Mt., Werbung CHF 350/Mt. (+ Budget direkt an Meta), Kombi Plus + Werbung CHF 990/Mt. Einrichtung CHF 290 (Werbung CHF 390), für Website-Kunden gratis. Monatlich kündbar.
+- 15 % Rabatt auf die erste Bestellung (ersetzt den früheren «Einführungspreis für die ersten 3 Betriebe»).
 - Kostenloser Entwurf zuerst, 50 % bei Zusage, 50 % bei Übergabe.
 
 ## Regeln für Änderungen

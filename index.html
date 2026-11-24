@@ -13,7 +13,12 @@
 <meta property="og:description" content="Website, Google-Profil und Anfragen per WhatsApp aus einer Hand. Kostenloser Entwurf zuerst.">
 <meta property="og:url" content="https://offertenmeister.ch/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://offertenmeister.ch/img/og.jpg">
+<meta property="og:image" content="https://offertenmeister.ch/img/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de_CH">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#C8261B">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/img/favicon-192.png" type="image/png" sizes="192x192">
@@ -63,6 +68,10 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .menu .btn{min-height:46px;padding:0 22px;font-size:15px;white-space:nowrap}
 .menu .sprache{display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:0 10px;border:2px solid var(--beton);border-radius:999px;font-size:14px;font-weight:700}
 .menu .sprache:hover{border-color:var(--graphit)}
+.links{display:flex;align-items:center;gap:28px}
+.burger,.links .sprache-m{display:none}
+.burger{place-items:center;width:44px;height:44px;padding:0;border:2px solid var(--beton);border-radius:999px;background:transparent;color:var(--graphit);cursor:pointer}
+.burger:hover,.kopf.offen .burger{border-color:var(--graphit)}
 
 /* hero */
 .hero{position:relative;background:var(--putz);overflow:hidden}
@@ -235,14 +244,22 @@ input:focus,select:focus{border-color:var(--graphit)}
   .hero-text{max-width:none;padding-block:36px 48px}
 }
 @media(max-width:640px){
-  .menu a:not(.btn):not(.sprache){display:none}
   .menu{gap:10px}
+  .burger{display:inline-grid}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--weiss);border-bottom:1px solid #E6DFD6;padding:4px clamp(18px,4vw,40px) 14px;box-shadow:0 24px 30px -24px rgba(43,39,35,.4)}
+  .kopf.offen .links{display:flex}
+  .menu .links a{padding:14px 0;border-top:1px solid #EFE9E2;font-size:17px}
+  .menu .links a:first-child{border-top:0}
   .s-karten{grid-template-columns:minmax(0,1fr)}
-  .logo img{height:46px}
+  .logo img{height:40px}
   .zwei{grid-template-columns:minmax(0,1fr)}
   .recht{grid-template-columns:minmax(0,1fr)}
   .cta .btn{flex:1 1 100%}
   details p{padding-right:0}
+}
+@media(max-width:480px){
+  .menu .sprache{display:none}
+  .links .sprache-m{display:block}
 }
 @media(max-width:420px){
   .logo img{height:40px}
@@ -259,9 +276,10 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
 <header class="kopf"><div class="wrap">
   <a class="logo" href="#top" aria-label="Offertenmeister, zur Startseite"><img src="/img/logo.webp" width="536" height="146" alt="Offertenmeister – Websites für Malerbetriebe"></a>
   <nav class="menu" aria-label="Hauptmenü">
-    <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#demos">Demos</a><a href="#pakete">Preise</a><a href="#social">Social Media</a>
+    <div class="links" id="hauptmenu"><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#demos">Demos</a><a href="#pakete">Preise</a><a href="#social">Social Media</a><a class="sprache-m" href="/en/" hreflang="en" lang="en">English</a></div>
     <a class="sprache" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
     <a class="btn btn-rot" href="#kontakt">Gratis Entwurf</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="hauptmenu" aria-label="Menü"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </nav>
 </div></header>
 
@@ -359,7 +377,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
       <a class="btn btn-rot" href="#kontakt" data-plan="Premium">Premium anfragen</a>
     </article>
   </div>
-  <div class="bedingungen"><span><b>Einführungspreis</b> für die ersten 3 Betriebe</span><span>Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt</span><span>50 % bei Zusage, 50 % bei Übergabe</span></div>
+  <div class="bedingungen"><span><b>15 % Rabatt</b> auf Ihre erste Bestellung</span><span>Kostenloser Entwurf zuerst, bezahlen erst wenn er gefällt</span><span>50 % bei Zusage, 50 % bei Übergabe</span></div>
 </div></section>
 
 
@@ -375,6 +393,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
       <li class="top"><h3>Kombi Plus + Werbung</h3><p class="s-preis">CHF 990 <small>pro Monat</small></p><p>Alles aus Social Plus und Werbung zusammen.</p></li>
     </ul>
     <ul class="s-punkte">
+      <li><b style="color:var(--weiss)">15 % Rabatt</b> auf Ihre erste Bestellung</li>
       <li>Monatlich kündbar, keine Mindestlaufzeit</li>
       <li>Sie geben jeden Beitrag frei, bevor er erscheint</li>
       <li>Monatsbericht mit Anfragen, nicht nur Likes</li>
@@ -419,7 +438,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
 <footer class="fuss"><div class="wrap">
   <div class="recht">
     <div id="impressum"><h3>Impressum</h3><p>Mihajlo Tevdoski<br>ul. Bane Stefanovski 6, 1200 Tetovo, Nordmazedonien<br>WhatsApp: <a href="tel:+38978338208">+389 78 338 208</a><br>E-Mail: <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p></div>
-    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website speichert keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Alle Schriften und Bilder liegen auf diesem Server, es werden keine Daten an Dritte übertragen. Fragen: <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p></div>
+    <div id="datenschutz"><h3>Datenschutz</h3><p>Diese Website wird über GitHub Pages (GitHub, Inc., USA) bereitgestellt. Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse in Server-Protokollen, um die Seite auszuliefern und zu schützen. Darüber hinaus speichert diese Website keine Formulardaten und setzt keine Tracking-Cookies. Das Formular öffnet nur WhatsApp; was Sie dort senden, verarbeitet WhatsApp gemäss eigenen Bestimmungen. Schriften und Bilder werden von dieser Website geladen, nicht von Drittanbietern. Fragen: <a href="mailto:info@offertenmeister.ch">info@offertenmeister.ch</a></p></div>
   </div>
   <div class="unten"><span>© 2026 Offertenmeister, Mihajlo Tevdoski</span><span><a href="#impressum">Impressum</a> und <a href="#datenschutz">Datenschutz</a></span></div>
 </div></footer>
@@ -433,6 +452,11 @@ if(matchMedia('(prefers-reduced-motion:no-preference) and (min-width:901px)').ma
  hs.addEventListener('pointerleave',()=>{H.style.setProperty('--px','0px');H.style.setProperty('--py','0px')});
  let t=false;addEventListener('scroll',()=>{if(t)return;t=true;requestAnimationFrame(()=>{const y=scrollY;if(y<800)H.style.setProperty('--py',(y*.15)+'px');t=false})},{passive:true});
 }
+const K=document.querySelector('.kopf'),B=K.querySelector('.burger');
+const zu=()=>{K.classList.remove('offen');B.setAttribute('aria-expanded','false')};
+B.addEventListener('click',()=>B.setAttribute('aria-expanded',K.classList.toggle('offen')));
+K.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',zu));
+K.addEventListener('keydown',e=>{if(e.key==='Escape'&&K.classList.contains('offen')){zu();B.focus()}});
 const S=document.querySelector('.schalter');
 S.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=b.dataset.m;
  S.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));

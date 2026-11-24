@@ -187,7 +187,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 .prog{position:fixed;top:0;left:0;height:2px;background:var(--cy);box-shadow:0 0 10px var(--cy);z-index:30;width:0}
 @media(max-width:980px){.mods,.revs{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:860px){.two{grid-template-columns:minmax(0,1fr)}.hero{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:min(56vw,360px)}.hero-3d img{object-position:78% center}.hero-3d::after{background:linear-gradient(0deg,rgba(5,9,11,1) 42%,rgba(5,9,11,.2) 75%,rgba(5,9,11,0) 100%)}.mark.am{display:none}.mark{top:24%!important;left:34%!important}.scope{max-width:320px;margin:0 auto}.links{display:none}.tele{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.mods,.revs,.steps,.row2,.opts{grid-template-columns:minmax(0,1fr)}.top .btn{display:none}.cta .btn{flex:1;padding:0 10px;font-size:13px;white-space:nowrap}.status span:nth-child(n+3){display:none}.mbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,9,11,.96);border-top:1px solid var(--line)}.mbar .btn{padding:0 6px;font-size:13px}body{padding-bottom:72px}}
+@media(max-width:600px){.mods,.revs,.steps,.row2,.opts{grid-template-columns:minmax(0,1fr)}.top .btn{display:none}.cta .btn{flex:1;padding:0 10px;font-size:13px;white-space:nowrap}.status span:nth-child(n+3){display:none}.mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,9,11,.96);border-top:1px solid var(--line)}.mbar .btn{padding:0 6px;font-size:13px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body{padding-bottom:72px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}#boot,.scanline{display:none}.sweep,.rec::before,.cur::after{animation:none}.js .rv,.js .pt{opacity:1;transform:none}.pt.on,.ping.on{animation:none}.js .frame.rv::before,.js .frame.rv::after{transform:none;opacity:1}.btn.go::after{display:none}.tilt,.scope{transform:none!important}}
 </style>
 </head>
@@ -264,7 +264,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 </div></section>
 
 <section class="band" id="bewertungen" style="padding-top:0"><div class="wrap">
-  <div class="sec-head rv"><div><span class="lbl">// Google-Bewertungen</span><h2 style="margin-top:8px">Das sagen unsere Kunden</h2></div><p>Echte Bewertungen erscheinen hier automatisch. In der Demo sind es Beispiele.</p></div>
+  <div class="sec-head rv"><div><span class="lbl">// Google-Bewertungen</span><h2 style="margin-top:8px">Das sagen unsere Kunden</h2></div><p>Hier stehen Ihre echten Google-Bewertungen mit Link zum Google-Profil. In der Demo sind es Beispiele.</p></div>
   <div class="revtop rv"><span class="score">4.9</span><div><div class="st">★★★★★</div><div class="small">87 Bewertungen auf Google</div></div></div>
   <div class="revs" id="revs"></div>
 </div></section>
@@ -408,7 +408,7 @@ $('wnext').addEventListener('click',()=>{const ok=$('ok');
  const n=$('fname').value.trim(),tel=$('ftel').value.trim();
  if(!n||!tel){ok.textContent='Bitte Name und Telefon angeben, damit wir Sie erreichen.';ok.classList.add('show');return}
  D.unshift(['Gerade eben',esc(n),WO[pick],esc($('fplz').value.trim())||'–',+$('farea').value||0,'neu']);renderD();
- ok.innerHTML=`<b>Danke, ${esc(n)}.</b> Ihre Anfrage „${WO[pick]}“ ist eingegangen. In der Demo erscheint sie oben in der Anfragen-Übersicht. Auf der echten Website kommt sie sofort per WhatsApp und E-Mail beim Betrieb an.`;ok.classList.add('show')});
+ ok.innerHTML=`<b>Danke, ${esc(n)}.</b> Ihre Anfrage „${WO[pick]}“ ist eingegangen. In der Demo erscheint sie oben in der Anfragen-Übersicht. Auf der echten Website kommt sie sofort per WhatsApp beim Betrieb an.`;ok.classList.add('show')});
 document.querySelectorAll('.walink').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();location.hash='offerte';const ok=$('ok');ok.textContent='In der Demo öffnet sich kein Chat. Auf der echten Website startet hier direkt ein WhatsApp-Chat mit dem Betrieb.';ok.classList.add('show')}));
 
 /* boot + animations */

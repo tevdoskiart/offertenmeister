@@ -1,0 +1,6 @@
+# GitHub Pages: nur die Website veröffentlichen, interne Dateien ausschliessen.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - _config.yml
+include: []
