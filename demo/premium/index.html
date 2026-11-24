@@ -2,7 +2,7 @@
 <html lang="de-CH" class="js">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-3z85WyvffqxPQODMgkGMql+mYW7GTdCEf7od3jLSXZQ='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-YLck+nJC4FCZcJLsj+nbTYaO24RUH9ELxUbBzXmi7qA='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Malerei Muster Zürich · Premium-Demo</title>
@@ -219,6 +219,35 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 }
 @media (max-width:600px){.xp-tag{font-size:10px;padding:3px 6px}}
 @media (prefers-reduced-motion:reduce){.xp-bild,.xp-bild::after,.xp-tag,.xp-hint{transition:none}}
+
+/* 3D-Raum im Rechner: Fläche = Bodengrösse, Kategorie = Innen / Fassade / Fugenlos */
+.rk{margin:-6px -6px 16px;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 70%,rgba(61,245,224,.10),transparent 65%),#060c0e}
+.rk-scene{height:230px;display:grid;place-items:center;perspective:1200px;overflow:hidden}
+.rk-room{--s:120px;--h:74px;--m:16px;position:relative;width:var(--s);height:var(--s);transform-style:preserve-3d;transform:translateY(34px) rotateX(58deg) rotateZ(-40deg);transition:width .6s cubic-bezier(.2,.8,.2,1),height .6s cubic-bezier(.2,.8,.2,1);animation:rkSchwenk 9s ease-in-out infinite}
+@keyframes rkSchwenk{0%,100%{transform:translateY(34px) rotateX(58deg) rotateZ(-40deg)}50%{transform:translateY(34px) rotateX(56deg) rotateZ(-28deg)}}
+.rk-room > i{position:absolute;display:block;backface-visibility:visible}
+.rk-floor{inset:0;background:var(--boden);box-shadow:0 0 0 1px rgba(61,245,224,.6),0 0 30px rgba(61,245,224,.18)}
+.rk-floor::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(61,245,224,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(61,245,224,.22) 1px,transparent 1px);background-size:var(--m) var(--m)}
+.rk-m2{position:absolute;left:62%;top:62%;transform:translate(-50%,-50%);white-space:nowrap;font:700 15px "JetBrains Mono",monospace;color:var(--cy);text-shadow:0 0 8px rgba(0,0,0,.9)}
+.rk-wl,.rk-wb,.rk-wf,.rk-wr{background:var(--wand);overflow:hidden;transition:width .6s cubic-bezier(.2,.8,.2,1),height .6s cubic-bezier(.2,.8,.2,1),background .5s}
+.rk-wl{left:0;top:0;width:var(--h);height:var(--s);transform-origin:left;transform:rotateY(-90deg)}
+.rk-wb{left:0;top:0;width:var(--s);height:var(--h);transform-origin:top;transform:rotateX(90deg)}
+.rk-wf{left:0;top:100%;width:var(--s);height:var(--h);transform-origin:top;transform:rotateX(90deg);opacity:var(--aussen)}
+.rk-wr{left:100%;top:0;width:var(--h);height:var(--s);transform-origin:left;transform:rotateY(-90deg);opacity:var(--aussen)}
+.rk-paint{position:absolute;inset:0;background:var(--farbe);transform-origin:left;animation:rkStreichen 4.5s ease-in-out infinite}
+.rk-wl .rk-paint,.rk-wr .rk-paint{transform-origin:top;animation-name:rkStreichenY}
+@keyframes rkStreichen{0%{transform:scaleX(0)}55%,90%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+@keyframes rkStreichenY{0%{transform:scaleY(0)}55%,90%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.rk-win{position:absolute;left:58%;top:22%;width:22%;height:42%;background:linear-gradient(135deg,#bfe7ff,#6fa7c7);box-shadow:inset 0 0 0 3px #f4f4f0;opacity:var(--fenster)}
+.rk-wl .rk-win,.rk-wr .rk-win{left:22%;top:30%;width:42%;height:22%}
+.rk-roof{left:-6%;top:-6%;width:112%;height:112%;transform:translateZ(calc(var(--h) + 2px));background:repeating-linear-gradient(45deg,#b24a33 0 10px,#9a3d29 10px 20px);opacity:var(--dach);transition:opacity .5s,transform .6s;box-shadow:0 0 0 1px rgba(61,245,224,.5)}
+.rk-hud{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-top:1px solid var(--line);font:11px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
+.rk-hud b{color:var(--cy);font-weight:600;white-space:nowrap}
+@media (max-width:420px){.rk-hud{font-size:10px;letter-spacing:.04em}}
+.rk[data-cat="0"]{--boden:linear-gradient(135deg,#c9a57a,#a98559);--wand:#d6dcd8;--farbe:#5f8f7e;--fenster:1;--dach:0;--aussen:0}
+.rk[data-cat="1"]{--boden:linear-gradient(135deg,#6f8a5a,#58714a);--wand:#c9c0b0;--farbe:#efe8dc;--fenster:1;--dach:.95;--aussen:1}
+.rk[data-cat="2"]{--boden:linear-gradient(135deg,#b8beba,#8e9591);--wand:#7f8682;--farbe:linear-gradient(135deg,#c3c9c5,#a3aaa6);--fenster:0;--dach:0;--aussen:0}
+@media (prefers-reduced-motion:reduce){.rk-room{animation:none;transition:none}.rk-paint{animation:none}.rk-wl,.rk-wb,.rk-wf,.rk-wr,.rk-roof{transition:none}}
 </style>
 </head>
 <body>
@@ -286,6 +315,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     <p class="small" style="margin-top:10px">Beispielpreise für die Demo, inkl. Material, exkl. MWST.</p>
   </div>
   <div class="frame calc tilt rv" id="calc">
+    <div class="rk" id="rk" data-cat="0" aria-hidden="true">
+      <div class="rk-scene"><div class="rk-room">
+        <i class="rk-floor"><span class="rk-m2" id="rkM2">60 m²</span></i>
+        <i class="rk-wl"><i class="rk-paint"></i><i class="rk-win"></i></i>
+        <i class="rk-wb"><i class="rk-paint"></i><i class="rk-win"></i></i>
+        <i class="rk-wf"><i class="rk-paint"></i><i class="rk-win"></i></i>
+        <i class="rk-wr"><i class="rk-paint"></i><i class="rk-win"></i></i>
+        <i class="rk-roof"></i>
+      </div></div>
+      <div class="rk-hud"><span id="rkArt">INNEN · WÄNDE STREICHEN</span><b id="rkDim">≈ 7.7 × 7.7 M</b></div>
+    </div>
     <div class="seg" role="group" aria-label="Kategorie" id="seg"><button type="button" aria-pressed="true" data-c="0">INNEN</button><button type="button" aria-pressed="false" data-c="1">FASSADE</button><button type="button" aria-pressed="false" data-c="2">FUGENLOS</button></div>
     <label for="cwork">Arbeit<select id="cwork"></select></label>
     <label for="carea"><span>Fläche: <span id="careaV" class="c-cy">60 m²</span></span><input type="range" id="carea" min="5" max="400" step="5" value="60"></label>
@@ -407,7 +447,10 @@ const U=['m²','Stk.'];
 $('ptab').innerHTML=P.map((p,i)=>`<tr><td>${PR[i]}</td><td class="n">${chf(p[1])}/${U[p[3]]}</td></tr>`).join('');
 let cat=0;
 const fill=()=>{$('cwork').innerHTML=P.map((p,i)=>p[0]===cat&&!p[3]?`<option value="${i}">${PR[i]}</option>`:'').join('')};
-const calc=()=>{const p=P[+$('cwork').value],a=+$('carea').value;$('careaV').textContent=a+' m²';$('cres').textContent=chf(p[1]*a)+'–'+Math.round(p[2]*a).toLocaleString('de-CH');$('cnote').textContent=`${a} m² × ${chf(p[1])}–${chf(p[2])} pro m²`};
+const RK=['INNEN · WÄNDE STREICHEN','FASSADE · AUSSENANSTRICH','FUGENLOS · MIKROZEMENT'];
+// Raum im Massstab: Seite = Wurzel der Fläche, Wandhöhe 2.6 m innen, 6 m Fassade
+const raum=a=>{const rk=$('rk');if(!rk)return;const q=Math.sqrt(a),sz=Math.min(cat===1?150:200,Math.max(70,q*16)),m=sz/q,r=rk.querySelector('.rk-room');const h=cat===1?Math.min(110,Math.max(60,6*m)):Math.min(80,Math.max(36,2.6*m));r.style.setProperty('--s',sz+'px');r.style.setProperty('--m',m+'px');r.style.setProperty('--h',h+'px');rk.dataset.cat=cat;$('rkM2').textContent=a+' m²';$('rkDim').textContent='≈ '+q.toFixed(1)+' × '+q.toFixed(1)+' M';$('rkArt').textContent=RK[cat]};
+const calc=()=>{const p=P[+$('cwork').value],a=+$('carea').value;$('careaV').textContent=a+' m²';$('cres').textContent=chf(p[1]*a)+'–'+Math.round(p[2]*a).toLocaleString('de-CH');$('cnote').textContent=`${a} m² × ${chf(p[1])}–${chf(p[2])} pro m²`;raum(a)};
 $('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=+b.dataset.c;$('seg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fill();calc()});
 $('cwork').addEventListener('change',calc);$('carea').addEventListener('input',calc);
 fill();calc();

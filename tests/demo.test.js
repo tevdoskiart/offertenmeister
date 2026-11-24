@@ -162,3 +162,32 @@ test('[premium] 3D-Explosionsansicht öffnet und schliesst per Klick', (t) => {
   xp.click();
   assert.equal(xp.getAttribute('aria-pressed'), 'false');
 });
+
+test('[premium] 3D-Raum im Rechner folgt Fläche und Kategorie', (t) => {
+  const w = loadDemo('demo/premium/index.html'); t.after(() => w.close());
+  const d = w.document;
+  const rk = d.getElementById('rk');
+  const room = rk.querySelector('.rk-room');
+  const area = d.getElementById('carea');
+  const set = (v) => { area.value = String(v); area.dispatchEvent(new w.Event('input')); };
+
+  assert.equal(rk.getAttribute('aria-hidden'), 'true', 'nur Dekoration, Werte stehen im Rechner');
+  set(100);
+  assert.equal(d.getElementById('rkM2').textContent, '100 m²');
+  assert.equal(d.getElementById('rkDim').textContent, '≈ 10.0 × 10.0 M');
+  const s100 = parseFloat(room.style.getPropertyValue('--s'));
+  set(25);
+  assert.ok(parseFloat(room.style.getPropertyValue('--s')) < s100, 'kleinere Fläche = kleinerer Boden');
+  set(400);
+  assert.ok(parseFloat(room.style.getPropertyValue('--s')) <= 200, 'Boden bleibt im Rahmen');
+
+  const art = ['INNEN · WÄNDE STREICHEN', 'FASSADE · AUSSENANSTRICH', 'FUGENLOS · MIKROZEMENT'];
+  for (const c of [1, 2, 0]) {
+    d.querySelector(`#seg button[data-c="${c}"]`).click();
+    assert.equal(rk.dataset.cat, String(c));
+    assert.equal(d.getElementById('rkArt').textContent, art[c]);
+  }
+  d.querySelector('#seg button[data-c="1"]').click();
+  assert.ok(parseFloat(room.style.getPropertyValue('--s')) <= 150, 'Fassade kleiner, damit Haus mit Dach passt');
+  assert.ok(parseFloat(room.style.getPropertyValue('--h')) >= 60, 'Fassade höher als Innenwand');
+});
