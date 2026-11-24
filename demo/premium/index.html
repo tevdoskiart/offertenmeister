@@ -2,7 +2,7 @@
 <html lang="de-CH" class="js">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Nn+S06l12Z3lFiAUUK+Qe/kQqGTYN2uTFSHsRsqhXNo='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-8uE2eZfczIh0pBBP8lV2avKfr5KLR6ptYmjrlWx2rvY='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Malerei Muster Zürich · Premium-Demo</title>
@@ -163,6 +163,16 @@ details p{padding:0 0 18px;color:var(--soft)}
 .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .opts button{min-height:60px;text-align:left;padding:10px 14px;font-size:14px}
 .opts button[aria-pressed=true]{border-color:var(--gr);color:var(--gr);background:rgba(125,255,154,.06)}
+/* 3D-Objekte (Higgsfield) in den Formular-Optionen */
+.opts button{display:flex;align-items:center;gap:12px;min-height:78px;padding:8px 14px 8px 8px;perspective:500px;transition:border-color .2s,background .2s,transform .2s}
+.opts button img{width:62px;height:62px;flex:none;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.6));transform:rotateY(-12deg) rotateX(6deg);transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .3s}
+.opts button:hover{border-color:var(--cy,#3df5e0);transform:translateY(-2px)}
+.opts button:hover img{transform:rotateY(14deg) rotateX(4deg) translateY(-5px) scale(1.12);filter:drop-shadow(0 12px 12px rgba(0,0,0,.65)) drop-shadow(0 0 10px rgba(61,245,224,.35))}
+.opts button[aria-pressed=true] img{transform:rotateY(0) translateY(-3px) scale(1.1);filter:drop-shadow(0 10px 10px rgba(0,0,0,.6)) drop-shadow(0 0 14px rgba(125,255,154,.55))}
+.opts button span{line-height:1.3}
+@media(max-width:520px){.opts button{min-height:70px;gap:8px;font-size:13px}.opts button img{width:50px;height:50px}}
+@media(prefers-reduced-motion:reduce){.opts button,.opts button img{transition:none;transform:none!important}}
+
 .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
 .wnav{display:flex;gap:10px}
 .wnav .btn{flex:1}
@@ -519,7 +529,8 @@ $('faq').innerHTML=FQ.map((q,i)=>`<details ${i===0?'open':''}><summary>${q[0]}</
 /* wizard */
 const WO=['Innen streichen','Fassade','Spachteln / Gipsen','Fugenloses Bad','Tapezieren','Anderes'];
 let step=0,pick=-1;
-$('wopts').innerHTML=WO.map((w,i)=>`<button type="button" aria-pressed="false" data-i="${i}">${w}</button>`).join('');
+const WI=['streichen','fassade','spachteln','bad','tapezieren','anderes'];
+$('wopts').innerHTML=WO.map((w,i)=>`<button type="button" aria-pressed="false" data-i="${i}" style="--n:${i}"><img src="img/form-${WI[i]}.webp" width="160" height="160" alt="" decoding="async"><span>${w}</span></button>`).join('');
 const showStep=()=>{$('f').querySelectorAll('.wiz-p').forEach((p,i)=>p.classList.toggle('on',i===step));$('f').querySelectorAll('.wiz-steps i').forEach((b,i)=>b.classList.toggle('on',i<=step));$('wback').style.display=step?'':'none';$('wnext').textContent=step===2?'Anfrage senden':'Weiter';$('ok').classList.remove('show')};
 $('wopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pick=+b.dataset.i;$('wopts').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));step=1;showStep()});
 $('wback').addEventListener('click',()=>{step=Math.max(0,step-1);showStep()});

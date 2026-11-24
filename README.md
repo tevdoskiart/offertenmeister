@@ -369,3 +369,5 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 
 
 **3D-Karte unter dem Radar** (`#scope`, nur Premium-Demo): `img/karte-zuerich-3d.webp` (Higgsfield, 720 px, rund zugeschnitten mit `clip-path`) liegt in `.scope-3d` unter dem SVG. Kippt beim Einblenden (`.scope.on`, IntersectionObserver) und stärker bei Hover, langsamer Zoom `@keyframes karte`. Bei `prefers-reduced-motion` flach und ohne Animation. Orte in `TW` passen zur Karte (Uster, Thalwil, Horgen verschoben). Script geändert → CSP-Hash neu (README 8a).
+
+**3D-Objekte im Formular** (`#wopts`, nur Premium-Demo): `img/form-<name>.webp` (160 px, transparent, aus einem Higgsfield-Bogen mit 6 Objekten geschnitten). Reihenfolge in `WI` = `WO` (streichen, fassade, spachteln, bad, tapezieren, anderes). Leicht gedreht; bei Hover drehen und heben sie sich mit Cyan-Schein, gewählt = grüner Schein. Bei `prefers-reduced-motion` statisch.
