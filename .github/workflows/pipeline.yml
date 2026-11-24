@@ -1,0 +1,72 @@
+# Pipeline: Tests -> Website bauen -> veröffentlichen.
+# Veröffentlicht wird NUR, wenn alle Tests grün sind. Sonst bleibt die letzte gute Version online.
+# Voraussetzung: GitHub -> Settings -> Pages -> Source = "GitHub Actions".
+name: Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Nie zwei Veröffentlichungen gleichzeitig; eine laufende wird nicht abgebrochen.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: node --check js/site.js
+
+  build:
+    name: Website bauen
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      # Gleicher Jekyll-Build wie bisher; _config.yml schliesst interne Dateien aus.
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Interne Dateien dürfen nicht veröffentlicht werden
+        run: |
+          for f in CLAUDE.md README.md package.json tests node_modules .github; do
+            if [ -e "_site/$f" ]; then echo "FEHLER: _site/$f würde veröffentlicht"; exit 1; fi
+          done
+          test -f _site/index.html && test -f _site/en/index.html && test -f _site/404.html && test -f _site/CNAME
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    name: Veröffentlichen
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

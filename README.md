@@ -26,7 +26,7 @@ Technische Referenz für https://offertenmeister.ch. Projektregeln (Preise, Desi
 | `sitemap.xml`, `robots.txt`, `CNAME` | SEO und Domain |
 | `_config.yml` | Jekyll: schliesst interne Dateien von der Website aus |
 | `tests/`, `package.json` | Unit-Tests (nicht auf der Website) |
-| `.github/workflows/tests.yml` | Führt `npm test` bei jedem Push aus |
+| `.github/workflows/pipeline.yml` | Pipeline: Tests → Website bauen → veröffentlichen (nur wenn alles grün ist) |
 
 **Cache:** `css/site.css` und `js/site.js` werden mit `?v=<zahl>` eingebunden. Nach jeder Änderung die Zahl in **beiden** Startseiten erhöhen. Ersetzte Bilder bekommen einen neuen Dateinamen.
 
@@ -311,7 +311,13 @@ test('Social-Media-Knopf füllt das Formular', (t) => {
 });
 ```
 
-GitHub Actions («Tests») führt alle Tests bei jedem Push auf `main` aus.
+Die Pipeline (`.github/workflows/pipeline.yml`) läuft bei jedem Push auf `main`:
+
+1. **Tests** – `npm test` und `node --check js/site.js`
+2. **Website bauen** – Jekyll mit `_config.yml`, danach Prüfung, dass `CLAUDE.md`, `README.md`, `tests/` usw. nicht im Ergebnis sind
+3. **Veröffentlichen** – nur wenn 1 und 2 grün sind
+
+Bei Pull Requests laufen nur die Tests. Manuell starten: Actions → Pipeline → «Run workflow». Ist ein Schritt rot, bleibt die letzte gute Version online.
 
 ---
 
@@ -325,7 +331,7 @@ GitHub Actions («Tests») führt alle Tests bei jedem Push auf `main` aus.
 | Referrer | `<meta name="referrer" content="strict-origin-when-cross-origin">` | jede Seite |
 | Eingaben | `js/site.js` nur `textContent` und `encodeURIComponent`; Demos entfernen `<>&"` vor `innerHTML` | kein `innerHTML` mit Eingaben ohne Escaping |
 | Fremde Ressourcen | keine (Schriften, Bilder, Script alles lokal) | Test prüft das |
-| GitHub Actions | `permissions: contents: read` | Test-Job ohne Schreibrechte |
+| GitHub Actions | `permissions: contents: read`, nur der Deploy-Job hat `pages: write` | geringste Rechte pro Schritt |
 
 Hash neu berechnen (Demo-Script oder 404-Style):
 
