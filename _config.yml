@@ -3,4 +3,9 @@ exclude:
   - CLAUDE.md
   - README.md
   - _config.yml
+  - tests
+  - package.json
+  - package-lock.json
+  - node_modules
+  - .github
 include: []
