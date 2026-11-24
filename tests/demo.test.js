@@ -1,7 +1,7 @@
 // Preisrechner, Formular und Sprachen der beiden Demo-Websites.
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { loadDemo, parse, chf } = require('./helpers');
+const { loadDemo, parse, chf, exists } = require('./helpers');
 
 // Gleiche Daten wie in den Demos: [Kategorie, CHF min, CHF max, Einheit 0=m² 1=Stk.]
 const P = [[0, 24, 34, 0], [0, 32, 45, 0], [0, 30, 42, 0], [1, 38, 55, 0], [1, 14, 22, 0], [2, 170, 240, 0], [2, 160, 220, 0], [0, 220, 320, 1]];
@@ -192,18 +192,19 @@ test('[premium] 3D-Raum im Rechner folgt Fläche und Kategorie', (t) => {
   assert.ok(parseFloat(room.style.getPropertyValue('--h')) >= 60, 'Fassade höher als Innenwand');
 });
 
-test('[premium] Leistungs-Module haben 3D-Icons aus 8 Ebenen', (t) => {
+test('[premium] Leistungs-Module haben eigene 3D-Bilder', (t) => {
   const w = loadDemo('demo/premium/index.html'); t.after(() => w.close());
   const mods = [...w.document.querySelectorAll('#mods .mod')];
   assert.equal(mods.length, 6);
-  for (const m of mods) {
+  const srcs = mods.map((m) => {
     const ico = m.querySelector('.i3d');
-    assert.equal(ico.getAttribute('aria-hidden'), 'true', 'Icon ist Dekoration');
-    const layers = ico.querySelectorAll('svg');
-    assert.equal(layers.length, 8);
-    const d = layers[0].querySelector('path').getAttribute('d');
-    assert.ok([...layers].every((l) => l.querySelector('path').getAttribute('d') === d), 'alle Ebenen gleiche Form');
-  }
-  const forms = new Set(mods.map((m) => m.querySelector('.i3d path').getAttribute('d')));
-  assert.equal(forms.size, 6, 'jedes Modul eigenes Icon');
+    assert.equal(ico.getAttribute('aria-hidden'), 'true', 'Bild ist Dekoration, Titel folgt');
+    const img = ico.querySelector('img');
+    assert.equal(img.getAttribute('alt'), '');
+    assert.ok(img.getAttribute('width') && img.getAttribute('height'));
+    const src = img.getAttribute('src');
+    assert.ok(exists('demo/premium/' + src), `Bild fehlt: ${src}`);
+    return src;
+  });
+  assert.equal(new Set(srcs).size, 6, 'jedes Modul eigenes Bild');
 });
