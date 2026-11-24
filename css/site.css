@@ -266,3 +266,21 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
 @media (prefers-reduced-motion:no-preference){.intro[open]{animation:intro-ein .35s ease-out}.intro[open]::backdrop{animation:intro-bg .35s ease-out}}
 @keyframes intro-ein{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes intro-bg{from{opacity:0}to{opacity:1}}
+
+/* Vergleich Portal / eigene Website */
+.v-kopf{max-width:760px;margin:0 auto 36px;text-align:center;display:grid;gap:14px}
+.v-kopf p{color:var(--text-2);font-size:18px}
+.vergleich{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;max-width:1040px;margin:0 auto;align-items:stretch}
+.v-spalte{border-radius:24px;padding:clamp(24px,3vw,36px);display:grid;gap:16px;align-content:start}
+.v-portal{background:var(--putz);color:var(--text-2)}
+.v-eigen{background:var(--graphit);color:var(--weiss);box-shadow:0 30px 60px -30px rgba(43,39,35,.6);position:relative}
+.v-eigen h3{color:var(--weiss)}
+.v-spalte h3{font-size:24px}
+.v-tag{justify-self:start;background:var(--rot);color:var(--weiss);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 12px}
+.v-liste{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:17px}
+.v-liste li{position:relative;padding-left:32px}
+.v-liste.minus li::before{content:"";position:absolute;left:2px;top:.55em;width:14px;height:3px;background:#9A918A;border-radius:2px}
+.v-liste.plus li::before{content:"";position:absolute;left:2px;top:.4em;width:14px;height:8px;border-left:3px solid var(--rot);border-bottom:3px solid var(--rot);transform:rotate(-45deg)}
+.v-eigen .v-liste{color:#E9E2D9}
+.v-eigen .btn{justify-self:start;margin-top:6px}
+@media (max-width:760px){.vergleich{grid-template-columns:minmax(0,1fr)}}

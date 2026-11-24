@@ -213,3 +213,38 @@ test('[premium] Leistungs-Module haben eigene 3D-Bilder', (t) => {
   });
   assert.equal(new Set(srcs).size, 6, 'jedes Modul eigenes Bild');
 });
+
+for (const file of DEMOS) {
+  const name = file.split('/')[1];
+  test(`[${name}] Besichtigung online buchen: 10 Arbeitstage, belegte Zeiten, Bestätigung`, (t) => {
+    const w = loadDemo(file); t.after(() => w.close());
+    const d = w.document;
+    const days = [...d.querySelectorAll('#tdays button')];
+    assert.equal(days.length, 10);
+    assert.ok(days.every((b) => !/^(So|Sa)/.test(b.textContent)), 'nur Mo–Fr');
+    const ok = d.getElementById('tok');
+    d.getElementById('tgo').click();
+    assert.ok(ok.classList.contains('show') && /Zeit/.test(ok.textContent), 'ohne Zeit: Hinweis');
+    const free = [...d.querySelectorAll('#tslots button')].find((b) => !b.disabled);
+    free.click();
+    const zeit = free.textContent;
+    d.getElementById('tgo').click();
+    assert.match(ok.textContent, /Name und Telefon/);
+    d.getElementById('tname').value = 'Eva <b>Test</b>';
+    d.getElementById('ttel').value = '079 123 45 67';
+    d.getElementById('tgo').click();
+    assert.match(ok.innerHTML, new RegExp(zeit));
+    assert.ok(!ok.innerHTML.includes('<b>Test'), 'Eingabe wird entschärft');
+    const same = [...d.querySelectorAll('#tslots button')].find((b) => b.textContent.startsWith(zeit));
+    assert.ok(same.disabled, 'gebuchte Zeit ist danach belegt');
+    if (name === 'premium') assert.equal(d.querySelector('#dtab tr td:nth-child(3)').textContent, 'Besichtigung');
+  });
+}
+
+test('[basic] Online-Termin wechselt die Sprache', (t) => {
+  const w = loadDemo('demo/basic/index.html'); t.after(() => w.close());
+  const d = w.document;
+  d.querySelector('.lang button[data-l="en"]').click();
+  assert.match(d.querySelector('#tdays button').textContent, /^(Mon|Tue|Wed|Thu|Fri)/);
+  assert.equal(d.getElementById('tgo').textContent, 'Request appointment');
+});

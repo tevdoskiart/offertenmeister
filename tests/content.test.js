@@ -176,3 +176,14 @@ test('404-Seite hat Deutsch und Englisch', () => {
   assert.ok(d.querySelector('[lang="en"] a[href="/en/"]'));
   assert.equal(d.querySelector('meta[name=robots]').content, 'noindex');
 });
+
+test('Vergleich Portal / eigene Website in DE und EN', () => {
+  for (const lang of ['de', 'en']) {
+    const d = doc[lang];
+    const v = d.getElementById('vergleich');
+    assert.ok(v, `#vergleich fehlt (${lang})`);
+    assert.equal(v.querySelectorAll('.v-portal li').length, 5);
+    assert.equal(v.querySelectorAll('.v-eigen li').length, 6);
+    assert.equal(v.querySelector('.v-eigen a').getAttribute('href'), '#kontakt');
+  }
+});

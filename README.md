@@ -39,8 +39,9 @@ Abschnitte in dieser Reihenfolge (IDs sind Sprungziele im Menü und in DE/EN ide
 | ID | Abschnitt |
 | --- | --- |
 | `#top` | `<main>`, Hero mit `.hero-bild` |
-| `#leistungen` | Website, Google-Profil, WhatsApp |
+| `#leistungen` | Website, Google-Profil, WhatsApp, Online-Termin |
 | `#wer` | Zitat «Ich bin selbst Maler» (Fassaden-Band) |
+| `#vergleich` | «Offertenportal oder eigene Website?»: `.v-portal` (5 Minuspunkte) gegen `.v-eigen` (6 Pluspunkte, Knopf zu `#kontakt`). Keine Konkurrenz mit Namen nennen. |
 | `#ablauf` | 4 Schritte |
 | `#demos` | Links zu den Demos |
 | `#pakete` | Preiskarten Basic/Premium mit Schalter |
@@ -267,6 +268,8 @@ const T = { de: { h1: '…', prices: [...], wo: [...], steps: [...], tiles: [...
 **Rechner-Bild** (`#rk` oben im `#calc`, nur Demo): echte Fotos (Higgsfield) Vorher/Nachher je Kategorie: `img/rk-innen|fassade|fugenlos-v|n.webp` (1200×546, dazu `-720`). `.rk-n` (Nachher) wischt per `clip-path` über das Vorher-Bild, mit Cyan-Linie (`@keyframes rkWisch`/`rkLinie`, 7 s). `raum(a)` setzt `--z` auf `#rkFoto` (Zoom 1–1.14: kleine Fläche = näher), tauscht bei Kategorie-Wechsel die Bilder (`RKI`) und schreibt `rkM2`, `rkDim`, `rkArt`. Bei `prefers-reduced-motion` nur das Nachher-Bild. `aria-hidden`, weil alle Werte im Rechner selbst stehen.
 
 **3D-Explosionsansicht** (`#schichten`, nur Demo): Higgsfield-Bild `demo/premium/img/haus-schichten.webp` (+ `-720`) eines Hauses in Schichten. Bei Hover (nur `hover:hover`) oder Klick/Tippen (`#xp`, `aria-pressed`) zoomt das Bild leicht, leuchtet, und die Beschriftungen `.xp-tag.t1`–`.t4` (Boden, Wände, Decke, Dach) fahren ein; Position per `top:%`. Ohne Bibliothek, bei `prefers-reduced-motion` ohne Übergang. Für einen echten Kunden später ausbauen (z. B. Video geschlossen → offen oder Three.js mit Farbwahl).
+
+**Online-Termin** (`#termin`, beide Demos): nächste 10 Arbeitstage (`TAGE`, Mo–Fr ab morgen) und Zeiten `ZT` (07:30–16:30). Belegte Zeiten sind fest berechnet (`(tag*7+zeit*3)%5===0`), damit die Demo voll wirkt. Ohne Zeit oder ohne Name/Telefon erscheint ein Hinweis in `#tok`. Eine Buchung belegt die Zeit; in Premium landet sie zusätzlich als `Besichtigung` mit Status `bes` vorne in `D`, danach `renderD()` und `hdr()` (KPI + Filter). In Basic stehen die Texte in `T.de/T.en` (`tb…`), `tbRender()` läuft bei jedem Sprachwechsel. Beim echten Kunden: Termin per WhatsApp-Link an den Betrieb (wie Anfrage-Formular).
 
 Eine abgeschickte Demo-Anfrage wird vorne in `D` eingefügt und erscheint im Dashboard (Eingaben werden von `<>&"` befreit).
 
