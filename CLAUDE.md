@@ -5,6 +5,7 @@ Inhaber: Mihajlo Tevdoski. Mit ihm auf Mazedonisch (lateinische Schrift) spreche
 Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", CHF, "Offerte", "Grüezi".
 
 ## Aufbau
+- Technische Referenz (HTML-Schnittstellen, `TX`, WhatsApp-Link, Demo-Daten, Test-Hilfen, häufige Änderungen): `README.md`. Bei Änderungen am Code mitpflegen.
 - Statische Seite auf GitHub Pages, Repo `tevdoskiart/offertenmeister`, Branch `main`, Domain über `CNAME`.
 - Jekyll-Build mit `_config.yml`: `exclude` hält CLAUDE.md und andere interne Dateien von der Website fern. Kein `.nojekyll` mehr. Keine `{{`/`{%` in HTML mit Front Matter verwenden.
 - `index.html` = Startseite DE, `en/index.html` = englische Version mit gleichem Aufbau. Inhalt (HTML-Text) immer in beiden Sprachen ändern.
