@@ -317,7 +317,7 @@ Die Pipeline (`.github/workflows/pipeline.yml`) läuft bei jedem Push auf `main`
 2. **Website bauen** – Jekyll mit `_config.yml`, danach Prüfung, dass `CLAUDE.md`, `README.md`, `tests/` usw. nicht im Ergebnis sind
 3. **Veröffentlichen** – nur wenn 1 und 2 grün sind
 
-Bei Pull Requests laufen nur die Tests. Manuell starten: Actions → Pipeline → «Run workflow». Ist ein Schritt rot, bleibt die letzte gute Version online.
+Pages-Quelle seit 24.11.2026 auf «GitHub Actions» (der alte Ablauf «pages build and deployment» läuft nicht mehr). Bei Pull Requests laufen nur die Tests. Manuell starten: Actions → Pipeline → «Run workflow». Ist ein Schritt rot, bleibt die letzte gute Version online.
 
 ---
 
