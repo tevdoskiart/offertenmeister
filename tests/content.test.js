@@ -128,7 +128,7 @@ for (const lang of ['de', 'en']) {
     assert.equal(d.querySelector('link[rel=canonical]').href, lang === 'de' ? base : base + 'en/');
     const alt = Object.fromEntries([...d.querySelectorAll('link[rel=alternate][hreflang]')].map((l) => [l.hreflang, l.href]));
     assert.deepEqual(alt, { 'de-CH': base, en: base + 'en/', 'x-default': base });
-    assert.equal(d.querySelector('meta[property="og:image"]').content, `${base}img/og-${lang}.jpg`);
+    assert.equal(d.querySelector('meta[property="og:image"]').content, `${base}img/og-${lang}-v2.jpg`);
     assert.equal(d.querySelector('meta[name="twitter:card"]').content, 'summary_large_image');
   });
 }
@@ -136,7 +136,7 @@ for (const lang of ['de', 'en']) {
 test('DE und EN haben den gleichen Aufbau', () => {
   const ids = (d) => [...d.querySelectorAll('main [id]')].map((e) => e.id);
   assert.deepEqual(ids(doc.de), ids(doc.en));
-  const imgs = (d) => [...d.querySelectorAll('img')].map((i) => i.getAttribute('src').replace(/-(de|en)\./, '.'));
+  const imgs = (d) => [...d.querySelectorAll('img')].map((i) => i.getAttribute('src').replace(/-(de|en)(-v\d+)?\./, '$2.'));
   assert.deepEqual(imgs(doc.de), imgs(doc.en));
   const opts = (d) => [...d.querySelectorAll('#paket option')].slice(1).map((o) => o.textContent);
   assert.deepEqual(opts(doc.de), opts(doc.en));

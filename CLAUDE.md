@@ -12,14 +12,14 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - `index.html` = Startseite DE, `en/index.html` = englische Version mit gleichem Aufbau. Inhalt (HTML-Text) immer in beiden Sprachen ändern.
 - Gemeinsames Design in `css/site.css`, gemeinsames Script in `js/site.js` (Sprache aus `<html lang>`, Texte im Objekt `TX`). Beide Seiten binden sie mit `?v=<zahl>` ein: nach jeder Änderung die Zahl in BEIDEN Seiten erhöhen (Cache). `404.html` = eigene Fehlerseite (DE + EN).
 - `demo/basic/` (hell, Preisrechner) und `demo/premium/` (dunkel, DRONE-HUD, 3D). Beide `noindex` (nicht in robots.txt sperren, sonst sieht Google das noindex nicht).
-- Teilen-Bilder: `img/og-de.jpg` und `img/og-en.jpg` (1200×630).
+- Teilen-Bilder: `img/og-de-v2.jpg` und `img/og-en-v2.jpg` (1200×630).
 - Handy-Menü: Burger-Knopf ab 640 px, Sprachwechsel unter 480 px im Menü.
 - `img/` Bilder als WebP, `fonts/` Schriften lokal (keine Google Fonts, kein Tracking).
 
 ## Design
 - Schrift Archivo, Überschriften mit Breite 125 (`font-stretch:125%` + `"wdth" 125`).
 - Farben: putz #F3ECE4, rot #C8261B, rot-dunkel #A31D14, graphit #2B2723, beton #CFC8BF, text-2 #5A534C.
-- Maskottchen (seit 24.11.2026): realistische weisse 3D-Ton-Figur mit lächelndem Gesicht, schwarzer Sonnenbrille, Kappe und Latzhose mit roten, gelben und blauen Farbspritzern, Schweizer Rot als Akzent. Referenz: `img/hero-3d-maler-v2.webp`. Logo, og-Bilder und Social-Banner zeigen noch die alte Figur ohne Gesicht.
+- Maskottchen (seit 24.11.2026): realistische weisse 3D-Ton-Figur mit lächelndem Gesicht, schwarzer Sonnenbrille, Kappe und Latzhose mit roten, gelben und blauen Farbspritzern, Schweizer Rot als Akzent. Referenz: `img/hero-3d-maler-v2.webp`. Gilt für alle Bilder, Logo (`logo-v2.webp`, Quelle `logo-icon-v2.webp`), Favicons, og-Bilder und Social-Banner.
 - Bewegung sparsam und immer mit `prefers-reduced-motion` abschaltbar.
 
 ## Preise (überall gleich halten: Preiskarten, FAQ, Schema)
