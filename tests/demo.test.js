@@ -151,8 +151,10 @@ test('[premium] 3D-Explosionsansicht öffnet und schliesst per Klick', (t) => {
   const xp = d.getElementById('xp');
   assert.equal(xp.tagName, 'BUTTON', 'muss ein echter Knopf sein (Tastatur, Touch)');
   assert.ok(xp.getAttribute('aria-label'));
-  assert.equal(d.querySelectorAll('#xp .xp-layer').length, 4);
-  assert.deepEqual([...d.querySelectorAll('#xp .tag')].map((x) => x.textContent), ['01 BODEN', '02 WÄNDE', '03 DECKE', '04 DACH']);
+  const img = d.querySelector('#xp img');
+  assert.ok(img && img.getAttribute('alt'), 'Bild mit alt-Text');
+  assert.ok(img.getAttribute('srcset') && img.getAttribute('sizes'), 'kleine Version fürs Handy');
+  assert.deepEqual([...d.querySelectorAll('#xp .xp-tag')].map((x) => x.textContent).sort(), ['01 BODEN', '02 WÄNDE', '03 DECKE', '04 DACH']);
   assert.equal(d.querySelectorAll('#schichten .xp-list li').length, 4);
   assert.equal(xp.getAttribute('aria-pressed'), 'false');
   xp.click();
