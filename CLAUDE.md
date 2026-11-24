@@ -24,7 +24,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Premium: CHF 790 Start + CHF 290 pro Monat, oder CHF 2'990 einmalig.
 - Einmalig: erstes Jahr inklusive, danach CHF 390 pro Jahr.
 - Social Media: Start CHF 390/Mt., Plus CHF 690/Mt., Werbung CHF 350/Mt. (+ Budget direkt an Meta), Kombi Plus + Werbung CHF 990/Mt. Einrichtung CHF 290 (Werbung CHF 390), für Website-Kunden gratis. Monatlich kündbar.
-- 15 % Rabatt auf die erste Bestellung (ersetzt den früheren «Einführungspreis für die ersten 3 Betriebe»).
+- 15 % Rabatt auf den ersten Monat (Abo-Monatspreis, nicht Start oder Einmalpreis; ersetzt den früheren «Einführungspreis für die ersten 3 Betriebe»).
 - Kostenloser Entwurf zuerst, 50 % bei Zusage, 50 % bei Übergabe.
 
 ## Regeln für Änderungen
