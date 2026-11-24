@@ -366,3 +366,6 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 
 ## Intro-Banner (Startseite DE + EN)
 `<dialog id="intro">` vor dem Script, Bild `img/intro-banner-990.webp` (+ `-600`). `js/site.js` öffnet ihn 0,7 s nach `load`, nur einmal pro Besucher (`localStorage` Schlüssel `om-intro-990`), nicht wenn die URL einen `#anker` hat. Schliessen: ×, Esc, Klick daneben oder Klick auf Bild/Knopf (springt zu `#kontakt`). Neuer Banner = neuer Dateiname UND neuer Schlüssel, damit ihn alle wieder sehen. Entfernen: beide `<dialog>` löschen, Script bleibt harmlos.
+
+
+**3D-Karte unter dem Radar** (`#scope`, nur Premium-Demo): `img/karte-zuerich-3d.webp` (Higgsfield, 720 px, rund zugeschnitten mit `clip-path`) liegt in `.scope-3d` unter dem SVG. Kippt beim Einblenden (`.scope.on`, IntersectionObserver) und stärker bei Hover, langsamer Zoom `@keyframes karte`. Bei `prefers-reduced-motion` flach und ohne Animation. Orte in `TW` passen zur Karte (Uster, Thalwil, Horgen verschoben). Script geändert → CSP-Hash neu (README 8a).
