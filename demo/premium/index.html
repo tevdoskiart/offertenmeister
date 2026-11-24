@@ -2,7 +2,7 @@
 <html lang="de-CH" class="js">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-UTlzru0EQXifZ/x7Dx9qymc6rcLQ7rZBH90a46Hgexc='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-3z85WyvffqxPQODMgkGMql+mYW7GTdCEf7od3jLSXZQ='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Malerei Muster Zürich · Premium-Demo</title>
@@ -191,6 +191,42 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 @media(max-width:860px){.two{grid-template-columns:minmax(0,1fr)}.hero{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:min(56vw,360px)}.hero-3d img{object-position:78% center}.hero-3d::after{background:linear-gradient(0deg,rgba(5,9,11,1) 42%,rgba(5,9,11,.2) 75%,rgba(5,9,11,0) 100%)}.mark.am{display:none}.mark{top:24%!important;left:34%!important}.scope{max-width:320px;margin:0 auto}.links{display:none}.tele{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.mods,.revs,.steps,.row2,.opts{grid-template-columns:minmax(0,1fr)}.top .btn{display:none}.cta .btn{flex:1;padding:0 10px;font-size:13px;white-space:nowrap}.status span:nth-child(n+3){display:none}.mbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(5,9,11,.96);border-top:1px solid var(--line)}.mbar .btn{padding:0 6px;font-size:13px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body{padding-bottom:72px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}#boot,.scanline{display:none}.sweep,.rec::before,.cur::after{animation:none}.js .rv,.js .pt{opacity:1;transform:none}.pt.on,.ping.on{animation:none}.js .frame.rv::before,.js .frame.rv::after{transform:none;opacity:1}.btn.go::after{display:none}.tilt,.scope{transform:none!important}}
+
+/* 3D-Explosionsansicht (Demo) */
+.xp-lead{color:var(--soft);margin:14px 0 22px;max-width:34em}
+.xp-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:xp}
+.xp-list li{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;padding:12px 14px;border:1px solid var(--line);background:rgba(10,19,22,.7);transition:border-color .3s,background .3s}
+.xp-list li::before{counter-increment:xp;content:"0" counter(xp);grid-row:span 2;font:600 13px "JetBrains Mono",monospace;color:var(--cy)}
+.xp-list b{font-weight:600}.xp-list span{color:var(--soft);font-size:14px}
+.xp{position:relative;display:grid;place-items:center;width:100%;min-height:480px;padding:0;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 60%,rgba(61,245,224,.10),transparent 65%),rgba(10,19,22,.6);cursor:pointer;perspective:1600px;color:inherit;font:inherit}
+.xp:focus-visible{outline:2px solid var(--cy);outline-offset:4px}
+.xp-house{position:relative;width:230px;height:230px;transform-style:preserve-3d;transform:translateY(30px) rotateX(58deg) rotateZ(-42deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.xp-layer{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(var(--z));transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.xp-layer i{position:absolute;display:block;backface-visibility:visible;transition:box-shadow .5s}
+.xp-layer .t{inset:0;transform:translateZ(var(--h));background:var(--top)}
+.xp-layer .f{left:0;top:100%;width:100%;height:var(--h);transform-origin:top;transform:rotateX(90deg);background:var(--side1)}
+.xp-layer .r{left:100%;top:0;width:var(--h);height:100%;transform-origin:left;transform:rotateY(-90deg);background:var(--side2)}
+.xp-layer .tag{left:0;top:100%;width:max-content;transform:translateZ(calc(var(--h) / 2)) rotateZ(42deg) rotateX(-58deg) translate(calc(-100% - 14px),-50%);font:600 11px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--bg);background:var(--cy);padding:4px 8px;opacity:0;transition:opacity .4s .3s;pointer-events:none}
+.l1{--z:0px;--h:14px;--top:linear-gradient(135deg,#9aa19d,#7c837f);--side1:#5d6460;--side2:#4c524f}
+.l2{--z:14px;--h:84px;--top:transparent;--side1:repeating-linear-gradient(90deg,#2f6f5a 0 46px,#8fd3ff33 46px 74px,#2f6f5a 74px 110px);--side2:repeating-linear-gradient(0deg,#27604e 0 70px,#8fd3ff33 70px 100px,#27604e 100px 130px)}
+.l2 .t{outline:2px solid rgba(61,245,224,.55)}
+.l3{--z:98px;--h:10px;--top:#e9efe9;--side1:#c4ccc6;--side2:#aeb7b1}
+.l4{--z:108px;--h:30px;--top:repeating-linear-gradient(45deg,#b24a33 0 12px,#9a3d29 12px 24px);--side1:#7d2f20;--side2:#6a2719}
+.xp-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font:12px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;transition:opacity .3s}
+.xp[aria-pressed="true"] .xp-house{transform:translateY(120px) rotateX(58deg) rotateZ(-34deg)}
+.xp[aria-pressed="true"] .l2{--z:64px}.xp[aria-pressed="true"] .l3{--z:178px}.xp[aria-pressed="true"] .l4{--z:240px}
+.xp[aria-pressed="true"] .tag{opacity:1}
+.xp[aria-pressed="true"] .xp-layer i:not(.tag){box-shadow:0 0 0 1px rgba(61,245,224,.7),0 0 24px rgba(61,245,224,.25)}
+.xp[aria-pressed="true"] .xp-hint{opacity:0}
+@media (hover:hover){
+ .xp:hover .xp-house{transform:translateY(120px) rotateX(58deg) rotateZ(-34deg)}
+ .xp:hover .l2{--z:64px}.xp:hover .l3{--z:178px}.xp:hover .l4{--z:240px}
+ .xp:hover .tag{opacity:1}
+ .xp:hover .xp-layer i:not(.tag){box-shadow:0 0 0 1px rgba(61,245,224,.7),0 0 24px rgba(61,245,224,.25)}
+ .xp:hover .xp-hint{opacity:0}
+}
+@media (max-width:600px){.xp{min-height:400px}.xp-house{width:180px;height:180px}}
+@media (prefers-reduced-motion:reduce){.xp-house,.xp-layer,.xp-layer i,.xp-hint{transition:none}}
 </style>
 </head>
 <body>
@@ -226,6 +262,29 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   </div>
   
 </div></header>
+
+<section class="band" id="schichten" style="padding-top:0"><div class="wrap two">
+  <div class="rv">
+    <span class="lbl">// 3D-Ansicht · Maus aufs Haus oder antippen</span>
+    <h2 style="margin-top:8px">Vom Boden bis zum Dach.</h2>
+    <p class="xp-lead">Das Haus öffnet sich in seine Schichten. So sehen Ihre Kunden auf einen Blick, was Sie alles machen.</p>
+    <ol class="xp-list">
+      <li><b>Boden und Bad</b><span>Mikrozement fugenlos, direkt auf alte Platten</span></li>
+      <li><b>Wände</b><span>Innenanstrich in 2 Schichten, Tapezieren</span></li>
+      <li><b>Decke</b><span>Spachteln Q3/Q4, Anstrich</span></li>
+      <li><b>Dach und Fassade</b><span>Reinigung, Grundierung, Schutzanstrich</span></li>
+    </ol>
+  </div>
+  <button type="button" class="xp rv" id="xp" aria-pressed="false" aria-label="Haus in Schichten öffnen">
+    <span class="xp-house" aria-hidden="true">
+      <span class="xp-layer l1"><i class="t"></i><i class="f"></i><i class="r"></i><i class="tag">01 BODEN</i></span>
+      <span class="xp-layer l2"><i class="t"></i><i class="f"></i><i class="r"></i><i class="tag">02 WÄNDE</i></span>
+      <span class="xp-layer l3"><i class="t"></i><i class="f"></i><i class="r"></i><i class="tag">03 DECKE</i></span>
+      <span class="xp-layer l4"><i class="t"></i><i class="f"></i><i class="r"></i><i class="tag">04 DACH</i></span>
+    </span>
+    <span class="xp-hint">Hover oder antippen</span>
+  </button>
+</div></section>
 
 <section class="band" id="rechner" style="padding-top:0"><div class="wrap two">
   <div class="rv">
@@ -415,6 +474,9 @@ $('wnext').addEventListener('click',()=>{const ok=$('ok');
  D.unshift(['Gerade eben',esc(n),WO[pick],esc($('fplz').value.trim())||'–',+$('farea').value||0,'neu']);renderD();
  ok.innerHTML=`<b>Danke, ${esc(n)}.</b> Ihre Anfrage „${WO[pick]}“ ist eingegangen. In der Demo erscheint sie oben in der Anfragen-Übersicht. Auf der echten Website kommt sie sofort per WhatsApp beim Betrieb an.`;ok.classList.add('show')});
 document.querySelectorAll('.walink').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();location.hash='offerte';const ok=$('ok');ok.textContent='In der Demo öffnet sich kein Chat. Auf der echten Website startet hier direkt ein WhatsApp-Chat mit dem Betrieb.';ok.classList.add('show')}));
+
+/* 3D-Explosionsansicht: Klick/Tippen öffnet und schliesst (Hover macht CSS) */
+const xp=$('xp');xp.addEventListener('click',()=>xp.setAttribute('aria-pressed',String(xp.getAttribute('aria-pressed')!=='true')));
 
 /* boot + animations */
 const boot=$('boot'),bt=$('bt');

@@ -262,6 +262,8 @@ const T = { de: { h1: '…', prices: [...], wo: [...], steps: [...], tiles: [...
 | `WO` | `string[]` | Arbeiten im Formular, Schritt 1 |
 | `BL` | `string[]` | Text der Start-Animation |
 
+**3D-Explosionsansicht** (`#schichten`, nur Demo): Haus aus 4 CSS-3D-Schichten (`.xp-layer.l1`–`.l4`, Variablen `--z` Höhe, `--h` Dicke, `--top`/`--side1`/`--side2` Farben). Öffnet bei Hover (nur Geräte mit `hover:hover`) und per Klick/Tippen (`#xp`, `aria-pressed`). Ohne Bibliothek, bei `prefers-reduced-motion` ohne Übergang. Für einen echten Kunden später ausbauen (z. B. Three.js, Wandfarbe wählen).
+
 Eine abgeschickte Demo-Anfrage wird vorne in `D` eingefügt und erscheint im Dashboard (Eingaben werden von `<>&"` befreit).
 
 ### 7.4 Demo → Kunden-Website (Kurzanleitung)

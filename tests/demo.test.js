@@ -144,3 +144,19 @@ test('[premium] Filter zeigt nur Anfragen mit diesem Status', (t) => {
   d.querySelector('#flt button[data-f="all"]').click();
   assert.equal(d.querySelectorAll('#dtab tr').length, all);
 });
+
+test('[premium] 3D-Explosionsansicht öffnet und schliesst per Klick', (t) => {
+  const w = loadDemo('demo/premium/index.html'); t.after(() => w.close());
+  const d = w.document;
+  const xp = d.getElementById('xp');
+  assert.equal(xp.tagName, 'BUTTON', 'muss ein echter Knopf sein (Tastatur, Touch)');
+  assert.ok(xp.getAttribute('aria-label'));
+  assert.equal(d.querySelectorAll('#xp .xp-layer').length, 4);
+  assert.deepEqual([...d.querySelectorAll('#xp .tag')].map((x) => x.textContent), ['01 BODEN', '02 WÄNDE', '03 DECKE', '04 DACH']);
+  assert.equal(d.querySelectorAll('#schichten .xp-list li').length, 4);
+  assert.equal(xp.getAttribute('aria-pressed'), 'false');
+  xp.click();
+  assert.equal(xp.getAttribute('aria-pressed'), 'true');
+  xp.click();
+  assert.equal(xp.getAttribute('aria-pressed'), 'false');
+});
