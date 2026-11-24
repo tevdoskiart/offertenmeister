@@ -191,3 +191,19 @@ test('[premium] 3D-Raum im Rechner folgt Fläche und Kategorie', (t) => {
   assert.ok(parseFloat(room.style.getPropertyValue('--s')) <= 150, 'Fassade kleiner, damit Haus mit Dach passt');
   assert.ok(parseFloat(room.style.getPropertyValue('--h')) >= 60, 'Fassade höher als Innenwand');
 });
+
+test('[premium] Leistungs-Module haben 3D-Icons aus 8 Ebenen', (t) => {
+  const w = loadDemo('demo/premium/index.html'); t.after(() => w.close());
+  const mods = [...w.document.querySelectorAll('#mods .mod')];
+  assert.equal(mods.length, 6);
+  for (const m of mods) {
+    const ico = m.querySelector('.i3d');
+    assert.equal(ico.getAttribute('aria-hidden'), 'true', 'Icon ist Dekoration');
+    const layers = ico.querySelectorAll('svg');
+    assert.equal(layers.length, 8);
+    const d = layers[0].querySelector('path').getAttribute('d');
+    assert.ok([...layers].every((l) => l.querySelector('path').getAttribute('d') === d), 'alle Ebenen gleiche Form');
+  }
+  const forms = new Set(mods.map((m) => m.querySelector('.i3d path').getAttribute('d')));
+  assert.equal(forms.size, 6, 'jedes Modul eigenes Icon');
+});
