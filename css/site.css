@@ -241,3 +241,15 @@ input:focus,select:focus{border-color:var(--graphit)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0}
+
+/* Intro-Banner beim ersten Besuch (nur DE, js/site.js) */
+.intro{padding:0;border:0;background:transparent;max-width:min(440px,90vw);max-height:92vh;overflow:visible}
+.intro::backdrop{background:rgba(20,16,14,.72)}
+.intro[open]{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.intro-link img{display:block;width:100%;height:auto;max-height:calc(92vh - 70px);object-fit:contain;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.intro-cta{text-align:center;justify-content:center}
+.intro-zu{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--weiss);color:var(--graphit);font-size:26px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);z-index:1}
+@media (max-width:520px){.intro-zu{top:-10px;right:-6px}}
+@media (prefers-reduced-motion:no-preference){.intro[open]{animation:intro-ein .35s ease-out}.intro[open]::backdrop{animation:intro-bg .35s ease-out}}
+@keyframes intro-ein{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes intro-bg{from{opacity:0}to{opacity:1}}

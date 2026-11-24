@@ -362,3 +362,7 @@ Nicht im Code lösbar (Konto-Einstellungen beim Inhaber): «Enforce HTTPS» in G
 | **Neue Option «Interesse»** | `<option>` in `#paket` (beide Sprachen, gleicher Wert) und ggf. `data-plan` |
 
 Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein horizontales Scrollen.
+
+
+## Intro-Banner (Startseite DE + EN)
+`<dialog id="intro">` vor dem Script, Bild `img/intro-banner-990.webp` (+ `-600`). `js/site.js` öffnet ihn 0,7 s nach `load`, nur einmal pro Besucher (`localStorage` Schlüssel `om-intro-990`), nicht wenn die URL einen `#anker` hat. Schliessen: ×, Esc, Klick daneben oder Klick auf Bild/Knopf (springt zu `#kontakt`). Neuer Banner = neuer Dateiname UND neuer Schlüssel, damit ihn alle wieder sehen. Entfernen: beide `<dialog>` löschen, Script bleibt harmlos.
