@@ -1,0 +1,19 @@
+@font-face{font-family:Archivo;src:url(/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+*{box-sizing:border-box}
+body{margin:0;background:#F3ECE4;color:#2B2723;font:400 18px/1.6 Archivo,system-ui,sans-serif}
+.kopf{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1080px;margin:0 auto;padding:18px 20px}
+.kopf img{display:block;height:auto}
+main{max-width:1080px;margin:0 auto;padding:8px 20px 56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:center}
+h1{font-weight:800;font-stretch:125%;font-variation-settings:"wdth" 125;font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin:0 0 16px}
+.kicker{color:#C8261B;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px;margin:0 0 10px}
+.bild img{width:100%;height:auto;display:block;border-radius:24px;box-shadow:0 30px 60px -30px rgba(43,39,35,.5)}
+ul{padding-left:22px;margin:16px 0 24px}
+li{margin:6px 0}
+.knopfe{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #2B2723;color:#2B2723}
+.btn-rot{background:#C8261B;border-color:#C8261B;color:#FBF8F4}
+.btn:hover{transform:translateY(-1px)}
+.klein{color:#5A534C;font-size:15px;margin-top:18px}
+.links{font-size:15px}.links a{color:#2B2723}
+@media (max-width:760px){main{grid-template-columns:minmax(0,1fr)}.bild{order:-1}}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}

@@ -187,3 +187,15 @@ test('Vergleich Portal / eigene Website in DE und EN', () => {
     assert.equal(v.querySelector('.v-eigen a').getAttribute('href'), '#kontakt');
   }
 });
+
+test('Angebotsseiten: Vorschaubild für WhatsApp/E-Mail und Preise wie auf der Startseite', () => {
+  for (const [k, preise] of [['website', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]], ['social', ['CHF 390', 'CHF 690', 'CHF 350', 'CHF 990']]]) {
+    const f = `angebot/${k}/index.html`;
+    const d = parse(f);
+    assert.equal(d.querySelector('meta[property="og:image"]').content, `https://offertenmeister.ch/angebot/angebot-${k}-v1.jpg`);
+    assert.ok(exists(`angebot/angebot-${k}-v1.jpg`) && exists(`angebot/angebot-${k}-v1-720.webp`));
+    assert.match(d.querySelector('meta[name="robots"]').content, /noindex/);
+    const t = d.body.textContent;
+    for (const p of preise) assert.ok(t.includes(p), `${f}: ${p} fehlt`);
+  }
+});
