@@ -36,7 +36,7 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();
 // Intro-Banner: einmal pro Besucher, kurz nach dem Laden. Schliessen mit ×, Esc oder Klick daneben.
 const I=document.getElementById('intro');
 if(I&&typeof I.showModal==='function'){
- const K='om-intro-990';let gesehen=false;
+ const K='om-intro-190';let gesehen=false;
  try{gesehen=localStorage.getItem(K)==='1'}catch(e){}
  const zu=()=>{if(I.open)I.close();try{localStorage.setItem(K,'1')}catch(e){}};
  I.querySelector('.intro-zu').addEventListener('click',zu);

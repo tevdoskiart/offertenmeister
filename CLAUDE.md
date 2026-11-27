@@ -19,8 +19,9 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 ## Design
 - Schrift Archivo, Überschriften mit Breite 125 (`font-stretch:125%` + `"wdth" 125`).
 - Farben: putz #F3ECE4, rot #C8261B, rot-dunkel #A31D14, graphit #2B2723, beton #CFC8BF, text-2 #5A534C.
-- Maskottchen (seit 24.11.2026): realistische weisse 3D-Ton-Figur mit lächelndem Gesicht, schwarzer Sonnenbrille, Kappe und Latzhose mit roten, gelben und blauen Farbspritzern, Schweizer Rot als Akzent. Referenz für das weisse Gesicht: `img/social-maler.webp`.
-- Hero seit 27.11.2026 (`img/hero-3d-maler-v3.webp`): gleiche Figur, aber Gesicht in Fanta-Orange (#FF8200) und echtes Foto als Hintergrund (Zimmer, Maler auf der Leiter). Wunsch des Inhabers. Logo, Angebots- und Demo-Bilder haben noch das weisse Gesicht; nur auf Wunsch angleichen. Über dem Bild liegt links ein heller Verlauf (`.hero::after` in `css/site.css`), damit die Überschrift lesbar bleibt; auf dem Handy aus. Gilt für alle Bilder, Logo (`logo-v2.webp`, Quelle `logo-icon-v2.webp`), Favicons, og-Bilder und Social-Bild (`social-maler.webp`).
+- Maskottchen: realistische 3D-Ton-Figur mit lächelndem Gesicht in Fanta-Orange (#FF8200, seit 27.11.2026, Wunsch des Inhabers), schwarzer Sonnenbrille, weisser Kappe und weisser Latzhose mit roten, gelben und blauen Farbspritzern, weisse Handschuhe und Schuhe, Schweizer Rot als Akzent. Referenz: `img/social-maler-v2.webp`. Gilt für alle Bilder der Startseite; noch mit weissem Gesicht: Logo (`logo-v2.webp`, Quelle `logo-icon-v2.webp`), Favicons, og-Bilder, `angebot/`-Bilder und die Demos. Nur auf Wunsch angleichen.
+- Hero (`img/hero-3d-maler-v3.webp`): echtes Foto als Hintergrund (Zimmer, Maler auf der Leiter). Über dem Bild liegt links ein heller Verlauf (`.hero::after` in `css/site.css`), damit die Überschrift lesbar bleibt; auf dem Handy aus.
+- Bild-Videos (Treppe, Demo-Geräte, Pakete): kurze MP4 ohne Ton über einem Standbild, Klasse `stufen-video`, Start in `js/site.js` (siehe README). Videos entstehen mit Higgsfield `seedance_2_0`, mode `fast` (Plan Basic), Start- und Endbild.
 - Bewegung sparsam und immer mit `prefers-reduced-motion` abschaltbar.
 
 ## Preise (überall gleich halten: Preiskarten, FAQ, Schema)

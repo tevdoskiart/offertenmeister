@@ -194,9 +194,9 @@ Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wi
 | `vergleich-portal-website` (seit 27.11.2026, Bild über dem Vergleich Portal/eigene Website) | 720w | `(max-width: 1076px) calc(100vw - 36px), 1040px` |
 | `fassade-schweiz-v3` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
 | `paket-basic-v3`, `paket-premium-v3` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
-| `faq-maler-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
-| `kontakt-whatsapp-v2` | 600w | `(max-width: 980px) 340px, 460px` |
-| `social-maler` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
+| `faq-maler-v3` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
+| `kontakt-whatsapp-v3` | 600w | `(max-width: 980px) 340px, 460px` |
+| `social-maler-v2` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
 | `demo-basic`, `demo-premium` | 640w | `(max-width: 980px) calc(100vw - 60px), 290px` |
 
 720 px deckt Handys bis Pixeldichte 2 ab. Erstellen mit Pillow (`LANCZOS`, WebP Qualität 78).
@@ -369,7 +369,7 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 
 
 ## Intro-Banner (Startseite DE + EN)
-`<dialog id="intro">` vor dem Script, Bild `img/intro-banner-190.webp` (+ `-600`). `js/site.js` öffnet ihn 0,7 s nach `load`, nur einmal pro Besucher (`localStorage` Schlüssel `om-intro-990`), nicht wenn die URL einen `#anker` hat. Schliessen: ×, Esc, Klick daneben oder Klick auf Bild/Knopf (springt zu `#kontakt`). Neuer Banner = neuer Dateiname UND neuer Schlüssel, damit ihn alle wieder sehen. Entfernen: beide `<dialog>` löschen, Script bleibt harmlos.
+`<dialog id="intro">` vor dem Script, Bild `img/intro-banner-190.webp` (+ `-600`). `js/site.js` öffnet ihn 0,7 s nach `load`, nur einmal pro Besucher (`localStorage` Schlüssel `om-intro-190`), nicht wenn die URL einen `#anker` hat. Schliessen: ×, Esc, Klick daneben oder Klick auf Bild/Knopf (springt zu `#kontakt`). Neuer Banner = neuer Dateiname UND neuer Schlüssel, damit ihn alle wieder sehen. Entfernen: beide `<dialog>` löschen, Script bleibt harmlos.
 
 
 **3D-Karte unter dem Radar** (`#scope`, nur Premium-Demo): `img/karte-zuerich-3d.webp` (Higgsfield, 720 px, rund zugeschnitten mit `clip-path`) liegt in `.scope-3d` unter dem SVG. Kippt beim Einblenden (`.scope.on`, IntersectionObserver) und stärker bei Hover, langsamer Zoom `@keyframes karte`. Bei `prefers-reduced-motion` flach und ohne Animation. Orte in `TW` passen zur Karte (Uster, Thalwil, Horgen verschoben). Script geändert → CSP-Hash neu (README 8a).
