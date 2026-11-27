@@ -189,7 +189,7 @@ test('Vergleich Portal / eigene Website in DE und EN', () => {
 });
 
 test('Angebotsseiten: Vorschaubild für WhatsApp/E-Mail und Preise wie auf der Startseite', () => {
-  for (const [k, preise] of [['website', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]], ['social', ['CHF 390', 'CHF 690', 'CHF 350', 'CHF 990']]]) {
+  for (const [k, preise] of [['website', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]], ['social', ['CHF 390', 'CHF 690', 'CHF 350', 'CHF 990']], ['jetzt', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]]]) {
     const f = `angebot/${k}/index.html`;
     const d = parse(f);
     assert.equal(d.querySelector('meta[property="og:image"]').content, `https://offertenmeister.ch/angebot/angebot-${k}-v1.jpg`);

@@ -378,3 +378,5 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 ## Angebotsseiten (für E-Mail und WhatsApp)
 
 `angebot/website/` und `angebot/social/`: kurze Seiten (noindex) mit dem Angebotsbild als `og:image` (`angebot/angebot-website-v1.jpg`, `angebot-social-v1.jpg`, 1080×1350). Wer den Link in WhatsApp oder in eine E-Mail setzt, bekommt das Paketbild als Vorschau. Eigene CSS `css/angebot.css`, CSP ohne Script. Preise ändern = Bild neu erstellen (neuer Dateiname `-v2`), Text der Seite und Test «Angebotsseiten» in `tests/content.test.js` anpassen.
+`angebot/jetzt/` (seit 27.11.2026): gleiche Bauart, Aktion «Jetzt ist Zeit für Ihr Webdesign», Bild `angebot/angebot-jetzt-v1.jpg` (mit PIL aus `img/hero-3d-maler-v2.webp`, Logo und Archivo gesetzt). Für WhatsApp-Akquise.
+`entwurf.html` + `entwurf.css` + `entwurf.js` im Hauptordner (seit 27.11.2026): persönliche Entwurf-Seite für Betriebe ohne Website, Aufruf `/entwurf.html?f=<kürzel>`, Betriebsdaten im Objekt `F` in `entwurf.js` (Firma, Ort, Ansprache, Mobile). noindex.

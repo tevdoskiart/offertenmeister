@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const { read, parse } = require('./helpers');
 
-const PAGES = ['index.html', 'en/index.html', '404.html', 'demo/basic/index.html', 'demo/premium/index.html', 'angebot/website/index.html', 'angebot/social/index.html'];
+const PAGES = ['index.html', 'en/index.html', '404.html', 'demo/basic/index.html', 'demo/premium/index.html', 'angebot/website/index.html', 'angebot/social/index.html', 'angebot/jetzt/index.html'];
 const MAIN = ['index.html', 'en/index.html'];
 const DEMOS = ['demo/basic/index.html', 'demo/premium/index.html'];
 
