@@ -1,0 +1,26 @@
+@font-face{font-family:Archivo;src:url(/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(/fonts/inter.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--bg:#eef1f6;--weiss:#fff;--navy:#16243a;--blau:#2a65b0;--grau:#5c687a;--linie:#d5dbe5;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--navy);font:400 17px/1.55 Inter,"Segoe UI",Arial,sans-serif}
+h1,h2{font-family:Archivo,Arial,sans-serif;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,6vw,46px);font-weight:900}
+h2{font-size:22px;font-weight:800}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.kopf{background:var(--weiss);border-bottom:1px solid var(--linie);padding:28px 0}
+.kopf p{color:var(--grau);margin-top:10px;max-width:42em}
+.kicker{font-weight:700;color:var(--blau);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.beitraege{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:32px 0}
+.beitrag{background:var(--weiss);border:1px solid var(--linie);border-radius:18px;overflow:hidden;display:grid;align-content:start}
+.beitrag img{display:block;width:100%;height:auto}
+.text{padding:18px;display:grid;gap:8px}
+.text p{font-size:16px}
+.tags{color:var(--blau);font-size:15px}
+.hinweis{background:var(--weiss);border:1px solid var(--linie);border-radius:18px;padding:22px;display:grid;gap:10px;margin-bottom:28px}
+.hinweis ul{margin:0;padding-left:20px}
+.btn{display:inline-block;justify-self:start;background:var(--blau);color:#fff;text-decoration:none;font:800 17px Archivo,Arial,sans-serif;padding:13px 22px;border-radius:999px}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+footer{padding:0 0 30px;color:var(--grau);font-size:14px}
+footer a{color:inherit}
+@media (max-width:860px){.beitraege{grid-template-columns:minmax(0,1fr);max-width:480px;margin:0 auto}}
