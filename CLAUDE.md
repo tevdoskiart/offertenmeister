@@ -33,7 +33,7 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - Kostenloser Entwurf zuerst, 50 % bei Zusage, 50 % bei Übergabe.
 
 ## Regeln für Änderungen
-- Jedes ersetzte Bild bekommt einen NEUEN Dateinamen (GitHub Pages cacht ca. 10 Minuten). Altes Bild mit `git rm` löschen.
+- Jedes ersetzte Bild bekommt einen NEUEN Dateinamen (GitHub Pages cacht ca. 10 Minuten). Das alte Bild NICHT im gleichen Push löschen: Besucher mit einer gespeicherten Seite (vor allem iPhone/Safari) laden sonst die alte Seite mit gelöschten Bildern und sehen leere Felder (so passiert am 27.11.2026). Alte Bilder frühestens eine Woche später mit `git rm` entfernen. Am 27.11.2026 ersetzt und noch als Reserve im Ordner: `hero-3d-maler-v2`, `anfrage-offerte-v2`, `fassade-schweiz-v2`, `sieben-stufen-v2`, `demo-geraete-v3`, `paket-basic-v2`, `paket-premium-v2`, `social-maler`, `faq-maler-v2`, `kontakt-whatsapp-v2`, `intro-banner-990` (ab 05.12.2026 löschbar).
 - Grosse Bilder (Breite ≥ 800 px) brauchen eine kleine Version fürs Handy: `name-720.webp` (bzw. 600/640/800, siehe README) mit `srcset` und `sizes`. Test prüft das. Hero-Preload mit `fetchpriority="high"` und `imagesrcset`.
 - Bilder entstehen mit Higgsfield (`gpt_image_2_6`), Maskottchen-Referenz als `image_references`.
 - Tests: `npm install` einmal, dann `npm test` (node:test + jsdom, Ordner `tests/`). Prüfen Script-Verhalten DE/EN, Preise, Links, Bilder, SEO und die Demo-Rechner. Laufen automatisch in der Pipeline (Actions «Pipeline») und blockieren die Veröffentlichung, wenn einer rot ist. Preise ändern = auch `PRICES` in `tests/content.test.js` ändern.
