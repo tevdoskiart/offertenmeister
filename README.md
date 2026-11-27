@@ -193,7 +193,7 @@ Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wi
 | Split-Bilder (`anfrage-offerte-v3`, `sieben-stufen-v3`, `demo-geraete-v4`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
 | `vergleich-portal-website` (seit 27.11.2026, Bild über dem Vergleich Portal/eigene Website) | 720w | `(max-width: 1076px) calc(100vw - 36px), 1040px` |
 | `fassade-schweiz-v3` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
-| `paket-basic-v2`, `paket-premium-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
+| `paket-basic-v3`, `paket-premium-v3` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
 | `faq-maler-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
 | `kontakt-whatsapp-v2` | 600w | `(max-width: 980px) 340px, 460px` |
 | `social-maler` | 600w | `(max-width: 980px) min(480px, calc(100vw - 36px)), 600px` |
@@ -380,5 +380,6 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 
 `angebot/website/` und `angebot/social/`: kurze Seiten (noindex) mit dem Angebotsbild als `og:image` (`angebot/angebot-website-v1.jpg`, `angebot-social-v1.jpg`, 1080×1350). Wer den Link in WhatsApp oder in eine E-Mail setzt, bekommt das Paketbild als Vorschau. Eigene CSS `css/angebot.css`, CSP ohne Script. Preise ändern = Bild neu erstellen (neuer Dateiname `-v2`), Text der Seite und Test «Angebotsseiten» in `tests/content.test.js` anpassen.
 Treppen-Video (seit 27.11.2026): im Abschnitt «In 7 Tagen online» liegt über dem Standbild `img/sieben-stufen-v3.webp` (= letztes Videobild) das Video `img/sieben-stufen-v1.mp4` (800×600, ohne Ton, ca. 6 s, Higgsfield Seedance 2.0 mit Start- und Endbild). `js/site.js` startet es per IntersectionObserver, nur ohne `prefers-reduced-motion`; sonst bleibt das Bild. Gleiche Bauart für die Demo-Geräte: `img/demo-geraete-v4.webp` (= erstes Videobild) + `img/demo-geraete-v1.mp4` (960×720, Schleife). Blockiert das Handy den Autostart (iPhone im Stromsparmodus), startet das Video beim ersten Tippen.
+Ebenso die Paketbilder: `img/paket-basic-v3.webp` + `paket-basic-v1.mp4`, `img/paket-premium-v3.webp` + `paket-premium-v1.mp4` (960×540, Schleife, Standbild = erstes Videobild).
 `angebot/jetzt/` (seit 27.11.2026): gleiche Bauart, Aktion «Jetzt ist Zeit für Ihr Webdesign», Bild `angebot/angebot-jetzt-v1.jpg` (mit PIL aus dem früheren Hero `hero-3d-maler-v2.webp`, Logo und Archivo gesetzt). Für WhatsApp-Akquise.
 `entwurf.html` + `entwurf.css` + `entwurf.js` im Hauptordner (seit 27.11.2026): persönliche Entwurf-Seite für Betriebe ohne Website, Aufruf `/entwurf.html?f=<kürzel>`, Betriebsdaten im Objekt `F` in `entwurf.js` (Firma, Ort, Ansprache, Mobile). noindex.
