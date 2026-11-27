@@ -46,13 +46,17 @@ if(I&&typeof I.showModal==='function'){
  if(!gesehen&&!location.hash){const auf=()=>setTimeout(()=>{if(!I.open)I.showModal()},700);document.readyState==='complete'?auf():addEventListener('load',auf)}
 }
 }
-/* Treppen-Video «In 7 Tagen online»: startet erst, wenn es sichtbar ist; ohne Bewegung (prefers-reduced-motion) bleibt das Standbild. */
+/* Bild-Videos (Treppe «In 7 Tagen online», Demo-Geräte): starten erst, wenn sie sichtbar sind; ohne Bewegung (prefers-reduced-motion) bleibt das Standbild.
+   Handy: blockiert der Browser den Autostart (z. B. iPhone im Stromsparmodus), startet das Video beim ersten Tippen oder Wischen. */
 {
- const V=document.querySelector('.stufen-video');
- if(V&&'IntersectionObserver' in window&&matchMedia('(prefers-reduced-motion:no-preference)').matches){
-  new IntersectionObserver(es=>es.forEach(e=>{
-   if(e.isIntersecting){const p=V.play();if(p&&p.then)p.then(()=>V.classList.add('laeuft')).catch(()=>{})}
-   else V.pause();
-  }),{threshold:.35}).observe(V);
+ const VS=[...document.querySelectorAll('.stufen-video')];
+ if(VS.length&&'IntersectionObserver' in window&&matchMedia('(prefers-reduced-motion:no-preference)').matches){
+  const sichtbar=new Set();let wartet=false;
+  const start=V=>{V.muted=true;const p=V.play();if(p&&p.then)p.then(()=>V.classList.add('laeuft')).catch(()=>{if(!wartet){wartet=true;const nochmal=()=>{wartet=false;sichtbar.forEach(start)};['touchend','click','keydown'].forEach(t=>addEventListener(t,nochmal,{once:true,passive:true}))}})};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+   if(e.isIntersecting){sichtbar.add(e.target);start(e.target)}
+   else{sichtbar.delete(e.target);e.target.pause()}
+  }),{threshold:.25});
+  VS.forEach(V=>io.observe(V));
  }
 }
