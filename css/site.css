@@ -272,6 +272,7 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
 /* Vergleich Portal / eigene Website */
 .v-kopf{max-width:760px;margin:0 auto 36px;text-align:center;display:grid;gap:14px}
 .v-kopf p{color:var(--text-2);font-size:18px}
+.v-bild{display:block;width:100%;max-width:1040px;height:auto;margin:0 auto 20px;border-radius:24px}
 .vergleich{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;max-width:1040px;margin:0 auto;align-items:stretch}
 .v-spalte{border-radius:24px;padding:clamp(24px,3vw,36px);display:grid;gap:16px;align-content:start}
 .v-portal{background:var(--putz);color:var(--text-2)}

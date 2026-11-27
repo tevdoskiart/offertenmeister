@@ -181,8 +181,8 @@ Jede Animation hat einen `prefers-reduced-motion: reduce`-Fall.
 Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wird so eingebunden:
 
 ```html
-<img src="/img/fassade-schweiz-v2.webp"
-     srcset="/img/fassade-schweiz-v2-720.webp 720w, /img/fassade-schweiz-v2.webp 1072w"
+<img src="/img/fassade-schweiz-v3.webp"
+     srcset="/img/fassade-schweiz-v3-720.webp 720w, /img/fassade-schweiz-v3.webp 1072w"
      sizes="(max-width: 1240px) calc(100vw - 36px), 1240px"
      width="1072" height="808" alt="…" loading="lazy">
 ```
@@ -191,7 +191,8 @@ Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wi
 | --- | --- | --- |
 | `hero-3d-maler-v3` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
 | Split-Bilder (`anfrage-offerte-v3`, `sieben-stufen-v2`, `demo-geraete-v3`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
-| `fassade-schweiz-v2` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
+| `vergleich-portal-website` (seit 27.11.2026, Bild über dem Vergleich Portal/eigene Website) | 720w | `(max-width: 1076px) calc(100vw - 36px), 1040px` |
+| `fassade-schweiz-v3` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
 | `paket-basic-v2`, `paket-premium-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
 | `faq-maler-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 480px` |
 | `kontakt-whatsapp-v2` | 600w | `(max-width: 980px) 340px, 460px` |
