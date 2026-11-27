@@ -46,3 +46,13 @@ if(I&&typeof I.showModal==='function'){
  if(!gesehen&&!location.hash){const auf=()=>setTimeout(()=>{if(!I.open)I.showModal()},700);document.readyState==='complete'?auf():addEventListener('load',auf)}
 }
 }
+/* Treppen-Video «In 7 Tagen online»: startet erst, wenn es sichtbar ist; ohne Bewegung (prefers-reduced-motion) bleibt das Standbild. */
+{
+ const V=document.querySelector('.stufen-video');
+ if(V&&'IntersectionObserver' in window&&matchMedia('(prefers-reduced-motion:no-preference)').matches){
+  new IntersectionObserver(es=>es.forEach(e=>{
+   if(e.isIntersecting){const p=V.play();if(p&&p.then)p.then(()=>V.classList.add('laeuft')).catch(()=>{})}
+   else V.pause();
+  }),{threshold:.35}).observe(V);
+ }
+}
