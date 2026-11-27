@@ -189,7 +189,7 @@ Jedes Inhaltsbild ≥ 800 px Breite hat eine kleinere Version für Handys und wi
 
 | Bild | Kleine Version | `sizes` |
 | --- | --- | --- |
-| `hero-3d-maler-v2` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
+| `hero-3d-maler-v3` | 800w | `100vw` (Preload mit `imagesrcset`, `fetchpriority="high"`, nicht lazy) |
 | Split-Bilder (`anfrage-offerte-v2`, `sieben-stufen-v2`, `demo-geraete-v3`) | 720w | `(max-width: 980px) calc(100vw - 36px), 600px` |
 | `fassade-schweiz-v2` | 720w | `(max-width: 1240px) calc(100vw - 36px), 1240px` |
 | `paket-basic-v2`, `paket-premium-v2` | 720w | `(max-width: 980px) calc(100vw - 36px), 620px` |
@@ -378,5 +378,5 @@ Vor jedem Push: `npm test` grün, Desktop 1366 px und Handy 390 px ansehen, kein
 ## Angebotsseiten (für E-Mail und WhatsApp)
 
 `angebot/website/` und `angebot/social/`: kurze Seiten (noindex) mit dem Angebotsbild als `og:image` (`angebot/angebot-website-v1.jpg`, `angebot-social-v1.jpg`, 1080×1350). Wer den Link in WhatsApp oder in eine E-Mail setzt, bekommt das Paketbild als Vorschau. Eigene CSS `css/angebot.css`, CSP ohne Script. Preise ändern = Bild neu erstellen (neuer Dateiname `-v2`), Text der Seite und Test «Angebotsseiten» in `tests/content.test.js` anpassen.
-`angebot/jetzt/` (seit 27.11.2026): gleiche Bauart, Aktion «Jetzt ist Zeit für Ihr Webdesign», Bild `angebot/angebot-jetzt-v1.jpg` (mit PIL aus `img/hero-3d-maler-v2.webp`, Logo und Archivo gesetzt). Für WhatsApp-Akquise.
+`angebot/jetzt/` (seit 27.11.2026): gleiche Bauart, Aktion «Jetzt ist Zeit für Ihr Webdesign», Bild `angebot/angebot-jetzt-v1.jpg` (mit PIL aus dem früheren Hero `hero-3d-maler-v2.webp`, Logo und Archivo gesetzt). Für WhatsApp-Akquise.
 `entwurf.html` + `entwurf.css` + `entwurf.js` im Hauptordner (seit 27.11.2026): persönliche Entwurf-Seite für Betriebe ohne Website, Aufruf `/entwurf.html?f=<kürzel>`, Betriebsdaten im Objekt `F` in `entwurf.js` (Firma, Ort, Ansprache, Mobile). noindex.
