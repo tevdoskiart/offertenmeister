@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<title>Teilen-Bild</title>
+<!-- Vorlage für das Teilen-Bild je Betrieb (1200×630), siehe tools/og-bauen.js. Wird nicht veröffentlicht. -->
+<style>
+@font-face{font-family:Archivo;src:url(/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%}
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#F3ECE4;color:#2B2723;font:400 26px/1.35 Archivo,sans-serif;border-top:14px solid #C8261B;display:grid;grid-template-columns:1fr 400px;gap:56px;padding:52px 64px 48px;align-items:center}
+.links{display:flex;flex-direction:column;height:100%;justify-content:space-between;min-width:0}
+.tag{display:inline-block;background:#C8261B;color:#fff;font-weight:700;font-size:20px;letter-spacing:.1em;border-radius:999px;padding:6px 20px}
+.vor{margin-top:22px;font-size:28px;color:#5A534C}
+h1{font-weight:850;font-stretch:125%;font-variation-settings:"wdth" 125;letter-spacing:-.025em;line-height:1;margin-top:10px;overflow-wrap:break-word}
+.ort{margin-top:18px;font-weight:600;font-size:28px;color:#C8261B}
+.fuss{display:flex;align-items:center;gap:18px;font-size:22px;color:#5A534C}
+.fuss img{height:74px;width:auto;background:#fff;border-radius:14px;padding:6px 12px}
+.karte{background:#fff;border-radius:32px;padding:34px;box-shadow:0 26px 60px -28px rgba(43,39,35,.55)}
+.karte b{display:block;font-weight:800;font-size:27px;font-stretch:112%}
+.feld{margin-top:20px;border:2px solid #CFC8BF;border-radius:14px;padding:13px 16px;font-weight:600;font-size:22px}
+.regler{margin-top:26px;height:8px;border-radius:99px;background:linear-gradient(90deg,#C8261B 38%,#E6DFD6 38%);position:relative}
+.regler::after{content:"";position:absolute;left:38%;top:-9px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#C8261B}
+.preis{margin-top:28px;background:#F3ECE4;border-radius:18px;padding:16px 18px}
+.preis small{display:block;font-size:18px;color:#5A534C}
+.preis strong{display:block;font-weight:850;font-size:30px;font-stretch:112%;letter-spacing:-.01em;white-space:nowrap}
+.knopf{margin-top:20px;background:#C8261B;color:#fff;border-radius:999px;text-align:center;font-weight:700;font-size:22px;padding:14px}
+</style>
+</head>
+<body>
+<div class="links">
+  <div>
+    <span class="tag">ENTWURF</span>
+    <p class="vor">So könnte Ihre Website aussehen</p>
+    <h1 id="firma"></h1>
+    <p class="ort" id="ort"></p>
+  </div>
+  <div class="fuss"><img src="/img/logo-v3.webp" alt=""><span>Kostenlos und unverbindlich</span></div>
+</div>
+<div class="karte">
+  <b>Was kostet mein Projekt?</b>
+  <div class="feld" id="arbeit"></div>
+  <div class="regler"></div>
+  <div class="preis"><small>Richtpreis inkl. Material</small><strong id="preis"></strong></div>
+  <div class="knopf">Offerte per WhatsApp</div>
+</div>
+</body>
+</html>

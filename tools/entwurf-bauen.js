@@ -37,6 +37,8 @@ const ortSlug = (ort) => 'maler-' + ort.toLowerCase().replace(/ä/g, 'ae').repla
   .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const liste = (a) => (a.length > 1 ? a.slice(0, -1).join(', ') + ' und ' + a[a.length - 1] : a[0]);
 const ORIGIN = 'https://offertenmeister.ch';
+// Teilen-Bild je Betrieb (npm run og). Neues Aussehen = neue Zahl im Namen, damit WhatsApp nicht das alte Bild zeigt.
+const OG_BILD = 'og-v1.jpg';
 
 // Betriebsdaten für Google. Nur Angaben, die stimmen: keine Bewertungen, keine Öffnungszeiten, keine Preise.
 // «<» wird maskiert, damit ein Firmenname das <script> nicht schliessen kann.
@@ -87,6 +89,7 @@ function werte(k, b, ort) {
   const chips = orte.map((o) => (o === ort ? `<li>${esc(o)}</li>` : `<li><a href="${link(o)}">${esc(o)}</a></li>`)).join('');
   return {
     KUERZEL: k,
+    OG: `${ORIGIN}/e/${k}/${OG_BILD}`,
     FIRMA: esc(b.firma),
     ORT: esc(ort),
     SITZ: esc(b.ort),
@@ -148,4 +151,4 @@ if (require.main === module) {
   for (const s of alle()) console.log(`https://offertenmeister.ch/e/${s.k}/  –  ${s.b.firma}, ${s.b.ort}` + (s.b.orte ? `  (+ ${s.b.orte.length} Ortsseiten)` : ''));
 }
 
-module.exports = { alle, alleOrte, seite, ortSeite, ortSlug, schema, LEISTUNGEN, FARBEN };
+module.exports = { alle, alleOrte, seite, ortSeite, ortSlug, schema, LEISTUNGEN, FARBEN, OG_BILD };
