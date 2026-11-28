@@ -14,5 +14,13 @@
   "ch-maler": { "firma": "CH Malergeschäft GmbH", "ort": "Uster", "ansprache": "", "mobile": "078 660 81 81", "leistungen": [ "innen", "tapeten", "dekor", "lack" ], "orte": [ "Wetzikon", "Dübendorf", "Volketswil" ] },
   "peixoto": { "firma": "Peixoto GmbH", "ort": "Uster", "ansprache": "Herr Peixoto", "mobile": "079 627 31 41", "leistungen": [ "gips", "innen", "fassade" ], "orte": [ "Wetzikon", "Dübendorf", "Volketswil" ] },
   "mplus": { "firma": "MPlus Maler", "ort": "Rüti ZH", "ansprache": "", "mobile": "076 683 86 30", "leistungen": [ "renovation", "innen", "fassade" ], "orte": [ "Wald ZH", "Hinwil", "Bubikon" ] },
-  "imo": { "firma": "Imomalergeschäft GmbH", "ort": "Rüti ZH", "ansprache": "", "mobile": "076 339 28 87", "orte": [ "Wald ZH", "Hinwil", "Bubikon" ] }
+  "imo": { "firma": "Imomalergeschäft GmbH", "ort": "Rüti ZH", "ansprache": "", "mobile": "076 339 28 87", "orte": [ "Wald ZH", "Hinwil", "Bubikon" ] },
+  "kohlbrenner": { "firma": "Malerei & Lehmbau Daniel Kohlbrenner", "ort": "Thun", "ansprache": "Herr Kohlbrenner", "mobile": "079 206 02 07", "orte": [ "Steffisburg", "Spiez", "Heimberg" ] },
+  "mtr": { "firma": "MTR Maler GmbH", "ort": "Thun", "ansprache": "", "mobile": "079 656 00 68", "orte": [ "Steffisburg", "Spiez", "Heimberg" ] },
+  "pintaro": { "firma": "Pintaro GmbH", "ort": "Burgdorf", "ansprache": "", "mobile": "076 520 35 56", "orte": [ "Oberburg", "Kirchberg BE", "Hasle bei Burgdorf" ] },
+  "schuepbach": { "firma": "Maler Schüpbach GmbH", "ort": "Frauenfeld", "ansprache": "", "mobile": "076 206 07 75", "orte": [ "Gachnang", "Felben-Wellhausen", "Thundorf" ] },
+  "agovalente": { "firma": "AgoValente GmbH", "ort": "Frauenfeld", "ansprache": "Herr Valente", "mobile": "079 775 04 06", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Gachnang", "Felben-Wellhausen", "Thundorf" ] },
+  "luesse": { "firma": "Maler Lüsse GmbH", "ort": "Wil SG", "ansprache": "Herr Lüsse", "mobile": "076 819 28 27", "orte": [ "Zuzwil SG", "Uzwil", "Sirnach" ] },
+  "sadiku": { "firma": "Maler Renovationen Sadiku GmbH", "ort": "Baden", "ansprache": "", "mobile": "076 562 68 62", "leistungen": [ "innen", "renovation", "fassade", "tapeten" ], "orte": [ "Wettingen", "Ennetbaden", "Obersiggenthal" ] },
+  "avalin": { "firma": "AvaLin GmbH", "ort": "Dättwil AG", "ansprache": "", "mobile": "076 388 21 25", "orte": [ "Baden", "Fislisbach", "Birmenstorf AG" ] }
 }
