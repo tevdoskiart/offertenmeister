@@ -38,7 +38,7 @@ h3{font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.005em}
 .logo img{height:70px;width:auto;transition:transform .25s ease}
 .logo:hover img{transform:scale(1.04) rotate(-1.5deg)}
 .menu{display:flex;align-items:center;gap:28px;font-weight:600;font-size:15px}
-.menu a{text-decoration:none;padding:10px 0}
+.menu a{text-decoration:none;padding:10px 0;white-space:nowrap}
 .menu a:not(.btn):hover{color:var(--rot)}
 .menu .btn{min-height:46px;padding:0 22px;font-size:15px;white-space:nowrap}
 .menu .sprache{display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:0 10px;border:2px solid var(--beton);border-radius:999px;font-size:14px;font-weight:700}
@@ -308,3 +308,4 @@ footer a,.kontakt .text p a{display:inline-block;padding:12px 2px;margin:-12px 0
 @keyframes logo-ein{from{transform:translateX(-40px) scale(.7) rotate(-8deg)}to{transform:none}}
 @keyframes menu-ein{from{transform:translateY(-10px)}to{transform:none}}
 @keyframes knopf-puls{0%{box-shadow:0 0 0 0 rgba(200,38,27,.55)}100%{box-shadow:0 0 0 16px rgba(200,38,27,0)}}
+@media(min-width:641px) and (max-width:1120px){.menu,.links{gap:18px}.logo img{height:58px}}
