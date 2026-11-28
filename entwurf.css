@@ -92,3 +92,7 @@ footer{padding:22px 0;font-size:14px;color:var(--grau)}
 .orte li{border:1px solid var(--linie);border-radius:99px;padding:3px 11px;font-size:15px;background:var(--putz)}
 .box .btn-zweit{background:transparent;color:var(--tinte);border:2px solid var(--tinte);font-size:16px;padding:11px 18px;margin-top:10px}
 .kontakt a{text-underline-offset:3px}
+/* Ortsseiten /e/<kürzel>/maler-<ort>/: Orte als Links */
+.orte a{color:var(--petrol);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.orte a:hover{text-decoration-thickness:2px}
+footer a{text-decoration:underline;text-underline-offset:3px}

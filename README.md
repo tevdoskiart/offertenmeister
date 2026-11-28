@@ -282,6 +282,8 @@ Eine abgeschickte Demo-Anfrage wird vorne in `D` eingefügt und erscheint im Das
 3. `P` mit den Preisen des Kunden füllen, Namen in `prices` / `PR`.
 4. Einsatzgebiet (`areas` / `TW`), Bewertungen (`revs` / `RE`), Fotos (`PJ` / `BA`) ersetzen.
 5. WhatsApp-Knöpfe (`.walink`) und Formular auf die Nummer des Kunden umstellen, statt der Demo-Meldung.
+6. Daten für Google: JSON-LD `HousePainter` in den `<head>` (Name, Telefon, Adresse, `areaServed`, Leistungen; Muster: Funktion `schema()` in `tools/entwurf-bauen.js`). `url` und `@id` auf die Domain des Kunden. Keine Bewertungen, Öffnungszeiten oder Preise eintragen, die nicht stimmen.
+7. Ortsseiten: je Ort eine Seite `/maler-<ort>/` nach `tools/ort-vorlage.html`, mit eigenem Inhalt (Projektfoto, Bewertung, Anfahrt aus dem Ort), in `sitemap.xml` eintragen. Ohne eigenen Inhalt keine Ortsseite (Google wertet kopierte Seiten mit ausgetauschtem Ortsnamen als Spam).
 
 ---
 
@@ -396,12 +398,15 @@ Für die Akquise: jeder Betrieb bekommt einen eigenen Link, z. B. `https://offer
 | `tools/betriebe.json` | Daten je Betrieb (Kürzel → Felder) |
 | `tools/entwurf-vorlage.html` | Vorlage mit Platzhaltern `%NAME%` |
 | `tools/entwurf-bauen.js` | erzeugt `e/<kürzel>/index.html`; Katalog `LEISTUNGEN` (Karte + Rechner-Zeile mit Beispielpreis pro m²) und `FARBEN` |
+| `tools/ort-vorlage.html` | Vorlage der Ortsseiten `e/<kürzel>/maler-<ort>/` (eine je Eintrag in `orte`) |
 | `e/e.js` | Preisrechner; liest `data-firma`, `data-ort`, `data-wa` vom `<body>` |
 | `entwurf.css` | Design (gemeinsam mit der alten Seite); Farbe je Betrieb über die Klasse `t-<farbe>` |
 
-Felder in `betriebe.json`: `firma`, `ort`, `mobile` («079 123 45 67») sind Pflicht. Optional: `ansprache` («Herr Muster»), `leistungen` (2 bis 4 Schlüssel: `innen`, `fassade`, `tapeten`, `renovation`, `dekor`, `lack`, `gips`; die erste steht im Rechner vorne), `orte` (weitere Orte des Einsatzgebiets), `farbe` (`petrol`, `blau`, `gruen`, `weinrot`, `graphit`), `logo` (Dateiname in `e/<kürzel>/`).
+Felder in `betriebe.json`: `firma`, `ort`, `mobile` («079 123 45 67») sind Pflicht. Optional: `ansprache` («Herr Muster»), `leistungen` (2 bis 4 Schlüssel: `innen`, `fassade`, `tapeten`, `renovation`, `dekor`, `lack`, `gips`; die erste steht im Rechner vorne), `orte` (weitere Orte des Einsatzgebiets, höchstens 6, ohne den Hauptort; jeder bekommt eine Ortsseite und einen Link im Feld «Einsatzgebiet»), `farbe` (`petrol`, `blau`, `gruen`, `weinrot`, `graphit`), `logo` (Dateiname in `e/<kürzel>/`).
 
 **Neuer Betrieb:** Eintrag in `tools/betriebe.json` → `npm run entwurf` → `npm test` → committen und pushen. Der Test «Jeder Betrieb hat eine aktuelle Seite» wird rot, wenn `npm run entwurf` vergessen wurde. Vorlage oder `e/e.js` geändert → ebenfalls `npm run entwurf`, bei `e/e.js` und `entwurf.css` die Zahl `?v=` in der Vorlage erhöhen. `tools/` wird nicht veröffentlicht (`_config.yml`, Pipeline prüft es). Die Preise der Angebots-Box (CHF 490 / 190 / 1'990) stehen in der Vorlage: bei Preisänderung dort mitziehen.
+
+**Ortsseiten und Daten für Google (seit 28.11.2026):** Jede Entwurf- und Ortsseite trägt ein JSON-LD `HousePainter` (`schema()`): Firma, Telefon, Ort, `areaServed` = Hauptort + `orte`, Leistungen aus dem Rechner. Die Ortsseite setzt `data-ort` auf den Ort, die WhatsApp-Anfrage enthält darum «Ort: <Ort>». Adresse: `ortSlug()` («Wangen bei Olten» → `maler-wangen-bei-olten`). Die Orte in `betriebe.json` sind Beispiele aus der Nachbarschaft und auf der Seite so beschriftet. Ort aus `orte` entfernt → den Ordner `e/<kürzel>/maler-<ort>/` von Hand löschen.
 
 ## Kontaktformular: WhatsApp oder E-Mail (seit 28.11.2026)
 

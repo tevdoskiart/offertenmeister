@@ -3,9 +3,11 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { JSDOM } = require('jsdom');
 const { read, exists } = require('./helpers');
-const { alle, seite, LEISTUNGEN } = require('../tools/entwurf-bauen');
+const { alle, alleOrte, seite, ortSlug, LEISTUNGEN } = require('../tools/entwurf-bauen');
 
 const SEITEN = alle();
+const ORTE = alleOrte();
+const ld = (d) => JSON.parse(d.querySelector('script[type="application/ld+json"]').textContent);
 const laden = (html, k) => {
   const dom = new JSDOM(html, { url: `https://offertenmeister.ch/e/${k}/`, runScripts: 'outside-only' });
   dom.window.eval(read('e/e.js'));
@@ -83,4 +85,58 @@ test('Eigene Leistungen, Orte, Farbe; HTML in Angaben wird entschärft; falsche 
 test('Alte Links /entwurf.html?f=<kürzel> (verschickt am 27.11.2026) bleiben bestehen', () => {
   assert.ok(exists('entwurf.html') && exists('entwurf.js'));
   for (const s of SEITEN.slice(0, 8)) assert.ok(read('entwurf.js').includes(`"${s.k}"`));
+});
+
+test('Ortsseiten: jede ist aktuell, noindex, persönlich und im Entwurf verlinkt', () => {
+  assert.ok(ORTE.length >= 8);
+  for (const s of ORTE) {
+    assert.ok(exists(s.datei), `${s.datei} fehlt`);
+    assert.equal(read(s.datei), s.html, `${s.datei} ist veraltet (npm run entwurf)`);
+    const d = new JSDOM(s.html).window.document;
+    assert.equal(d.querySelector('meta[name=robots]').content, 'noindex');
+    assert.equal(d.querySelector('meta[property="og:url"]').content, `https://offertenmeister.ch/e/${s.k}/${s.slug}/`);
+    assert.equal(d.querySelector('h1').textContent, `Maler in ${s.ort}.`);
+    assert.ok(d.title.includes(s.ort) && d.title.includes(s.b.firma));
+    assert.equal(d.body.dataset.ort, s.ort);
+    assert.ok(decodeURIComponent(d.getElementById('senden').href).includes(`Ort: ${s.ort}`));
+    assert.ok(!/%[A-Z_]+%/.test(s.html) && !/\{\{|\{%/.test(s.html) && !/style="|<style|onclick=/.test(s.html));
+    for (const el of d.querySelectorAll('[src],link[href]')) assert.ok(exists((el.getAttribute('src') || el.getAttribute('href')).slice(1).split('?')[0]));
+  }
+  for (const s of [...SEITEN, ...ORTE]) {
+    const d = new JSDOM(s.html).window.document;
+    const links = [...d.querySelectorAll('.orte a')].map((a) => a.getAttribute('href'));
+    assert.equal(links.length, s.b.orte.length, `${s.datei}: Orte-Links`);
+    for (const u of [...links, ...[...d.querySelectorAll('a[href^="/e/"]')].map((a) => a.getAttribute('href'))]) assert.ok(exists(u.slice(1) + 'index.html'), `${u} fehlt`);
+  }
+});
+
+test('Daten für Google (JSON-LD HousePainter): Name, Telefon, Ort und Einsatzgebiet stimmen; nichts Erfundenes', () => {
+  for (const s of [...SEITEN, ...ORTE]) {
+    const j = ld(new JSDOM(s.html).window.document);
+    assert.equal(j['@type'], 'HousePainter');
+    assert.equal(j.name, s.b.firma);
+    assert.equal(j.telephone, '+41' + s.b.mobile.replace(/\s/g, '').slice(1));
+    assert.equal(j.url, `https://offertenmeister.ch/e/${s.k}/`);
+    assert.equal(j.address.addressLocality, s.b.ort);
+    assert.deepEqual(j.areaServed.map((x) => x.name), [s.b.ort, ...(s.b.orte || [])]);
+    assert.equal(j.hasOfferCatalog.itemListElement.length, (s.b.leistungen || [1, 2, 3, 4]).length);
+    for (const f of ['aggregateRating', 'review', 'openingHours', 'priceRange']) assert.equal(j[f], undefined, `${f} darf nicht erfunden werden`);
+  }
+});
+
+test('Ortsnamen: Adresse der Ortsseite, Schutz vor HTML im Firmennamen, falsche Orte brechen ab', () => {
+  assert.equal(ortSlug('Wangen bei Olten'), 'maler-wangen-bei-olten');
+  assert.equal(ortSlug('Domat/Ems'), 'maler-domat-ems');
+  assert.equal(ortSlug('Rüti ZH'), 'maler-rueti-zh');
+  const v = read('tools/entwurf-vorlage.html');
+  const html = seite('test', { firma: 'A </script><b>x', ort: 'Thun', mobile: '079 111 22 33', orte: ['Spiez'] }, v);
+  const d = new JSDOM(html).window.document;
+  assert.equal(ld(d).name, 'A </script><b>x');
+  assert.equal(d.querySelectorAll('script').length, 2);
+  assert.equal(d.querySelector('.orte a').getAttribute('href'), '/e/test/maler-spiez/');
+  const b = { firma: 'A', ort: 'Thun', mobile: '079 111 22 33' };
+  assert.throws(() => seite('x', { ...b, orte: ['Thun'] }, v), /Hauptort/);
+  assert.throws(() => seite('x', { ...b, orte: ['Spiez', 'spiez'] }, v), /doppelt/);
+  assert.throws(() => seite('x', { ...b, orte: ['1', '2', '3', '4', '5', '6', '7'] }, v), /höchstens 6/);
+  assert.throws(() => seite('x', { ...b, orte: [' '] }, v), /leer/);
 });

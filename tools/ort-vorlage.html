@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Maler %ORT% – %FIRMA% (Entwurf)</title>
+<meta name="description" content="Ortsseite «Maler %ORT%» im Entwurf für %FIRMA%: Richtpreis sofort, Anfrage per WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_CH">
+<meta property="og:url" content="https://offertenmeister.ch/e/%KUERZEL%/%SLUG%/">
+<meta property="og:title" content="Entwurf für %FIRMA%">
+<meta property="og:description" content="So könnte Ihre Seite für %ORT% aussehen. Kostenlos und unverbindlich, extra für %FIRMA% gemacht.">
+<meta property="og:image" content="https://offertenmeister.ch/img/og-de-v3.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="%THEMA_FARBE%">
+<link rel="icon" href="/favicon.ico?v=3">
+<link rel="stylesheet" href="/entwurf.css?v=3">
+%SCHEMA%
+</head>
+<body class="t-%THEMA%" data-firma="%FIRMA%" data-ort="%ORT%" data-wa="%WA%">
+<div class="band"><div class="wrap"><span><b>ENTWURF</b> &nbsp;Ortsseite «Maler %ORT%» für %FIRMA%.</span><a href="/e/%KUERZEL%/">Zurück zum Entwurf</a></div></div>
+
+<header><div class="wrap">
+  <div class="logo">%LOGO%<span>%FIRMA%</span></div>
+  <a class="tel" href="tel:+%WA%">%MOBILE%<small>Anrufen oder WhatsApp</small></a>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Maler in %ORT%.</h1>
+    <p class="lead">%FIRMA% aus %SITZ% arbeitet auch in %ORT%. %LEAD% Besichtigung kostenlos, Offerte innert 48 Stunden.</p>
+    <ul class="punkte"><li>Richtpreis sofort</li><li>Anfrage per WhatsApp</li><li>Fotos direkt mitschicken</li></ul>
+  </div>
+  <form class="rechner" id="rechner">
+    <h2 class="h3">Was kostet mein Projekt in %ORT%?</h2>
+    <label for="arbeit">Arbeit</label>
+    <select id="arbeit">
+%OPTIONEN%
+    </select>
+    <div class="flaeche"><label for="qm">Fläche</label><output id="qmout" for="qm">80 m²</output></div>
+    <input type="range" id="qm" min="20" max="300" step="5" value="80">
+    <div class="preis"><span>Richtpreis inkl. Material</span><b id="preis">%PREIS%</b></div>
+    <a class="btn" id="senden" href="%SENDEN%">Offerte per WhatsApp anfordern</a>
+    <p class="hinweis">Die Anfrage kommt mit «Ort: %ORT%» auf Ihre Nummer %MOBILE%. Sie sehen sofort, wohin Sie fahren müssten. Die Preise sind Beispiele.</p>
+  </form>
+</div></div>
+
+<section class="weiss"><div class="wrap">
+  <div class="kopf"><h2>Ihre Arbeit in %ORT%</h2><p>Das macht die Seite echt: Inhalte, die nur zu %ORT% gehören. Sie schicken sie mir vom Handy.</p></div>
+  <div class="fotos">
+    <div class="foto"><div><b>Ihr Foto</b>Ein Projekt in %ORT%</div></div>
+    <div class="foto"><div><b>Ihre Bewertung</b>Ein Kunde aus %ORT%</div></div>
+    <div class="foto"><div><b>Ihre Anfahrt</b>Ab %SITZ%, ohne Zuschlag?</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kopf"><h2>Warum eine eigene Seite für %ORT%?</h2></div>
+  <ol class="ablauf">
+    <li><h3>Kunden suchen mit Ort</h3><p>Wer einen Maler braucht, tippt oft «Maler %ORT%». Diese Seite passt genau zu dieser Suche.</p></li>
+    <li><h3>Eigener Inhalt je Ort</h3><p>Kopierte Seiten mit ausgetauschtem Ortsnamen nützen nichts. Darum stehen hier Ihr Projekt, Ihre Bewertung und Ihre Anfahrt.</p></li>
+    <li><h3>Daten für Google</h3><p>Im Hintergrund stehen Firmenname, Telefon und Einsatzgebiet in der Form, die Google liest. Einen Platz bei Google kann niemand versprechen.</p></li>
+  </ol>
+  <div class="karte mt"><h3>Einsatzgebiet von %FIRMA%</h3>%ORTE%</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Entwurf von Offertenmeister für %FIRMA%, %SITZ%. Nicht öffentlich auffindbar. Orte, Texte und Preise sind Beispiele und werden mit Ihren Angaben ersetzt. <a href="/e/%KUERZEL%/">Zurück zum Entwurf</a></div></footer>
+
+<script src="/e/e.js?v=1"></script>
+</body>
+</html>
