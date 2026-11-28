@@ -22,5 +22,8 @@
   "agovalente": { "firma": "AgoValente GmbH", "ort": "Frauenfeld", "ansprache": "Herr Valente", "mobile": "079 775 04 06", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Gachnang", "Felben-Wellhausen", "Thundorf" ] },
   "luesse": { "firma": "Maler Lüsse GmbH", "ort": "Wil SG", "ansprache": "Herr Lüsse", "mobile": "076 819 28 27", "orte": [ "Zuzwil SG", "Uzwil", "Sirnach" ] },
   "sadiku": { "firma": "Maler Renovationen Sadiku GmbH", "ort": "Baden", "ansprache": "", "mobile": "076 562 68 62", "leistungen": [ "innen", "renovation", "fassade", "tapeten" ], "orte": [ "Wettingen", "Ennetbaden", "Obersiggenthal" ] },
-  "avalin": { "firma": "AvaLin GmbH", "ort": "Dättwil AG", "ansprache": "", "mobile": "076 388 21 25", "orte": [ "Baden", "Fislisbach", "Birmenstorf AG" ] }
+  "avalin": { "firma": "AvaLin GmbH", "ort": "Dättwil AG", "ansprache": "", "mobile": "076 388 21 25", "orte": [ "Baden", "Fislisbach", "Birmenstorf AG" ] },
+  "kolibri": { "firma": "Kolibri Malergeschäft", "ort": "Liestal", "ansprache": "", "mobile": "078 653 27 70", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] },
+  "feher": { "firma": "Fehér Malergeschäft", "ort": "Liestal", "ansprache": "", "mobile": "076 208 36 74", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] },
+  "vn-detail": { "firma": "VN Detail Maler Gipser GmbH", "ort": "Solothurn", "ansprache": "", "mobile": "078 219 47 13", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Zuchwil", "Biberist", "Langendorf" ] }
 }
