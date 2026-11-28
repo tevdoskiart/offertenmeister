@@ -1,10 +1,18 @@
 {
   "grueter": { "firma": "Malergeschäft Grüter GmbH", "ort": "Luzern", "ansprache": "", "mobile": "078 609 09 14" },
   "donato": { "firma": "Maler Donato", "ort": "Chur", "ansprache": "Herr Grecuccio", "mobile": "079 449 07 39" },
-  "ficorilli": { "firma": "James Ficorilli Maler und Renovationen", "ort": "Chur", "ansprache": "Herr Ficorilli", "mobile": "076 647 48 94", "leistungen": ["innen", "renovation", "fassade", "tapeten"] },
+  "ficorilli": { "firma": "James Ficorilli Maler und Renovationen", "ort": "Chur", "ansprache": "Herr Ficorilli", "mobile": "076 647 48 94", "leistungen": [ "innen", "renovation", "fassade", "tapeten" ] },
   "bornhauser": { "firma": "Bornhauser Maler", "ort": "Chur", "ansprache": "Herr Bornhauser", "mobile": "079 462 90 56" },
   "rettich": { "firma": "Maler Michael Rettich", "ort": "Chur", "ansprache": "Herr Rettich", "mobile": "076 560 11 66" },
   "holderegger": { "firma": "Malergeschäft Holderegger GmbH", "ort": "Olten", "ansprache": "Herr Holderegger", "mobile": "079 299 58 47" },
   "cosentino": { "firma": "Malergeschäft Vincenzo Cosentino", "ort": "Olten", "ansprache": "Herr Cosentino", "mobile": "079 342 16 74" },
-  "haechler": { "firma": "Malergeschäft D. Hächler", "ort": "Aarau Rohr", "ansprache": "Herr Hächler", "mobile": "079 414 19 22" }
+  "haechler": { "firma": "Malergeschäft D. Hächler", "ort": "Aarau Rohr", "ansprache": "Herr Hächler", "mobile": "079 414 19 22" },
+  "geissbuehler": { "firma": "Malerei Jan Geissbühler", "ort": "Langenthal", "ansprache": "Herr Geissbühler", "mobile": "079 358 91 89" },
+  "ilazaj": { "firma": "Hysen Ilazaj Maler Gipser", "ort": "Schaffhausen", "ansprache": "Herr Ilazaj", "mobile": "078 205 50 39", "leistungen": [ "innen", "gips", "renovation" ] },
+  "strauss": { "firma": "Malerei Strauss", "ort": "Spiez", "ansprache": "Herr Strauss", "mobile": "079 885 37 37", "leistungen": [ "innen", "renovation", "fassade" ] },
+  "wyss": { "firma": "Wyss GmbH Gipser- und Malergeschäft", "ort": "Frutigen", "ansprache": "Herr Wyss", "mobile": "079 833 36 75", "leistungen": [ "innen", "gips", "fassade", "renovation" ] },
+  "ch-maler": { "firma": "CH Malergeschäft GmbH", "ort": "Uster", "ansprache": "", "mobile": "078 660 81 81", "leistungen": [ "innen", "tapeten", "dekor", "lack" ] },
+  "peixoto": { "firma": "Peixoto GmbH", "ort": "Uster", "ansprache": "Herr Peixoto", "mobile": "079 627 31 41", "leistungen": [ "gips", "innen", "fassade" ] },
+  "mplus": { "firma": "MPlus Maler", "ort": "Rüti ZH", "ansprache": "", "mobile": "076 683 86 30", "leistungen": [ "renovation", "innen", "fassade" ] },
+  "imo": { "firma": "Imomalergeschäft GmbH", "ort": "Rüti ZH", "ansprache": "", "mobile": "076 339 28 87" }
 }
