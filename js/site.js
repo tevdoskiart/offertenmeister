@@ -4,9 +4,11 @@
 const EN=document.documentElement.lang.startsWith('en');
 const TX=EN?{
  leer:'Please enter your company name.',
+ betreff:firma=>`Website check for ${firma}`,
  nachricht:(firma,ort,web,paket)=>`Hello Mr Tevdoski\n\nCompany: ${firma}\nLocation: ${ort||'-'}\nWebsite: ${web||'none'}\nInterested in: ${paket}\n\nPlease send me a free website check.`
 }:{
  leer:'Bitte geben Sie Ihren Firmennamen ein.',
+ betreff:firma=>`Website-Check für ${firma}`,
  nachricht:(firma,ort,web,paket)=>`Grüezi Herr Tevdoski\n\nFirma: ${firma}\nOrt: ${ort||'-'}\nWebsite: ${web||'keine'}\nInteresse: ${paket}\n\nBitte schicken Sie mir einen kostenlosen Website-Check.`
 };
 const H=document.querySelector('.hero-bild');const go=()=>H.classList.add('da');H.complete?go():H.addEventListener('load',go);H.addEventListener('error',go);
@@ -26,12 +28,16 @@ S.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;c
  S.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
  document.querySelectorAll('[data-abo]').forEach(el=>el.textContent=el.dataset[m])});
 document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('paket').value=a.dataset.plan}));
+// Formular: gleiche Nachricht per WhatsApp (Knopf) oder per E-Mail (Link #mail, öffnet das E-Mail-Programm). Nichts wird gespeichert.
+const v=id=>document.getElementById(id).value.trim();
+const text=()=>{const firma=v('firma');
+ if(!firma){document.getElementById('hinweis').textContent=TX.leer;document.getElementById('firma').focus();return null}
+ return{firma,msg:TX.nachricht(firma,v('ort'),v('web'),v('paket'))}};
 document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();
- const v=id=>document.getElementById(id).value.trim();
- const firma=v('firma');
- if(!firma){document.getElementById('hinweis').textContent=TX.leer;document.getElementById('firma').focus();return}
- const msg=TX.nachricht(firma,v('ort'),v('web'),v('paket'));
- window.open('https://wa.me/38978338208?text='+encodeURIComponent(msg),'_blank','noopener')});
+ const t=text();if(t)window.open('https://wa.me/38978338208?text='+encodeURIComponent(t.msg),'_blank','noopener')});
+const M=document.getElementById('mail');
+if(M)M.addEventListener('click',e=>{const t=text();if(!t){e.preventDefault();return}
+ M.href='mailto:info@offertenmeister.ch?subject='+encodeURIComponent(TX.betreff(t.firma))+'&body='+encodeURIComponent(t.msg)});
 
 // Intro-Banner: einmal pro Besucher, kurz nach dem Laden. Schliessen mit ×, Esc oder Klick daneben.
 const I=document.getElementById('intro');

@@ -48,7 +48,7 @@ jobs:
           destination: ./_site
       - name: Interne Dateien dürfen nicht veröffentlicht werden
         run: |
-          for f in CLAUDE.md README.md package.json tests node_modules .github; do
+          for f in CLAUDE.md README.md package.json tests tools node_modules .github; do
             if [ -e "_site/$f" ]; then echo "FEHLER: _site/$f würde veröffentlicht"; exit 1; fi
           done
           test -f _site/index.html && test -f _site/en/index.html && test -f _site/404.html && test -f _site/CNAME

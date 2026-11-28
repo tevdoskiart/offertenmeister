@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const { read, parse } = require('./helpers');
 
-const PAGES = ['index.html', 'en/index.html', '404.html', 'demo/basic/index.html', 'demo/premium/index.html', 'angebot/website/index.html', 'angebot/social/index.html', 'angebot/jetzt/index.html'];
+const PAGES = ['index.html', 'en/index.html', '404.html', 'demo/basic/index.html', 'demo/premium/index.html', 'angebot/website/index.html', 'angebot/social/index.html', 'angebot/jetzt/index.html', 'e/grueter/index.html', 'e/ficorilli/index.html'];
 const MAIN = ['index.html', 'en/index.html'];
 const DEMOS = ['demo/basic/index.html', 'demo/premium/index.html'];
 
@@ -68,7 +68,7 @@ test('[js/site.js] Kein innerHTML, eval oder document.write', () => {
   const js = read('js/site.js');
   assert.ok(!/innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\(|new Function/.test(js));
   assert.match(js, /window\.open\(.*'_blank','noopener'\)/);
-  assert.match(js, /encodeURIComponent\(msg\)/);
+  assert.match(js, /encodeURIComponent\(t\.msg\)/);
 });
 
 test('[404.html] Style-Hash in der CSP passt zum <style>', () => {

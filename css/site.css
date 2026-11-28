@@ -202,6 +202,8 @@ input,select{font:400 17px Archivo,sans-serif;min-height:52px;padding:0 16px;bor
 input:focus,select:focus{border-color:var(--graphit)}
 .zwei{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .hinweis{font-size:14px;color:var(--text-2)}
+.senden{display:flex;flex-wrap:wrap;gap:12px}
+.senden .btn{flex:1 1 220px}
 
 /* footer */
 .fuss{background:var(--graphit);color:#C9C1B8;font-size:15px;padding-block:48px 36px}

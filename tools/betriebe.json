@@ -1,0 +1,10 @@
+{
+  "grueter": { "firma": "Malergeschäft Grüter GmbH", "ort": "Luzern", "ansprache": "", "mobile": "078 609 09 14" },
+  "donato": { "firma": "Maler Donato", "ort": "Chur", "ansprache": "Herr Grecuccio", "mobile": "079 449 07 39" },
+  "ficorilli": { "firma": "James Ficorilli Maler und Renovationen", "ort": "Chur", "ansprache": "Herr Ficorilli", "mobile": "076 647 48 94", "leistungen": ["innen", "renovation", "fassade", "tapeten"] },
+  "bornhauser": { "firma": "Bornhauser Maler", "ort": "Chur", "ansprache": "Herr Bornhauser", "mobile": "079 462 90 56" },
+  "rettich": { "firma": "Maler Michael Rettich", "ort": "Chur", "ansprache": "Herr Rettich", "mobile": "076 560 11 66" },
+  "holderegger": { "firma": "Malergeschäft Holderegger GmbH", "ort": "Olten", "ansprache": "Herr Holderegger", "mobile": "079 299 58 47" },
+  "cosentino": { "firma": "Malergeschäft Vincenzo Cosentino", "ort": "Olten", "ansprache": "Herr Cosentino", "mobile": "079 342 16 74" },
+  "haechler": { "firma": "Malergeschäft D. Hächler", "ort": "Aarau Rohr", "ansprache": "Herr Hächler", "mobile": "079 414 19 22" }
+}

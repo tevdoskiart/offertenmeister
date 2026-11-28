@@ -3,7 +3,8 @@
   "private": true,
   "description": "Tests für offertenmeister.ch (die Website selbst braucht kein npm)",
   "scripts": {
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "entwurf": "node tools/entwurf-bauen.js"
   },
   "devDependencies": {
     "jsdom": "^26.0.0"

@@ -66,6 +66,7 @@ const TX = EN ? { … } : { … };
 | Schlüssel | Typ | Zweck |
 | --- | --- | --- |
 | `TX.leer` | `string` | Fehlertext, wenn der Firmenname fehlt |
+| `TX.betreff(firma)` | `(string) => string` | Betreff der E-Mail (Link `#mail`) |
 | `TX.nachricht(firma, ort, web, paket)` | `(string, string, string, string) => string` | Text der WhatsApp-Nachricht. Leeres `ort` → `-`, leeres `web` → `keine` / `none` |
 
 Neue sprachabhängige Texte im Script immer in **beide** Zweige von `TX` schreiben.
@@ -92,7 +93,7 @@ Neue umschaltbare Texte: einfach `data-abo` und `data-kauf` setzen, kein JS nöt
 
 ```html
 <a href="#kontakt" data-plan="Premium">Premium anfragen</a>
-<select id="paket"><option>Noch offen</option><option>Basic</option><option>Premium</option><option>Social Media</option></select>
+<select id="paket"><option>Weiss ich noch nicht</option><option>Basic</option><option>Premium</option><option>Social Media</option></select>
 ```
 
 Klick auf ein Element mit `data-plan` setzt `#paket` auf diesen Wert. Der Wert muss genau einer `<option>` entsprechen (DE und EN verwenden dieselben Werte `Basic`, `Premium`, `Social Media`).
@@ -295,6 +296,7 @@ npm test      # node --test tests/*.test.js
 | --- | --- |
 | `tests/site.test.js` | `js/site.js` auf DE und EN: Schalter, Paket-Knöpfe, Formular, WhatsApp-Text, Menü |
 | `tests/content.test.js` | Preise (`PRICES`), Rabatt, keine alten Angebote, FAQ = JSON-LD, Bilder, Links, hreflang, sitemap/robots/_config |
+| `tests/entwurf.test.js` | Entwurf-Seiten `/e/<kürzel>/`: aktuell, persönlich, noindex, Rechner, Eingaben entschärft |
 | `tests/demo.test.js` | Rechner, Kategorien, Preistabelle, Formular-Schritte, HTML-Schutz, Sprachwechsel, Dashboard |
 
 ### Hilfen in `tests/helpers.js`
@@ -383,4 +385,24 @@ Treppen-Video (seit 27.11.2026): im Abschnitt «In 7 Tagen online» liegt über 
 Ebenso die Paketbilder: `img/paket-basic-v3.webp` + `paket-basic-v1.mp4`, `img/paket-premium-v3.webp` + `paket-premium-v1.mp4` (960×540, Schleife, Standbild = erstes Videobild).
 `beispiel/<betrieb>/` (seit 27.11.2026): Seite mit 3 Beispiel-Beiträgen für einen Interessenten am Social-Media-Paket (noindex, eigenes `beispiel/beispiel.css`). Erste: `beispiel/abegg/` für Abeggmalerei AG, Flawil. Bilder 1080×1350 mit PIL gesetzt (Farben und Leitsatz des Betriebs, Fotos aus `demo/basic/img`, als «Beispielbild» markiert).
 `angebot/jetzt/` (seit 27.11.2026): gleiche Bauart, Aktion «Jetzt ist Zeit für Ihr Webdesign», Bild `angebot/angebot-jetzt-v1.jpg` (mit PIL aus dem früheren Hero `hero-3d-maler-v2.webp`, Logo und Archivo gesetzt). Für WhatsApp-Akquise.
-`entwurf.html` + `entwurf.css` + `entwurf.js` im Hauptordner (seit 27.11.2026): persönliche Entwurf-Seite für Betriebe ohne Website, Aufruf `/entwurf.html?f=<kürzel>`, Betriebsdaten im Objekt `F` in `entwurf.js` (Firma, Ort, Ansprache, Mobile). noindex.
+`entwurf.html` + `entwurf.css` + `entwurf.js` im Hauptordner (seit 27.11.2026): persönliche Entwurf-Seite für Betriebe ohne Website, Aufruf `/entwurf.html?f=<kürzel>`, Betriebsdaten im Objekt `F` in `entwurf.js` (Firma, Ort, Ansprache, Mobile). noindex. Diese alte Form bleibt nur bestehen, weil die Links am 27.11.2026 verschickt wurden; neue Betriebe NICHT mehr dort eintragen.
+
+## Persönliche Entwurf-Seiten `/e/<kürzel>/` (seit 28.11.2026)
+
+Für die Akquise: jeder Betrieb bekommt einen eigenen Link, z. B. `https://offertenmeister.ch/e/grueter/`. Im Unterschied zur alten Form sind es fertige HTML-Dateien: Firmenname steht im Titel und in der Link-Vorschau von WhatsApp (`og:title` «Entwurf für <Firma>»), und die Seite funktioniert auch ohne Script.
+
+| Datei | Zweck |
+| --- | --- |
+| `tools/betriebe.json` | Daten je Betrieb (Kürzel → Felder) |
+| `tools/entwurf-vorlage.html` | Vorlage mit Platzhaltern `%NAME%` |
+| `tools/entwurf-bauen.js` | erzeugt `e/<kürzel>/index.html`; Katalog `LEISTUNGEN` (Karte + Rechner-Zeile mit Beispielpreis pro m²) und `FARBEN` |
+| `e/e.js` | Preisrechner; liest `data-firma`, `data-ort`, `data-wa` vom `<body>` |
+| `entwurf.css` | Design (gemeinsam mit der alten Seite); Farbe je Betrieb über die Klasse `t-<farbe>` |
+
+Felder in `betriebe.json`: `firma`, `ort`, `mobile` («079 123 45 67») sind Pflicht. Optional: `ansprache` («Herr Muster»), `leistungen` (2 bis 4 Schlüssel: `innen`, `fassade`, `tapeten`, `renovation`, `dekor`, `lack`, `gips`; die erste steht im Rechner vorne), `orte` (weitere Orte des Einsatzgebiets), `farbe` (`petrol`, `blau`, `gruen`, `weinrot`, `graphit`), `logo` (Dateiname in `e/<kürzel>/`).
+
+**Neuer Betrieb:** Eintrag in `tools/betriebe.json` → `npm run entwurf` → `npm test` → committen und pushen. Der Test «Jeder Betrieb hat eine aktuelle Seite» wird rot, wenn `npm run entwurf` vergessen wurde. Vorlage oder `e/e.js` geändert → ebenfalls `npm run entwurf`, bei `e/e.js` und `entwurf.css` die Zahl `?v=` in der Vorlage erhöhen. `tools/` wird nicht veröffentlicht (`_config.yml`, Pipeline prüft es). Die Preise der Angebots-Box (CHF 490 / 190 / 1'990) stehen in der Vorlage: bei Preisänderung dort mitziehen.
+
+## Kontaktformular: WhatsApp oder E-Mail (seit 28.11.2026)
+
+Neben dem Knopf «Per WhatsApp senden» gibt es den Link `a#mail` «Per E-Mail senden». Beim Klick prüft `js/site.js` den Firmennamen wie beim WhatsApp-Knopf und setzt `href` auf `mailto:info@offertenmeister.ch?subject=<TX.betreff(firma)>&body=<TX.nachricht(...)>`; das E-Mail-Programm des Besuchers öffnet sich mit der fertigen Nachricht. Weiterhin kein Server, nichts wird gespeichert. Die erste Option von `#paket` heisst DE «Weiss ich noch nicht» (früher «Noch offen»), EN «Not sure yet».

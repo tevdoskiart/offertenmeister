@@ -7,5 +7,6 @@ exclude:
   - package.json
   - package-lock.json
   - node_modules
+  - tools
   - .github
 include: []

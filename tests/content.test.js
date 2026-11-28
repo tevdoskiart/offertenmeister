@@ -164,7 +164,7 @@ test('sitemap.xml, robots.txt und _config.yml', () => {
   assert.ok(!/Disallow:\s*\/demo/.test(robots), 'Demos nicht sperren, sonst wird noindex nicht gelesen');
   assert.ok(robots.includes('Sitemap: https://offertenmeister.ch/sitemap.xml'));
   const cfg = read('_config.yml');
-  for (const f of ['CLAUDE.md', 'tests', 'package.json', 'package-lock.json', 'node_modules']) {
+  for (const f of ['CLAUDE.md', 'tests', 'tools', 'package.json', 'package-lock.json', 'node_modules']) {
     assert.ok(cfg.includes(`- ${f}`), `${f} nicht in _config.yml exclude`);
   }
   assert.ok(!exists('.nojekyll'), '.nojekyll würde _config.yml ausschalten');

@@ -12,6 +12,8 @@ Alles, was Kunden sehen, ist Schweizer Hochdeutsch: Sie-Form, "ss" statt "ß", C
 - `index.html` = Startseite DE, `en/index.html` = englische Version mit gleichem Aufbau. Inhalt (HTML-Text) immer in beiden Sprachen ändern.
 - Gemeinsames Design in `css/site.css`, gemeinsames Script in `js/site.js` (Sprache aus `<html lang>`, Texte im Objekt `TX`). Beide Seiten binden sie mit `?v=<zahl>` ein: nach jeder Änderung die Zahl in BEIDEN Seiten erhöhen (Cache). `404.html` = eigene Fehlerseite (DE + EN).
 - `demo/basic/` (hell, Preisrechner) und `demo/premium/` (dunkel, DRONE-HUD, 3D). Beide `noindex` (nicht in robots.txt sperren, sonst sieht Google das noindex nicht).
+- Persönliche Entwurf-Seiten für die Akquise: `/e/<kürzel>/` (seit 28.11.2026). Neuer Betrieb = Eintrag in `tools/betriebe.json`, dann `npm run entwurf`, `npm test`, Push (README «Persönliche Entwurf-Seiten»). Die alte Form `/entwurf.html?f=<kürzel>` bleibt nur für die am 27.11.2026 verschickten Links.
+- Kontaktformular sendet per WhatsApp oder öffnet das E-Mail-Programm an info@offertenmeister.ch (kein Server, nichts gespeichert).
 - Teilen-Bilder: `img/og-de-v2.jpg` und `img/og-en-v2.jpg` (1200×630).
 - Handy-Menü: Burger-Knopf ab 640 px, Sprachwechsel unter 480 px im Menü.
 - `img/` Bilder als WebP, `fonts/` Schriften lokal (keine Google Fonts, kein Tracking).

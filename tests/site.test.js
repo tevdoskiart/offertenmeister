@@ -11,7 +11,7 @@ const LANGS = [
     kaufNote: 'erstes Jahr inklusive, danach CHF 390 pro Jahr',
     emptyError: 'Bitte geben Sie Ihren Firmennamen ein.',
     msg: (f, o, web, p) => `Grüezi Herr Tevdoski\n\nFirma: ${f}\nOrt: ${o}\nWebsite: ${web}\nInteresse: ${p}\n\nBitte schicken Sie mir einen kostenlosen Website-Check.`,
-    noWeb: 'keine', undecided: 'Noch offen',
+    noWeb: 'keine', undecided: 'Weiss ich noch nicht',
   },
   {
     file: 'en/index.html', lang: 'en',
@@ -93,6 +93,23 @@ for (const L of LANGS) {
     d.getElementById('firma').value = 'Farb & Co. "Zürich"';
     d.querySelector('#f button[type=submit]').click();
     assert.equal(decode(w.__opened[0]), L.msg('Farb & Co. "Zürich"', '-', L.noWeb, L.undecided));
+  });
+
+  test(`[${L.lang}] E-Mail-Knopf: gleiche Nachricht an info@offertenmeister.ch, ohne Firmenname Fehler`, (t) => {
+    const w = loadSite(L.file); t.after(() => w.close());
+    const d = w.document;
+    const m = d.getElementById('mail');
+    const klick = () => { const e = new w.MouseEvent('click', { bubbles: true, cancelable: true }); m.dispatchEvent(e); return e; };
+    assert.equal(klick().defaultPrevented, true);
+    assert.equal(d.getElementById('hinweis').textContent, L.emptyError);
+    d.getElementById('firma').value = 'Maler Muster AG';
+    d.getElementById('ort').value = 'Uster ZH';
+    assert.equal(klick().defaultPrevented, false);
+    const href = m.getAttribute('href');
+    assert.ok(href.startsWith('mailto:info@offertenmeister.ch?subject='));
+    assert.ok(decodeURIComponent(href.split('subject=')[1].split('&body=')[0]).endsWith('Maler Muster AG'));
+    assert.equal(decodeURIComponent(href.split('&body=')[1]), L.msg('Maler Muster AG', 'Uster ZH', L.noWeb, L.undecided));
+    assert.equal(w.__opened.length, 0);
   });
 
   test(`[${L.lang}] Handy-Menü öffnet und schliesst`, (t) => {
