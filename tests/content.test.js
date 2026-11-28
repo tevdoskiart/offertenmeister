@@ -128,7 +128,7 @@ for (const lang of ['de', 'en']) {
     assert.equal(d.querySelector('link[rel=canonical]').href, lang === 'de' ? base : base + 'en/');
     const alt = Object.fromEntries([...d.querySelectorAll('link[rel=alternate][hreflang]')].map((l) => [l.hreflang, l.href]));
     assert.deepEqual(alt, { 'de-CH': base, en: base + 'en/', 'x-default': base });
-    assert.equal(d.querySelector('meta[property="og:image"]').content, `${base}img/og-${lang}-v2.jpg`);
+    assert.equal(d.querySelector('meta[property="og:image"]').content, `${base}img/og-${lang}-v3.jpg`);
     assert.equal(d.querySelector('meta[name="twitter:card"]').content, 'summary_large_image');
   });
 }
@@ -192,8 +192,8 @@ test('Angebotsseiten: Vorschaubild für WhatsApp/E-Mail und Preise wie auf der S
   for (const [k, preise] of [['website', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]], ['social', ['CHF 390', 'CHF 690', 'CHF 350', 'CHF 990']], ['jetzt', ['CHF 190', 'CHF 490', 'CHF 290', 'CHF 790', "CHF 1'990", "CHF 2'990"]]]) {
     const f = `angebot/${k}/index.html`;
     const d = parse(f);
-    assert.equal(d.querySelector('meta[property="og:image"]').content, `https://offertenmeister.ch/angebot/angebot-${k}-v1.jpg`);
-    assert.ok(exists(`angebot/angebot-${k}-v1.jpg`) && exists(`angebot/angebot-${k}-v1-720.webp`));
+    assert.equal(d.querySelector('meta[property="og:image"]').content, `https://offertenmeister.ch/angebot/angebot-${k}-v2.jpg`);
+    assert.ok(exists(`angebot/angebot-${k}-v2.jpg`) && exists(`angebot/angebot-${k}-v2-720.webp`));
     assert.match(d.querySelector('meta[name="robots"]').content, /noindex/);
     const t = d.body.textContent;
     for (const p of preise) assert.ok(t.includes(p), `${f}: ${p} fehlt`);

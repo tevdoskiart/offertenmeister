@@ -21,7 +21,7 @@ Technische Referenz für https://offertenmeister.ch. Projektregeln (Preise, Desi
 | `404.html` | Fehlerseite DE + EN, eigenes kleines CSS |
 | `demo/basic/index.html` | Demo «Basic» (hell), CSS und JS in der Datei, DE/EN umschaltbar |
 | `demo/premium/index.html` | Demo «Premium» (dunkel, 3D), CSS und JS in der Datei, nur DE |
-| `img/` | Bilder (WebP), Teilen-Bilder `og-de-v2.jpg` / `og-en-v2.jpg` (1200×630) |
+| `img/` | Bilder (WebP), Teilen-Bilder `og-de-v3.jpg` / `og-en-v3.jpg` (1200×630) |
 | `fonts/` | Archivo (Startseiten), Inter, Inter Tight, JetBrains Mono (Demos) |
 | `sitemap.xml`, `robots.txt`, `CNAME` | SEO und Domain |
 | `_config.yml` | Jekyll: schliesst interne Dateien von der Website aus |
@@ -212,7 +212,7 @@ Messung: `lighthouse` gegen eine lokale Kopie mit gzip (GitHub Pages komprimiert
 | `FAQPage` (JSON-LD) | `<head>` | **Gleiche Fragen und Antworten, gleiche Reihenfolge** wie die sichtbaren `<details>` in `#faq` (Test prüft das Wort für Wort) |
 | `canonical` | `<head>` | DE `/`, EN `/en/` |
 | `hreflang` | `<head>` | `de-CH` → `/`, `en` → `/en/`, `x-default` → `/` (auf beiden Seiten gleich) |
-| Open Graph | `<head>` | `og:image` = `og-de-v2.jpg` / `og-en-v2.jpg`, `og:locale`, `twitter:card` |
+| Open Graph | `<head>` | `og:image` = `og-de-v3.jpg` / `og-en-v3.jpg`, `og:locale`, `twitter:card` |
 | `sitemap.xml` | Root | beide Seiten mit `xhtml:link`-Alternativen |
 | Demos | `<meta name="robots" content="noindex">` | **nicht** in `robots.txt` sperren |
 
