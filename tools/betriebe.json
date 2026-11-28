@@ -25,5 +25,10 @@
   "avalin": { "firma": "AvaLin GmbH", "ort": "Dättwil AG", "ansprache": "", "mobile": "076 388 21 25", "orte": [ "Baden", "Fislisbach", "Birmenstorf AG" ] },
   "kolibri": { "firma": "Kolibri Malergeschäft", "ort": "Liestal", "ansprache": "", "mobile": "078 653 27 70", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] },
   "feher": { "firma": "Fehér Malergeschäft", "ort": "Liestal", "ansprache": "", "mobile": "076 208 36 74", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] },
-  "vn-detail": { "firma": "VN Detail Maler Gipser GmbH", "ort": "Solothurn", "ansprache": "", "mobile": "078 219 47 13", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Zuchwil", "Biberist", "Langendorf" ] }
+  "vn-detail": { "firma": "VN Detail Maler Gipser GmbH", "ort": "Solothurn", "ansprache": "", "mobile": "078 219 47 13", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Zuchwil", "Biberist", "Langendorf" ] },
+  "rossbacher": { "firma": "Rossbacher Malergeschäft GmbH", "ort": "Kreuzlingen", "ansprache": "", "mobile": "078 628 90 65", "orte": [ "Tägerwilen", "Bottighofen", "Lengwil" ] },
+  "akil": { "firma": "Akil Maler & Gipsergeschäft GmbH", "ort": "Bülach", "ansprache": "", "mobile": "076 207 19 28", "leistungen": [ "innen", "gips", "fassade", "renovation" ], "orte": [ "Bachenbülach", "Hochfelden", "Winkel" ] },
+  "melissano": { "firma": "Melissano Elements", "ort": "Bülach", "ansprache": "Herr Melissano", "mobile": "076 697 94 08", "orte": [ "Bachenbülach", "Hochfelden", "Winkel" ] },
+  "muri": { "firma": "Muri Malerarbeiten GmbH", "ort": "Liestal", "ansprache": "", "mobile": "079 586 23 30", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] },
+  "grollimund": { "firma": "Malergeschäft Grollimund", "ort": "Liestal", "ansprache": "Herr Grollimund", "mobile": "079 615 79 28", "orte": [ "Lausen", "Frenkendorf", "Bubendorf" ] }
 }
