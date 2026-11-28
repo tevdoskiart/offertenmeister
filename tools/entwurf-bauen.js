@@ -7,7 +7,7 @@
 //   ansprache   «Herr Muster» → «Grüezi Herr Muster» (leer = «Grüezi»)
 //   leistungen  Schlüssel aus LEISTUNGEN unten, 2 bis 4 Stück (Standard: innen, fassade, tapeten, renovation)
 //   orte        weitere Orte des Einsatzgebiets, z. B. ["Kriens", "Emmen"] (höchstens 6); jeder bekommt eine Ortsseite
-//   farbe       petrol (Standard) | blau | gruen | weinrot | graphit
+//   farbe       Akzentfarbe: rot (Standard, wie die Startseite) | petrol | blau | gruen | weinrot | graphit
 //   logo        Dateiname im Ordner e/<kürzel>/, z. B. "logo.webp" (nur ein Logo, das der Betrieb selbst öffentlich verwendet)
 const fs = require('node:fs');
 const path = require('node:path');
@@ -27,7 +27,7 @@ const LEISTUNGEN = {
   gips: ['Gipserarbeiten', 'Wände und Decken verputzen, Trockenbau, Risse dauerhaft sanieren.', 'Wände verputzen', 35, 60],
 };
 const STANDARD = ['innen', 'fassade', 'tapeten', 'renovation'];
-const FARBEN = { petrol: '#0e4a57', blau: '#173f73', gruen: '#1f5a3a', weinrot: '#6d1f2b', graphit: '#2b2723' };
+const FARBEN = { rot: '#C8261B', petrol: '#0e4a57', blau: '#173f73', gruen: '#1f5a3a', weinrot: '#6d1f2b', graphit: '#2b2723' };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const chf = (n) => String(Math.round(n / 10) * 10).replace(/\B(?=(\d{3})+(?!\d))/g, "'");
@@ -78,7 +78,7 @@ function werte(k, b, ort) {
   pruefen(k, b);
   const L = (b.leistungen || STANDARD).map((x) => LEISTUNGEN[x]);
   const wa = waNummer(b.mobile);
-  const thema = b.farbe || 'petrol';
+  const thema = b.farbe || 'rot';
   const orte = [b.ort, ...(b.orte || [])];
   const preis = `CHF ${chf(80 * L[0][3])}–${chf(80 * L[0][4])}`;
   const anfrage = `Grüezi ${b.firma}\nIch möchte eine Offerte.\nArbeit: ${L[0][2]}\nFläche: ca. 80 m²\nRichtpreis laut Website: ${preis}\nOrt: ${ort}\nFotos schicke ich gleich nach.`;
